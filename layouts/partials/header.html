@@ -1,0 +1,19 @@
+{{ $baseUrl := $.Site.BaseURL }}
+<header class="rp-header">
+        {{ range .Translations }}
+        <div class="rp-lang-switch">
+            <a href="{{ .Permalink }}" class="no-ajax">{{ .Lang }}</a>
+        </div>
+        {{ end}}
+    <div class="rp-container">
+        <a href="{{ $baseUrl }}" class="rp-brand">
+            <img class="rp-logo" src="{{ $baseUrl}}/images/regisphilibert_logo.svg " alt="Regis Philibert's logo">
+            <h2 class="rp-baseline">
+                {{ i18n "dev_title" }}
+            </h2>
+        </a>
+        {{ $nav := printf "nav-%s.html" .Language}}
+        {{ partial $nav . }}
+        {{ partial "contact.html" . }}
+    </div>
+</header>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	{{ $.Scratch.Set "section" .Section }}
+	{{ $.Scratch.Add "body_class" "rp-body" }}
+
+	{{ if .IsHome }}
+		{{ $.Scratch.Set "section" "project" }}
+		{{ $.Scratch.Add "body_class" " rp-home" }}
+	{{end}}
+	{{ if .Site.Params.ajax }}
+		{{ $.Scratch.Add "body_class" " rp-full-js" }}
+	{{ end }}
+	{{ if .Data.Singular }}
+		{{ if in "category tag" .Data.Singular }}
+			{{ $.Scratch.Set "section" "post" }}
+		{{ end }}
+		{{ if in "project_tag" .Data.Singular }}
+			{{ $.Scratch.Set "section" "project" }}
+		{{ end }}
+	{{ end }}
+	{{ $section := $.Scratch.Get "section" }}
+	{{ $.Scratch.Add "body_class" (printf " rp-section-%s" $section) }}
+    {{ range .Translations }}
+    	{{ $.Scratch.Set "translation_url" .Permalink }}
+    {{ end}}
+    {{ $translation_url := $.Scratch.Get "translation_url"}}
+	
+	{{ partial "head.html" . }}
+
+	{{ $body_class := $.Scratch.Get "body_class" }}
+
+	<body class="{{ $body_class }}">
+		<div class="rp-wrapper">
+			{{ partial "header.html" . }}
+			<div class="rp-main">
+						
+				<div class="rp-container">
+					<div class="rp-views">
+						<div class="rp-view active" data-url="{{ .Permalink }}">
+							<div class="rp-data">
+								{{ dict "thisUrl" .Permalink "translation_url" $translation_url "body_class" $body_class "title" .Title  "section" $section | jsonify}}
+							</div>
+

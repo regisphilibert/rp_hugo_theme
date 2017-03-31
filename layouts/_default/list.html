@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="rp-page-header">
+	<h1>{{ .Title }}</h1>
+</div>
+{{ $paginator := .Paginate (.Data.Pages.ByDate.Reverse) }}
+
+{{ range $paginator.Pages }}
+	{{ if .Content }}
+    {{ partial "post/loop.html" (dict "post" . "template" "list") }}
+	{{ end }}
+{{ end }}
+{{ template "_internal/pagination.html" . }}
+{{ end }}

@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ $template := "single"}}
+{{ $limit := 10 }}
+<div class="rp-project-loop">
+	{{ $params := dict "template" $template "limit" $limit "page" . }}
+	{{ partial "project/loop.html" $params }}
+</div>
+{{ end }}

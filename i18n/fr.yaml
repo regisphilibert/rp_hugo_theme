@@ -1,0 +1,23 @@
+- id: dev_title
+  translation: "Développeur Front End"
+
+- id: contact_email
+  translation: "Mail"
+
+- id: contact_email_error
+  translation: "Ce n'est pas un courriel valide."
+
+- id: contact_message
+  translation: "Message"
+
+- id: contact_message_error
+  translation: "C'est tout ? :/"
+
+- id: contact_submit
+  translation: "Contactez-moi"
+
+- id: contact_sending
+  translation: "Envoie..."
+
+- id: know_more
+  translation: "en savoir plus"

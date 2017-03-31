@@ -1,0 +1,54 @@
+
+{{ $page := .page }}
+{{ $it := .limit }}
+{{ $template := .template }}
+<div class="rp-project release-container">
+	<div class="mobile-block tablet-block">
+		{{ partial "project/details" (dict "page" $page "template" .template) }}
+	</div>
+	<div class="rp-project-container">
+		<div class="rp-project-gallery">
+			<div class="row">
+				{{ $project :=  $page }}
+				{{ if isset $project.Params "images" }}
+					{{ range $index, $element := first $it ($project.Params.images)}}
+					{{ $image_url := printf "projects/%s" .file }}
+					<div class="col-md-{{ with .col }}{{ . }}{{ else }}12 {{end}}">
+						<a 
+							{{ if eq $template "home" }}
+								href={{ $page.Permalink }}
+							{{ else }}
+								href="{{ .url }}"
+								target="_blank" 
+							{{ end }}
+							class="rp-project-media {{ if eq $template "single" }}has-outbound-links-1{{ end }}" 
+							data-it="{{ $index }}"
+							
+						>
+				        	<div class="rp-video-background" style="">
+								{{ with .video }}
+									<video 
+										id="project-video-{{ $project.Slug }}"
+										class="rp-project-media-video"
+										src='{{ (printf "projects/%s" .) | absURL }}'
+										poster="{{ $image_url | absURL }}"
+									></video>
+								{{ end }}
+				        		{{ partial "img.html" (dict "file" .file "content" $project) }}
+				           		<div class="rp-project-link-wrapper">
+				                	<div class="rp-project-link  {{ if (eq $index 0) }}-featured{{ end }}">
+				                    	<span class="rp-cta">{{ if eq $template "single" }}{{ .url }}{{ else }}{{ i18n "know_more" }}{{ end }}</span>
+				                	</div>
+				            	</div>
+				            </div>
+				   		 </a>	
+					</div>
+			   		{{ end }}
+			   	{{ end }}
+			</div>
+		</div>
+        <div class="rp-project-sidebar">
+            <div class="desktop-block">{{ partial "project/details" (dict "page" $page "template" .template) }}</div>
+        </div>
+	</div>
+</div>

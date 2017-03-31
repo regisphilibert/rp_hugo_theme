@@ -1,0 +1,38 @@
+<meta property="og:site_name" content="Regis Philibert">
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="@{{ .Site.Params.twitter_handle }}">
+<meta property="og:locale" content="{{ .Language }}">
+{{ if .IsHome }}
+	<meta property="og:title" content="Regis Philibert">
+	<meta property="twitter:title" content="Regis Philibert">
+	
+	<meta property="og:description" content="{{ .Site.Params.Description }}">
+	<meta name="twitter:description" content="{{ .Site.Params.Description }}">
+
+	<meta name="og:url" content="{{ .Site.BaseURL }}">
+
+{{ else }}
+	<meta property="og:title" content="{{ .Title }}">
+	<meta property="twitter:title" content="{{ .Title }}">
+
+	<meta property="og:description" content="{{ .Summary }}">
+	<meta name="twitter:description" content="{{ .Summary }}">
+	
+	<meta property="og:url" content="{{ .Permalink }}">
+	{{ if .Params.images }}
+		{{ range first 1 .Params.images }}
+			<meta property="og:image" content='{{ printf "/%ss/%s" $.Type .file | absURL }}'>
+			<meta name="twitter:image" content='{{ printf "/%ss/%s" $.Type .file | absURL }}'>
+		    {{ with (imageConfig (printf "/static/%ss/%s" $.Type .file)) }}
+		     	<meta property="og:image:width" content="{{ .Width }}">
+		     	<meta property="og:image:height" content="{{ .Height }}">
+		    {{ end }}
+		{{ end }}
+	{{ end }}
+{{ end }}
+
+{{ if eq .Type "post" }}
+	<meta property="og:type" content="article">
+{{ else }}
+	<meta property="og:type" content="website">
+{{ end }}
