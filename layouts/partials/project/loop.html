@@ -1,13 +1,10 @@
-
-{{ $it := .limit }}
-{{ $template := .template }}
 <div class="rp-project release-container">
 	<div class="mobile-block tablet-block">
 		{{ partial "project/details" (dict "dot" .dot "template" .template) }}
 	</div>
 	<div class="rp-project-container">
 		<div class="rp-project-gallery">
-			{{ if eq $template "single"}}
+			{{ if eq .template "single"}}
 				{{ partial "project/gallery" (dict "dot" .dot )}}
 			{{ else }}
 				{{ partial "project/featured" (dict "dot" .dot)}}

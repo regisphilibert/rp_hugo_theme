@@ -4,15 +4,19 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	{{ $.Scratch.Set "section" .Section }}
-	{{ $.Scratch.Add "body_class" "rp-body" }}
+
+	{{ $.Scratch.Add "classes" (slice "rp-body") }}
+	{{ $.Scratch.Add "classes" (slice (printf "rp-%s" .Section)) }}
 
 	{{ if .IsHome }}
 		{{ $.Scratch.Set "section" "project" }}
-		{{ $.Scratch.Add "body_class" " rp-home" }}
+		{{ $.Scratch.Add "classes" (slice "rp-home") }}
 	{{end}}
+
 	{{ if .Site.Params.ajax }}
-		{{ $.Scratch.Add "body_class" " rp-full-js" }}
+		{{ $.Scratch.Add "classes" (slice "rp-full-js") }}
 	{{ end }}
+
 	{{ if .Data.Singular }}
 		{{ if in "category tag" .Data.Singular }}
 			{{ $.Scratch.Set "section" "post" }}
@@ -21,8 +25,7 @@
 			{{ $.Scratch.Set "section" "project" }}
 		{{ end }}
 	{{ end }}
-	{{ $section := $.Scratch.Get "section" }}
-	{{ $.Scratch.Add "body_class" (printf " rp-section-%s" $section) }}
+
     {{ range .Translations }}
     	{{ $.Scratch.Set "translation_url" .Permalink }}
     {{ end}}
@@ -30,7 +33,7 @@
 	
 	{{ partial "head.html" . }}
 
-	{{ $body_class := $.Scratch.Get "body_class" }}
+	{{ $body_class := delimit ($.Scratch.Get "classes") " " }}
 
 	<body class="{{ $body_class }}">
 		<div class="rp-wrapper">
@@ -41,6 +44,6 @@
 					<div class="rp-views">
 						<div class="rp-view active" data-url="{{ .Permalink }}">
 							<div class="rp-data">
-								{{ dict "thisUrl" .Permalink "translation_url" $translation_url "body_class" $body_class "title" .Title  "section" $section | jsonify}}
+								{{ dict "thisUrl" .Permalink "translation_url" $translation_url "body_class" $body_class "title" .Title  "section" ($.Scratch.Get "section") | jsonify}}
 							</div>
 
