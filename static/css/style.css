@@ -1047,10 +1047,10 @@ body {
   position: relative;
   font-family: "Open Sans", sans-serif;
   color: #303030;
-  background-color: #ffffff;
+  background-color: #ebf4f3;
 }
 .rp-wrapper {
-  background: #ffffff;
+  background: #ebf4f3;
 }
 .rp-container {
   padding: 0 10px;
@@ -1169,7 +1169,7 @@ footer .rp-loader {
 }
 .loading-dot {
   position: absolute;
-  background-color: #ffffff;
+  background-color: #ebf4f3;
   left: 50%;
   top: 75%;
   width: 1em;
@@ -1300,7 +1300,7 @@ body {
   animation: load-spin 1s infinite;
 }
 .rp-splash .rp-header .rp-contact {
-  background-color: #ffffff;
+  background-color: #ebf4f3;
 }
 @media screen and (min-width: 1170px) {
   .rp-splash .rp-contact {
@@ -1338,6 +1338,7 @@ html:not(.rp-splash) body[style] {
   padding: 22px 0;
   background: #ebf4f3;
   text-align: center;
+  border-bottom: 1px solid #cae2df;
   /*    .jumpstart-debug-user & {
         position: relative;
     }*/
@@ -1374,6 +1375,8 @@ html:not(.rp-splash) body[style] {
 @media screen and (min-width: 1170px) {
   .rp-header {
     text-align: right;
+    border-bottom: 0;
+    border-right: 1px solid #cae2df;
   }
   .rp-header .rp-container {
     padding: 0 30px;
@@ -1492,7 +1495,7 @@ html:not(.rp-splash) .main-nav a:not(.raw).is-active:after {
 }
 @media screen and (max-width: 1170px) {
   .rp-footer .footer-text {
-    background-color: #ffffff;
+    background-color: #ebf4f3;
     padding-top: 66.25px;
     padding-bottom: 10px;
   }
@@ -1570,7 +1573,7 @@ a.rp-tag:hover:after {
   text-transform: lowercase;
   color: #44b6ae;
   border: 1px solid #8cd4cf;
-  background: #ffffff;
+  background: #ebf4f3;
   margin-bottom: 6px;
 }
 .rp-taxo:before {
@@ -1817,6 +1820,8 @@ a.rp-tag:hover:after {
    ========================================================================== */
 .rp-entry {
   padding: 40px 0;
+  max-width: 720px;
+  margin: 0 auto;
 }
 @media screen and (min-width: 1170px) {
   .rp-entry {
@@ -1845,17 +1850,6 @@ a.rp-tag:hover:after {
 }
 .entry-tags {
   margin: 5px 0;
-}
-.entry-content,
-.entry-excerpt {
-  max-width: 720px;
-  margin: 0 auto;
-}
-@media screen and (min-width: 1170px) {
-  .entry-content,
-  .entry-excerpt {
-    margin: 0;
-  }
 }
 .wysiwyg-content h1,
 .wysiwyg-content h2,
@@ -2062,7 +2056,6 @@ a.rp-tag:hover:after {
 .rp-project-media {
   margin-bottom: 30px;
   overflow: hidden;
-  border: 1px solid #44b6ae;
 }
 .rp-project-media picture,
 .rp-project-media img {
@@ -2072,6 +2065,7 @@ a.rp-tag:hover:after {
 .rp-home .rp-project-media {
   max-height: 80vh;
   overflow: hidden;
+  margin-bottom: 0;
 }
 .rp-project-container {
   padding-left: 0;
@@ -2217,7 +2211,6 @@ pre[class*="language-"] {
   position: relative;
   border: 1px solid #ece9e2;
   border-radius: 5px;
-  overflow: hidden;
 }
 pre[class*="language-"]::before {
   position: absolute;
@@ -2248,6 +2241,12 @@ pre.language-less::before {
 }
 pre.language-css::before {
   content: "css";
+}
+pre.language-go::before {
+  content: "go";
+}
+pre.language-sass::before {
+  content: "sass";
 }
 /* Stuck
    ========================================================================== */

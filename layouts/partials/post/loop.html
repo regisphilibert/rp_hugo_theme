@@ -1,14 +1,14 @@
 <article class="rp-entry">
 	<div class="entry-head">
 		<h1 class="entry-title">
-			<a href="{{ .post.Permalink }}">{{ .post.Title }}</a>
+			<a href="{{ .dot.Permalink }}">{{ .dot.Title }}</a>
 		</h1>
 		<div class="entry-meta">
 			<div class="entry-time">
-				{{ dateFormat "Monday, Jan 2, 2006" .post.Date }}
+				{{ dateFormat "Monday, Jan 2, 2006" .dot.Date }}
 			</div>
 			<div class="entry-tags">
-	    		{{ range .post.Params.tags }}
+	    		{{ range .dot.Params.tags }}
     				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class='rp-taxo'>{{ . }}</a>
     			{{ end }}
 			</div>
@@ -16,9 +16,9 @@
 	</div>
 	<div class="entry-excerpt wysiwyg-content">
 		{{ if eq .template "single" }}
-			{{ .post.Content }}
+			{{ .dot.Content }}
 		{{ else }}
-			{{ if .post.Params.Summary }}{{ .post.Params.summary }}{{ else }}{{ .post.Summary }}{{ end }}
+			{{ if .dot.Params.Summary }}{{ .dot.Params.summary }}{{ else }}{{ .dot.Summary }}{{ end }}
 		{{ end }}
 	</div>
 </article>

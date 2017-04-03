@@ -1,0 +1,17 @@
+{{ if .dot.Params.featured }}
+{{ .dot.Scratch.Set "featured" .dot.Params.featured }}
+{{ else }}
+{{ .dot.Scratch.Set "featured" (index .dot.Params.images 0).file }}
+{{ end }}
+{{ $file := .dot.Scratch.Get "featured" }}
+{{ $image_url := printf "projects/%s" $file }}
+
+<a 
+	href="{{ .dot.Permalink }}"
+	target="_blank" 
+	class="rp-project-media" 
+>
+	<div class="rp-video-background" style="">
+		{{ partial "img.html" (dict "file" $file "content" .dot) }}
+    </div>
+</a>

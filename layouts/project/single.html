@@ -2,7 +2,7 @@
 {{ $template := "single"}}
 {{ $limit := 10 }}
 <div class="rp-project-loop">
-	{{ $params := dict "template" $template "limit" $limit "page" . }}
+	{{ $params := dict "template" $template "limit" $limit "dot" . }}
 	{{ partial "project/loop.html" $params }}
 </div>
 {{ end }}

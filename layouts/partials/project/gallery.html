@@ -1,0 +1,33 @@
+<div class="row">
+	{{ if isset .dot.Params "images" }}
+		{{ range $index, $element := (.dot.Params.images)}}
+		{{ $image_url := printf "projects/%s" .file }}
+		<div class="col-md-{{ with .col }}{{ . }}{{ else }}12 {{end}}">
+			<a 
+				href="{{ .url }}"
+				target="_blank" 
+				class="rp-project-media has-outbound-links-1" 
+				data-it="{{ $index }}"
+				
+			>
+	        	<div class="rp-video-background" style="">
+					{{ with .video }}
+						<video 
+							id="project-video-{{ .dot.Slug }}"
+							class="rp-project-media-video"
+							src='{{ (printf "projects/%s" .) | absURL }}'
+							poster="{{ $image_url | absURL }}"
+						></video>
+					{{ end }}
+	        		{{ partial "img.html" (dict "file" .file "content" $.dot) }}
+	           		<div class="rp-project-link-wrapper">
+	                	<div class="rp-project-link  {{ if (eq $index 0) }}-featured{{ end }}">
+	                    	<span class="rp-cta">{{ .url }}</span>
+	                	</div>
+	            	</div>
+	            </div>
+	   		 </a>	
+		</div>
+   		{{ end }}
+   	{{ end }}
+</div>

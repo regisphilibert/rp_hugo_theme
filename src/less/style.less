@@ -34,8 +34,8 @@
 @sansCond:"Open Sans Condensed", sans-serif;
 @ffAudimat:"Audimat", sans-serif;
 @bg:#ebf4f3;
-@cBackground:@cWhite;
-//@cBackground:#f5f5f5;
+@cBackground:@bg;
+@cHeaderBorder:darken(@cBackground, 10%);
 @cWhite:#ffffff;
 @cTurquoise:#44b6ae;
 @cYellow:#e6d223;
@@ -370,6 +370,7 @@ html:not(.rp-splash) body[style]{
     padding:22px 0;
     background:@bg;
     text-align: center;
+    border-bottom:1px solid @cHeaderBorder;
 /*    .jumpstart-debug-user & {
         position: relative;
     }*/
@@ -407,6 +408,8 @@ html:not(.rp-splash) body[style]{
 @media screen and (min-width:@xl) {
     .rp-header{
         text-align: right;
+        border-bottom: 0;
+        border-right:1px solid @cHeaderBorder;
         .rp-container{
             padding:0 30px;
         }
@@ -857,6 +860,8 @@ html:not(.rp-splash){
    ========================================================================== */
 .rp-entry{
     padding:40px 0;
+    max-width:720px;
+    margin:0 auto;
     @media screen and (min-width:@xl){
         padding:10px 0 40px 0;
     }
@@ -883,11 +888,7 @@ html:not(.rp-splash){
     margin:5px 0;
 }
 .entry-content, .entry-excerpt{
-    max-width:720px;
-    margin:0 auto;
-    @media screen and (min-width:@xl){
-        margin:0;
-    }
+
 }
 .wysiwyg-content{
     h1, h2, h3, h4, h6{
@@ -1071,7 +1072,6 @@ html:not(.rp-splash){
 .rp-project-media{
     margin-bottom: 30px;
     overflow: hidden;
-    border:1px solid @cTurquoise;
     picture, img{
         width:100%;
         display:block;
@@ -1081,6 +1081,7 @@ html:not(.rp-splash){
     .rp-project-media{
         max-height: 80vh;
         overflow: hidden;
+        margin-bottom: 0;
     }
 }
 .rp-project-container{
@@ -1246,7 +1247,6 @@ pre[class*="language-"]{
     position: relative;
     border:1px solid @preBorderColor;
     border-radius: 5px;
-    overflow: hidden;
     &::before{
         position: absolute;
         background:@bg;
@@ -1276,6 +1276,12 @@ pre.language-less::before{
 }
 pre.language-css::before{
     content:"css";
+}
+pre.language-go::before{
+    content:"go";
+}
+pre.language-sass::before{
+    content:"sass";
 }
 
 /* Stuck

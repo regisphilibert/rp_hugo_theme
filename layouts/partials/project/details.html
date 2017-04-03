@@ -2,20 +2,19 @@
 	<div class="rp-project-title">
         {{ if eq .template "single" }}
         <span>
-            {{ .page.Title }}
+            {{ .dot.Title }}
         </span>
         {{ else }}
-        
-		<a href="{{ .page.Permalink }}">
-            {{ .page.Title }}
+		<a href="{{ .dot.Permalink }}">
+            {{ .dot.Title }}
         </a>
         {{ end }}
 	</div>
 	<div class="rp-project-desc">
-		{{ .page.Content }}
+		{{ .dot.Content }}
 	</div>
 	<div class="rp-project-meta">
-        {{ range .page.Params.project_tags }}
+        {{ range .dot.Params.project_tags }}
             <a href="{{ "/project_tags/" | relLangURL }}{{ . | urlize }}" class='rp-taxo'>{{ . }}</a>
         {{ end }}
 	</div>

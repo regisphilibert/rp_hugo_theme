@@ -6,7 +6,7 @@
 
 {{ range $paginator.Pages }}
 	{{ if .Content }}
-    {{ partial "post/loop.html" (dict "post" . "template" "list") }}
+    {{ partial "post/loop.html" (dict "dot" . "template" "list") }}
 	{{ end }}
 {{ end }}
 {{ template "_internal/pagination.html" . }}

@@ -104,6 +104,12 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/layouts\/_default\/baseof.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/layouts\/_default\/baseof.html",
+		"oF": 0
+		},
 	"\/layouts\/_default\/list.html": {
 		"ft": 8192,
 		"oA": 2,
@@ -188,12 +194,6 @@
 		"oAP": "\/layouts\/partials\/og.html",
 		"oF": 0
 		},
-	"\/layouts\/partials\/post\/loop-summary.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/layouts\/partials\/post\/loop-summary.html",
-		"oF": 0
-		},
 	"\/layouts\/partials\/post\/loop.html": {
 		"ft": 8192,
 		"oA": 2,
@@ -204,6 +204,18 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/layouts\/partials\/project\/details.html",
+		"oF": 0
+		},
+	"\/layouts\/partials\/project\/featured.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/layouts\/partials\/project\/featured.html",
+		"oF": 0
+		},
+	"\/layouts\/partials\/project\/gallery.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/layouts\/partials\/project\/gallery.html",
 		"oF": 0
 		},
 	"\/layouts\/partials\/project\/loop.html": {
