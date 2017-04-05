@@ -1,6 +1,10 @@
 {{ define "main" }}
 <div class="rp-page-header">
+	{{ if .Data.Singular }}
+	<h1>Blog#{{ .Title }}</h1>
+	{{ else }}
 	<h1>{{ .Title }}</h1>
+	{{ end }}
 </div>
 {{ $paginator := .Paginate (.Data.Pages.ByDate.Reverse) }}
 
