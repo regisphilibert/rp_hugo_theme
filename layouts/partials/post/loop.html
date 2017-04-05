@@ -5,7 +5,7 @@
 		</h1>
 		<div class="entry-meta">
 			<div class="entry-time">
-				{{ dateFormat "Monday, Jan 2, 2006" .dot.Date }}
+				{{ dateFormat "This is 2006, January _2" .dot.Date }}
 			</div>
 			<div class="entry-tags">
 	    		{{ range .dot.Params.tags }}
@@ -21,4 +21,7 @@
 			{{ if .dot.Params.Summary }}{{ .dot.Params.summary }}{{ else }}{{ .dot.Summary }}{{ end }}
 		{{ end }}
 	</div>
+	{{ if eq .template "single"}}
+	{{ template "_internal/disqus.html" .dot }}
+	{{ end }}
 </article>
