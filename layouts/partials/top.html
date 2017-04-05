@@ -6,7 +6,7 @@
 	{{ $.Scratch.Set "section" .Section }}
 
 	{{ $.Scratch.Add "classes" (slice "rp-body") }}
-	{{ $.Scratch.Add "classes" (slice (printf "rp-%s" .Section)) }}
+	{{ $.Scratch.Add "classes" (slice (printf "rp-section%s" .Section)) }}
 
 	{{ if .IsHome }}
 		{{ $.Scratch.Set "section" "project" }}

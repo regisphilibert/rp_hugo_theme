@@ -1467,7 +1467,8 @@ html:not(.rp-splash) body[style] {
     font-size: 25px;
   }
 }
-.rp-section-project .main-nav a[data-section='project']:after {
+.rp-section-project .main-nav a[data-section='project']:after,
+.rp-home .main-nav a[data-section='project']:after {
   background-color: #e6d223;
 }
 .rp-section-post .main-nav a[data-section='post']:after {
@@ -2063,7 +2064,7 @@ a.rp-tag:hover:after {
   display: block;
 }
 .rp-home .rp-project-media {
-  max-height: 80vh;
+  max-height: 95vh;
   overflow: hidden;
   margin-bottom: 0;
 }
