@@ -1978,6 +1978,11 @@ a.rp-tag:hover:after {
     padding: 10px 0 40px 0;
   }
 }
+.rp-comments {
+  margin-top: 3em;
+  padding-top: 0.5em;
+  border-top: 1px dashed #44b6ae;
+}
 .entry-head {
   margin-bottom: 40px;
   text-align: center;

@@ -27,6 +27,8 @@
 	{{ end}}
 	</div>
 	{{ if eq .template "single"}}
-	{{ template "_internal/disqus.html" .dot }}
+	<div class="rp-comments">
+		{{ template "_internal/disqus.html" .dot }}
+	</div>
 	{{ end }}
 </article>
