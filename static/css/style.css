@@ -2204,7 +2204,10 @@ a.rp-tag:hover:after {
   margin-top: 0;
   margin-bottom: 22px;
 }
-pre[class*="language-"] {
+.rp-code-wrapper {
+  position: relative;
+}
+.rp-code-wrapper pre {
   opacity: 1;
   transition: opacity 150ms;
   background-color: #fffcf5;
@@ -2213,19 +2216,22 @@ pre[class*="language-"] {
   border: 1px solid #ece9e2;
   border-radius: 5px;
 }
-pre[class*="language-"]::before {
+.rp-code-wrapper::before {
+  content: attr(data-language);
   position: absolute;
+  display: block;
   background: #ebf4f3;
   top: 0;
   right: 0;
-  padding: 2px 5px;
+  padding: 0.2em 0.3em;
   color: #303030;
   border-bottom-left-radius: 5px;
-  border-left: 1px solid #ece9e2;
-  border-bottom: 1px solid #ece9e2;
+  border-top-right-radius: 5px;
+  border: 1px solid #ece9e2;
+  z-index: 3;
 }
 @media screen and (min-width: 1170px) {
-  pre[class*="language-"] {
+  .rp-code-wrapper {
     font-size: 0.8em;
   }
 }
@@ -2236,18 +2242,6 @@ pre.language-css .selector {
 pre.language-less .token.variable,
 pre.language-css .token.variable {
   color: #44b6ae;
-}
-pre.language-less::before {
-  content: "less";
-}
-pre.language-css::before {
-  content: "css";
-}
-pre.language-go::before {
-  content: "go";
-}
-pre.language-sass::before {
-  content: "sass";
 }
 /* Stuck
    ========================================================================== */

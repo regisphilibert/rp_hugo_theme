@@ -6,12 +6,14 @@
 	{{ $.Scratch.Set "section" .Section }}
 
 	{{ $.Scratch.Add "classes" (slice "rp-body") }}
-	{{ $.Scratch.Add "classes" (slice (printf "rp-section%s" .Section)) }}
 
 	{{ if .IsHome }}
 		{{ $.Scratch.Set "section" "project" }}
 		{{ $.Scratch.Add "classes" (slice "rp-home") }}
 	{{end}}
+
+	{{ $.Scratch.Add "classes" (slice (printf "rp-section-%s" ($.Scratch.Get "section"))) }}
+
 
 	{{ if .Site.Params.ajax }}
 		{{ $.Scratch.Add "classes" (slice "rp-full-js") }}

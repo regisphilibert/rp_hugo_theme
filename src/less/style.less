@@ -1231,6 +1231,7 @@ html:not(.rp-splash){
 
 @cssSelectorColor:DeepSkyBlue ;
 @preBorderColor:#ece9e2;
+//@preBorderColor:@cTurquoise;
 @preBackgroundColor:#fffcf5;
 .wysiwyg-content{
     pre{
@@ -1239,29 +1240,36 @@ html:not(.rp-splash){
         margin-bottom:22px;
     }
 }
-pre[class*="language-"]{
-    opacity: 1;
-    transition:opacity 150ms;
-    background-color: @preBackgroundColor;
-    padding:10px;
+.rp-code-wrapper{
     position: relative;
-    border:1px solid @preBorderColor;
-    border-radius: 5px;
+    pre{
+        opacity:1;
+        transition:opacity 150ms;
+        background-color: @preBackgroundColor;
+        padding:10px;
+        position: relative;
+        border:1px solid @preBorderColor;
+        border-radius: 5px;
+    }
     &::before{
+        content:attr(data-language);
         position: absolute;
+        display: block;
         background:@bg;
         top:0;
         right:0;
-        padding:2px 5px;
+        padding:0.2em 0.3em;
         color:@cBlack;
         border-bottom-left-radius: 5px;
-        border-left:1px solid @preBorderColor;
-        border-bottom:1px solid @preBorderColor;
+        border-top-right-radius: 5px;
+        border: 1px solid @preBorderColor;
+        z-index: 3;
     }
     @media screen and (min-width:@xl){
         font-size:0.8em;
     }
 }
+
 pre.language-less,
 pre.language-css{
     .selector{
@@ -1270,18 +1278,6 @@ pre.language-css{
     .token.variable{
         color:@cTurquoise;
     }
-}
-pre.language-less::before{
-    content:"less";
-}
-pre.language-css::before{
-    content:"css";
-}
-pre.language-go::before{
-    content:"go";
-}
-pre.language-sass::before{
-    content:"sass";
 }
 
 /* Stuck

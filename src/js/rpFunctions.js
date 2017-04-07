@@ -92,11 +92,16 @@ function apAjax(data, thisUrl, pushState, params){
         $('.rp-lang-switch a').attr('href', rpData.translation_url)
     }
 }
-
+Prism.hooks.add("after-highlight",function(env){
+    $(env.element).parent('pre').wrap('<div class="rp-code-wrapper" data-language="' + env.language + '"></div>')
+})
 function rpInitView(parent, params){
     ajaxPage = 2;
     isMasoning = 1;
-    Prism.highlightAll();
+    if(parent.find('.wysiwyg-content pre').length){
+        Prism.highlightElement(parent.find('.wysiwyg-content pre')[0]);
+    }
+
     $('.rp-project').fitVids();
 /*    if(parent.find('.rp-project-media-video').length){
         var inview = new Waypoint.Inview({
