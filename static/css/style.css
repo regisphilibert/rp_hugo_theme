@@ -1767,6 +1767,15 @@ a.rp-tag:hover:after {
   -webkit-transform: skewX(0deg);
           transform: skewX(0deg);
 }
+.rp-read-more {
+  display: block;
+  text-align: center;
+  color: #303030 !important;
+  margin: 1em 0;
+}
+.rp-read-more:hover {
+  color: #ffffff;
+}
 /* fonts
    ========================================================================== */
 .rp-discreet {
