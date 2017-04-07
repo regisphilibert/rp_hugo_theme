@@ -1095,6 +1095,9 @@ body {
 /* ==========================================================================
    Ajax View Mechanism
    ========================================================================== */
+.rp-views {
+  position: relative;
+}
 .rp-views .rp-view {
   transition: 0.15s;
   -webkit-transition: 0.15s;
@@ -1102,12 +1105,7 @@ body {
   -o-transition: 0.15s;
   -ms-transition: 0.15s;
 }
-.rp-views.rp-loading .rp-view {
-  opacity: 0;
-  /*    -ms-filter: ~"'progid:DXImageTransform.Microsoft.Alpha(Opacity="@opacity*100 ~")'";
-    filter: ~"alpha(opacity=" @opacity*100 ~")";*/
-}
-.rp-views.rp-loading .rp-loader {
+.rp-loading .rp-loader {
   opacity: 1;
   /*    -ms-filter: ~"'progid:DXImageTransform.Microsoft.Alpha(Opacity="@opacity*100 ~")'";
     filter: ~"alpha(opacity=" @opacity*100 ~")";*/
@@ -1169,7 +1167,7 @@ footer .rp-loader {
 }
 .loading-dot {
   position: absolute;
-  background-color: #ebf4f3;
+  background-color: #44b6ae;
   left: 50%;
   top: 75%;
   width: 1em;

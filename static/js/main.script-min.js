@@ -290,7 +290,6 @@ function apLog(log){
 
 function apAjax(data, thisUrl, pushState, params){
     currentView = $('.rp-view.active');
-
     if(currentView.find('.rp-project-media-video').length){
         currentView.find('.rp-project-media-video')[0].pause();
     }
@@ -325,15 +324,9 @@ function apAjax(data, thisUrl, pushState, params){
     $("head").find('title').html(rpData.title);
 
     mapIsOn = 0;
-    newView.css('opacity', 0);
-    currentView.fadeTo(0 , 0 , function(){
-        currentView.removeClass('active').attr('style', '');
-        newView.addClass('active').fadeTo(150, 1, function(){
-            newView.attr('style', '');
-        });
-    });
+    currentView.removeClass('active').attr('style', '');
 
-
+    newView.addClass('active');
     $('html, body').animate({scrollTop:0}, 0);
     $('body').css("overflow", "visible");
     if(rpData.filter){
@@ -349,17 +342,19 @@ function apAjax(data, thisUrl, pushState, params){
         gaTrack(thisUrl.replace(rpWebroot, ''), rpData.title)
     }
     if(buildNewView){
-       rpInitView(newView);
+        rpInitView(newView);
+
     }
+    newView.imagesLoaded(function(){
+        //rpDoneLoading();
+    })
     if(action){
         runFunction(action);
     }
     if(pushState){
         window.history.pushState({"pageTitle":rpData.title, "params":params},"", thisUrl);
     }
-    $(newView).imagesLoaded(function(){
-        rpDoneLoading($(".rp-views"));
-    })
+
     
     //DEALING WITH rpData;
     
@@ -368,15 +363,14 @@ function apAjax(data, thisUrl, pushState, params){
     }
 }
 Prism.hooks.add("after-highlight",function(env){
-    $(env.element).parent('pre').wrap('<div class="rp-code-wrapper" data-language="' + env.language + '"></div>')
+    if(!$(env.element).parents('.rp-code-wrapper').length){
+        $(env.element).parent('pre').wrap('<div class="rp-code-wrapper" data-language="' + env.language + '"></div>')
+    }
 })
 function rpInitView(parent, params){
     ajaxPage = 2;
     isMasoning = 1;
-    if(parent.find('.wysiwyg-content pre').length){
-        Prism.highlightElement(parent.find('.wysiwyg-content pre')[0]);
-    }
-
+    Prism.highlightAll();
     $('.rp-project').fitVids();
 /*    if(parent.find('.rp-project-media-video').length){
         var inview = new Waypoint.Inview({
@@ -412,9 +406,10 @@ function rpThisUrlForAJax(thisUrl){
     dataKnot = thisUrl.indexOf('?') > 0 ? '&' : '?';
     return thisUrl + dataKnot + 'rp_ajax=1';
 }
-
+var show_loading = false;
 function rpLoading(e){
-    var elem = typeof e !== 'undefined' ? e : $('.rp-views');
+    var elem = typeof e !== 'undefined' ? e : $('.rp-main');
+    $('.rp-views').fadeTo(0,0);
     if($(window).width() >= xl){
         headerWidth = $('.rp-header').outerWidth();
         rpLoaderCss = {'left':headerWidth + 'px'};
@@ -429,19 +424,28 @@ function rpLoading(e){
         elem.append(rpLoader);
     }
     rpLoader.css(rpLoaderCss);
-    elem.addClass('rp-loading');
+    show_loading = setTimeout(function(){
+        elem.addClass('rp-loading');
+    }, 500)
+    
 }
 function rpDoneLoading(e){
     if($(window).width() < xl){
         //return true;
     }
-    var elem = typeof e !== 'undefined' ? e : $('.rp-views');
+    var elem = typeof e !== 'undefined' ? e : $('.rp-main');
     elem.removeClass("rp-loading");
     elem.find('.rp-loader').attr('style', '');
+    $('.rp-views').fadeTo(150, 1, function() {
+        if(show_loading){
+            clearTimeout(show_loading)
+        }
+    });
     removeSplash();
 }
 function rpUpdateView(thisUrl, pushState, params){
     //$('.apm-lang-switch a').attr('href', apData.alternate_language_url);
+    //rpLoading()
     if($(".rp-view[data-url='"+thisUrl+"']").length){
         apAjax(0, thisUrl, pushState, params);
         rpPopped = true;
@@ -449,7 +453,6 @@ function rpUpdateView(thisUrl, pushState, params){
     else{
         $.ajax({
           url: rpThisUrlForAJax(thisUrl),
-          beforeSend:rpLoading(),
         }).done(function(data) {
             content = $(data).find('.rp-view').html();
             apAjax(content, thisUrl, pushState, params);

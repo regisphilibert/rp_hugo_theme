@@ -130,16 +130,14 @@ body{
    Ajax View Mechanism
    ========================================================================== */
 .rp-views{
+    position: relative;
     .rp-view{
         .transition(.15s);
     }
-    &.rp-loading{
-        .rp-view{
-            .opacity(0);
-        }
-        .rp-loader{
-            .opacity(1);
-        }
+}
+&.rp-loading{
+    .rp-loader{
+        .opacity(1);
     }
 }
 .rp-view{
@@ -196,7 +194,7 @@ body{
 }
 .loading-dot {
     position: absolute;
-    background-color:@cBackground;
+    background-color:@cTurquoise;
     left: 50%;
     top:75%;
     width: @dotSize;
