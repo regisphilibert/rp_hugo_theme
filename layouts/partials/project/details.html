@@ -15,7 +15,7 @@
 	</div>
 	<div class="rp-project-meta">
         {{ range .dot.Params.project_tags }}
-            <a href="{{ "/project_tags/" | relLangURL }}{{ . | urlize }}" class='rp-taxo'>{{ . }}</a>
+            <a href="{{ "/project_tags/" | relLangURL }}{{ . | urlize }}" class='rp-Tag'>{{ . }}</a>
         {{ end }}
 	</div>
 </div>

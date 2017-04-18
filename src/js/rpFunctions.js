@@ -119,7 +119,7 @@ function rpInitView(parent, params){
     parent.find('.rp-project-meta').on('inview', function(event, isInView) {
       if (isInView) {
         // element is now visible in the viewport
-        animateTags($(this).find('.rp-taxo'))
+        animateTags($(this).find('.rp-Tag'))
       } else {
         // element has gone out of viewport
       }
@@ -262,11 +262,11 @@ function animateTags(selector){
 }
 function animateTag(el){
     var str = el.text()
-    if( el.text().indexOf('%') !== -1 && !el.hasClass('rp-gauge')){
+    if( el.text().indexOf('%') !== -1 && !el.hasClass('rp-Tag--gauge')){
         var percent = str.substring(str.lastIndexOf(":")+1,str.lastIndexOf("%"));
         var gauge = $('<span />')
         gauge.html('#' + str).css('width', 0)
-        el.addClass('rp-gauge').append(gauge)
+        el.addClass('rp-Tag--gauge').append(gauge)
         gauge.animate({
                 width: percent + '%',
             },

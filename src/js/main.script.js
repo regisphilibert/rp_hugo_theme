@@ -111,7 +111,7 @@ $(document).ready(function(){
             $('.rp-contact').slideToggle(500, contactEasing, function(){
                 $(this).addClass('is-active');
                 if(rp_ga){
-                     gaEvent('contact', 'click', 'open')
+                    gaEvent('contact', 'click', 'open')
                 }
             });
 /*            $('.rp-contact .rp-input-wrapper').each(function(i){
@@ -138,7 +138,7 @@ $(document).ready(function(){
         });
         $('.rp-contact').addClass('rp-contact--is-sent');
         if(rp_ga){
-            _gaq.push(['_trackEvent','contact', 'submitted', 'success']);
+            gaEvent('contact', 'submit', 'success')
         }
         console.log('sent...')
     }
