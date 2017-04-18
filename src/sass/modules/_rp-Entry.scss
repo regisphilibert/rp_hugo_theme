@@ -29,6 +29,10 @@
     line-height: 1.1em;
     margin-bottom:7px;
 }
+.rp-Entry__title--fat{
+    font-weight: $fwSemiBold;
+    font-size:#{(60/$fsRem)}rem;
+}
 .rp-Entry__tags{
     margin:5px 0;
 }

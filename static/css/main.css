@@ -1,3 +1,20 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+figcaption {
+  text-align: left; }
+
 .background-poly {
   position: relative;
   z-index: 1; }
@@ -88,6 +105,10 @@
   font-weight: 700;
   line-height: 1.1em;
   margin-bottom: 7px; }
+
+.rp-Entry__title--fat {
+  font-weight: 600;
+  font-size: 3.3333333333rem; }
 
 .rp-Entry__tags {
   margin: 5px 0; }

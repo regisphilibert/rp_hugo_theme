@@ -2229,7 +2229,7 @@ html:not(.rp-splash) .main-nav a:not(.raw).is-active:after {
 .rp-404 img {
   max-width: 100%;
 }
-.rp-404 .rp-caption {
+.rp-404 figcaption {
   text-align: left;
   font-style: italic;
 }

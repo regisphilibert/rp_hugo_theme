@@ -4,15 +4,12 @@
 	{{ $images := slice $april }}
 	{{ $selection := index $images 0 }}
 	<div class="rp-404">
-		<div class="rp-entry-head">
-		<div class="rp-404-title">404</div>
-		</div>
+		<div class="rp-Entry__title rp-Entry__title--fat">404</div>
 		<figure>
 			<img src="{{ $selection.src | absURL }}" alt="">
-			<div class="rp-caption">
+			<figcaption>
 				<a target="_blank" href="{{ $selection.url }}">{{ $selection.credit }}</a>
-			</div>
+			</figcaption>
 		</figure>
-		
 	</div>
 {{ end }}
