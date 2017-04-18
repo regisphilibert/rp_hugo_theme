@@ -133,3 +133,78 @@ figcaption {
 @media screen and (min-width: 760px) {
   .rp-Project__content {
     text-align: left; } }
+
+.rp-InputGroup {
+  margin: 1.6em 0; }
+  .rp-InputGroup input, .rp-InputGroup textarea {
+    position: relative;
+    z-index: 1;
+    border: 2px transparent solid;
+    background: white;
+    resize: none;
+    width: 100%;
+    outline: none;
+    padding: 0.5em;
+    transition: 100ms; }
+  .rp-InputGroup textarea {
+    min-height: 3em;
+    font-family: "Open Sans", sans-serif; }
+  .rp-InputGroup [placeholder]:focus::-webkit-input-placeholder {
+    transition: opacity 0.5s 0.5s ease;
+    opacity: 0; }
+
+.rp-InputGroup--fancy {
+  position: relative; }
+  .rp-InputGroup--fancy input:focus, .rp-InputGroup--fancy textarea:focus {
+    border-color: #44b6ae; }
+    .rp-InputGroup--fancy input:focus + label, .rp-InputGroup--fancy textarea:focus + label {
+      transform: translate(0, -100%); }
+  .rp-InputGroup--fancy input.rp-input--error, .rp-InputGroup--fancy textarea.rp-input--error {
+    border-color: #ff4e00; }
+    .rp-InputGroup--fancy input.rp-input--error ~ .rp-InputGroup__error, .rp-InputGroup--fancy textarea.rp-input--error ~ .rp-InputGroup__error {
+      transform: translate(0, -100%); }
+  .rp-InputGroup--fancy label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    font-size: 0.5em;
+    padding: 2px 4px;
+    background: #e6d223;
+    transition: transform 100ms;
+    background: #44b6ae;
+    left: 0; }
+  .rp-InputGroup--fancy label, .rp-InputGroup--fancy .rp-InputGroup__error {
+    position: absolute;
+    color: #ffffff;
+    top: 0;
+    z-index: 0;
+    font-size: 0.7em;
+    padding: 2px 4px;
+    transition: transform 100ms; }
+  .rp-InputGroup--fancy .rp-InputGroup__error {
+    background: #ff4e00;
+    color: white;
+    right: 0; }
+
+.adjust-textarea-height {
+  font-size: 1em; }
+  .adjust-textarea-height .fill-me {
+    display: block;
+    opacity: 0;
+    padding: 0.5em;
+    border: 2px transparent solid;
+    min-height: 7em; }
+    .adjust-textarea-height .fill-me:after {
+      content: "m";
+      display: block;
+      font-size: 1em;
+      opacity: 0; }
+  .adjust-textarea-height textarea {
+    position: absolute !important;
+    min-height: 0 !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; }
