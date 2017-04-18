@@ -1,0 +1,9 @@
+[
+{{- range $i, $e :=  where .Site.Pages "Section" .Section -}}
+{{ if $i }},{{ end }}
+{
+"title":"{{- .Title -}}",
+"url":"{{- .Permalink -}}"
+}
+{{- end -}}
+]
