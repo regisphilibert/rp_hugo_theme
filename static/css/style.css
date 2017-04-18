@@ -2217,36 +2217,6 @@ html:not(.rp-splash) .main-nav a:not(.raw).is-active:after {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.rp-project-content {
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 30px;
-}
-.rp-project-desc a {
-  text-decoration: underline;
-}
-.rp-project-meta .rp-tag {
-  display: inline-block;
-  margin-top: 6px;
-  margin-bottom: 6px;
-}
-.rp-project-title {
-  font-weight: 800;
-  font-size: 1.5em;
-  text-transform: uppercase;
-}
-.rp-project-title a {
-  -webkit-transition: color 150ms;
-  transition: color 150ms;
-}
-.rp-project-title a:hover {
-  color: #44b6ae;
-}
-@media screen and (min-width: 960px) {
-  .rp-project-content {
-    text-align: left;
-  }
-}
 /* ==========================================================================
    404
    ========================================================================== */
