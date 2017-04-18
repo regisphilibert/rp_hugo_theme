@@ -58,3 +58,56 @@
 @media screen and (min-width: 760px) {
   .rp-Tag {
     font-size: 0.7em; } }
+
+.rp-Entry {
+  padding: 40px 0;
+  max-width: 720px;
+  margin: 0 auto; }
+  @media screen and (min-width: 1170px) {
+    .rp-Entry {
+      padding: 10px 0 40px 0; } }
+
+.rp-Entry__comments {
+  margin-top: 3em;
+  padding-top: 0.5em;
+  border-top: 1px dashed #44b6ae; }
+
+.rp-Entry__head {
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative; }
+  @media screen and (min-width: 1170px) {
+    .rp-Entry__head {
+      text-align: left; }
+      .rp-Entry__head .entry-thumb {
+        padding-left: 50px;
+        text-align: left; } }
+
+.rp-Entry__title {
+  font-size: 1.6666666667rem;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin-bottom: 7px; }
+
+.rp-Entry__tags {
+  margin: 5px 0; }
+
+.rp-Project__content {
+  text-align: center;
+  margin-bottom: 30px; }
+
+.rp-Project__desc a {
+  text-decoration: underline; }
+
+.rp-Project__title {
+  font-weight: 800;
+  font-size: 1.5em;
+  text-transform: uppercase; }
+  .rp-Project__title a {
+    transition: color 150ms; }
+    .rp-Project__title a:hover {
+      color: #44b6ae; }
+
+@media screen and (min-width: 760px) {
+  .rp-Project__content {
+    text-align: left; } }

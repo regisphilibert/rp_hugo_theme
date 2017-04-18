@@ -1,0 +1,34 @@
+.rp-Entry{
+    padding:40px 0;
+    max-width:720px;
+    margin:0 auto;
+    @media screen and (min-width:$xl){
+        padding:10px 0 40px 0;
+    }
+}
+.rp-Entry__comments{
+    margin-top:3em;
+    padding-top:0.5em;
+    border-top:1px dashed $cTurquoise;
+}
+.rp-Entry__head{
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    @media screen and (min-width:$xl){
+        text-align:left;
+        .entry-thumb{
+            padding-left: 50px;
+            text-align: left;
+        }
+    }
+}
+.rp-Entry__title{
+    font-size:#{(30/$fsRem)}rem;
+    font-weight: $fwBold;
+    line-height: 1.1em;
+    margin-bottom:7px;
+}
+.rp-Entry__tags{
+    margin:5px 0;
+}

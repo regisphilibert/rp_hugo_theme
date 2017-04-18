@@ -1,5 +1,5 @@
-<div class="rp-project-content ">
-	<div class="rp-project-title">
+<div class="rp-Project__content ">
+	<div class="rp-Project__title">
         {{ if eq .template "single" }}
         <span>
             {{ .dot.Title }}
@@ -10,10 +10,10 @@
         </a>
         {{ end }}
 	</div>
-	<div class="rp-project-desc">
+	<div class="rp-Project__desc">
 		{{ .dot.Content }}
 	</div>
-	<div class="rp-project-meta">
+	<div class="rp-Project__meta">
         {{ range .dot.Params.project_tags }}
             <a href="{{ "/project_tags/" | relLangURL }}{{ . | urlize }}" class='rp-Tag'>{{ . }}</a>
         {{ end }}

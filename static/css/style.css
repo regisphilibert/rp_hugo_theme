@@ -1897,44 +1897,6 @@ html:not(.rp-splash) .main-nav a:not(.raw).is-active:after {
 /* ==========================================================================
    Entries
    ========================================================================== */
-.rp-entry {
-  padding: 40px 0;
-  max-width: 720px;
-  margin: 0 auto;
-}
-@media screen and (min-width: 1170px) {
-  .rp-entry {
-    padding: 10px 0 40px 0;
-  }
-}
-.rp-comments {
-  margin-top: 3em;
-  padding-top: 0.5em;
-  border-top: 1px dashed #44b6ae;
-}
-.entry-head {
-  margin-bottom: 40px;
-  text-align: center;
-  position: relative;
-}
-@media screen and (min-width: 1170px) {
-  .entry-head {
-    text-align: left;
-  }
-  .entry-head .entry-thumb {
-    padding-left: 50px;
-    text-align: left;
-  }
-}
-.entry-title {
-  font-size: 1.66666667rem;
-  font-weight: 700;
-  line-height: 1.1em;
-  margin-bottom: 7px;
-}
-.entry-tags {
-  margin: 5px 0;
-}
 .wysiwyg-content h1,
 .wysiwyg-content h2,
 .wysiwyg-content h3,

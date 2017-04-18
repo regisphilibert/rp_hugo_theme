@@ -391,7 +391,7 @@ function rpInitView(parent, params){
         }
     })
 
-    parent.find('.rp-project-meta').on('inview', function(event, isInView) {
+    parent.find('.rp-Project__meta').on('inview', function(event, isInView) {
       if (isInView) {
         // element is now visible in the viewport
         animateTags($(this).find('.rp-Tag'))
