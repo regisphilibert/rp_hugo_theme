@@ -111,7 +111,7 @@ $(document).ready(function(){
             $('.rp-contact').slideToggle(500, contactEasing, function(){
                 $(this).addClass('is-active');
                 if(rp_ga){
-                     _gaq.push(['_trackEvent','contact', 'open']);
+                     gaEvent('contact', 'click', 'open')
                 }
             });
 /*            $('.rp-contact .rp-input-wrapper').each(function(i){
