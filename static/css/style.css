@@ -27,7 +27,7 @@ body{
 /*********************************************
       LESS MIXINS
 *********************************************/
-/* http://prismjs.com/download.html?themes=prism&languages=css+clike+javascript+http+less+php */
+/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+go+jade+less+markdown+php+sass+scss+twig+yaml */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -37,13 +37,14 @@ body{
 code[class*="language-"],
 pre[class*="language-"] {
   color: black;
+  background: none;
   text-shadow: 0 1px white;
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
-  direction: ltr;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
+  word-wrap: normal;
   line-height: 1.5;
 
   -moz-tab-size: 4;
@@ -90,6 +91,7 @@ pre[class*="language-"] {
 :not(pre) > code[class*="language-"] {
   padding: .1em;
   border-radius: .3em;
+  white-space: normal;
 }
 
 .token.comment,
@@ -1071,7 +1073,7 @@ body {
   position: absolute;
   width: 80%;
   height: 100%;
-  left: 10%;
+  right: 10%;
   top: 5%;
   background: #e6d223;
   z-index: -1;
@@ -1082,7 +1084,7 @@ body {
 .background-poly--cover:after {
   width: 105%;
   height: 120%;
-  left: -2.5%;
+  right: -2.5%;
   top: -10%;
 }
 .clip-circle {
@@ -1547,7 +1549,7 @@ html:not(.rp-splash) body[style] {
   position: absolute;
   width: 80%;
   height: 100%;
-  left: 10%;
+  right: 10%;
   top: 5%;
   background: #e6d223;
   z-index: -1;
@@ -1598,9 +1600,20 @@ html:not(.rp-splash) body[style] {
 .rp-section-project .main-nav a[data-section='project']:after,
 .rp-home .main-nav a[data-section='project']:after {
   background-color: #e6d223;
+  right: -36px;
 }
 .rp-section-post .main-nav a[data-section='post']:after {
   background-color: #e6d223;
+  right: -36px;
+}
+@media screen and (min-width: 1500px) {
+  .rp-section-project .main-nav a[data-section='project']:after,
+  .rp-home .main-nav a[data-section='project']:after {
+    right: -36px;
+  }
+  .rp-section-post .main-nav a[data-section='post']:after {
+    right: -36px;
+  }
 }
 html:not(.rp-splash) .main-nav a:not(.raw).is-active:after {
   background-color: #e6d223;
@@ -1670,7 +1683,7 @@ html:not(.rp-splash) .main-nav a:not(.raw).is-active:after {
   position: absolute;
   width: 80%;
   height: 100%;
-  left: 10%;
+  right: 10%;
   top: 5%;
   background: #e6d223;
   z-index: -1;
@@ -1746,7 +1759,7 @@ a.rp-tag:hover:after {
   position: absolute;
   width: 80%;
   height: 100%;
-  left: 10%;
+  right: 10%;
   top: 5%;
   background: #e6d223;
   z-index: -1;
@@ -1756,7 +1769,7 @@ a.rp-tag:hover:after {
 .rp-cta:after {
   width: 105%;
   height: 120%;
-  left: -2.5%;
+  right: -2.5%;
   top: -10%;
 }
 .rp-cta:active {
@@ -2355,6 +2368,26 @@ a.rp-tag:hover:after {
   .rp-project-content {
     text-align: left;
   }
+}
+/* ==========================================================================
+   404
+   ========================================================================== */
+.rp-404 {
+  text-align: center;
+}
+.rp-404 figure {
+  display: inline-block;
+}
+.rp-404 img {
+  max-width: 100%;
+}
+.rp-404 .rp-caption {
+  text-align: left;
+  font-style: italic;
+}
+.rp-404-title {
+  font-weight: 600;
+  font-size: 3.8rem;
 }
 /* ==========================================================================
    ICONS

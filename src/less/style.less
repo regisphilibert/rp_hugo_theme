@@ -101,7 +101,7 @@ body{
         position: absolute;
         width:80%;
         height:100%;
-        left:10%;
+        right:10%;
         top:5%;
         background:@cYellow;
         z-index: -1;
@@ -112,7 +112,7 @@ body{
     &:after{
         width:105%;
         height:120%;
-        left:-2.5%;
+        right:-2.5%;
         top:-10%;
     }
 }
@@ -521,6 +521,7 @@ html:not(.rp-splash) body[style]{
         a[data-section='project']{
             &:after{
                 background-color:@cYellow;
+                right:-36px;
             }
         }
     }
@@ -528,6 +529,23 @@ html:not(.rp-splash) body[style]{
         a[data-section='post']{
             &:after{
                 background-color:@cYellow;
+                right:-36px;
+            }
+        }
+    }
+    @media screen and (min-width:@xxl) {
+        .rp-section-project &, .rp-home & {
+            a[data-section='project']{
+                &:after{
+                    right:-36px;
+                }
+            }
+        }
+        .rp-section-post & {
+            a[data-section='post']{
+                &:after{
+                    right:-36px;
+                }
             }
         }
     }
@@ -1244,6 +1262,27 @@ html:not(.rp-splash){
     .rp-project-content{
         text-align: left;
     }
+}
+/* ==========================================================================
+   404
+   ========================================================================== */
+.rp-404{
+
+    text-align: center;
+    figure{
+        display: inline-block;
+    }
+    img{
+        max-width: 100%;
+    }
+    .rp-caption{
+        text-align: left;
+        font-style: italic;
+    }
+}
+.rp-404-title{
+    font-weight: @fwSemiBold;
+    font-size: 3.8rem;
 }
 /* ==========================================================================
    ICONS
