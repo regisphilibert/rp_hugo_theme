@@ -15,8 +15,8 @@
 	<meta property="og:title" content="{{ .Title }}">
 	<meta property="twitter:title" content="{{ .Title }}">
 
-	<meta property="og:description" content="{{ .Summary }}">
-	<meta name="twitter:description" content="{{ .Summary }}">
+	<meta property="og:description" content="{{ default .Summary .Params.summary }}">
+	<meta name="twitter:description" content="{{ default .Summary .Params.summary }}">
 	
 	<meta property="og:url" content="{{ .Permalink }}">
 	{{ if .Params.images }}

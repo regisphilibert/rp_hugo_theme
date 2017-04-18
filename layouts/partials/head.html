@@ -6,7 +6,7 @@
         {{ $.Scratch.Set "title" (printf "%s | %s" .Site.Title (i18n "dev_title")) }}
         <meta name="description" content="{{ .Site.Params.Description }}">
     {{  else }}
-	    <meta name="description" content="{{ .Summary }}">
+	    <meta name="description" content="{{ default .Summary .Params.summary }}" >
     {{ end }}
     <title>{{ $.Scratch.Get "title" }}</title>
     <script type="text/javascript" src="{{ .Site.BaseURL }}/js/head.script-min.js"></script>
