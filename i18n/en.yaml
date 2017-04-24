@@ -19,5 +19,8 @@
 - id: contact_sending
   translation: "Sending..."
 
+- id: contact_thanks
+  translation: "got it thanks!"
+
 - id: know_more
   translation: "show me more"

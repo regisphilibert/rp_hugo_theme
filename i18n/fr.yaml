@@ -2,7 +2,7 @@
   translation: "Développeur Front End"
 
 - id: contact_email
-  translation: "Mail"
+  translation: "Courriel"
 
 - id: contact_email_error
   translation: "Ce n'est pas un courriel valide."
@@ -18,6 +18,9 @@
 
 - id: contact_sending
   translation: "Envoie..."
+
+- id: contact_thanks
+  translation: "Parfait, merci !"
 
 - id: know_more
   translation: "en savoir plus"

@@ -695,10 +695,8 @@ $(document).ready(function(){
     function successForm(){
         contactSubmit = $('#rp-contact-form-submit');
         contactSubmit.html(contactSubmit.attr('data-success-message'));
-        $('.rp-contact-inputs').slideUp(250, function(){
-            $('.rp-contact .rp-input, .rp-contact .rp-button').removeClass('rp-input--is-loading');
-        });
         $('.rp-contact').addClass('rp-contact--is-sent');
+        $('.rp-contact .rp-input, .rp-contact .rp-button').removeClass('rp-input--is-loading');
         if(rp_ga){
             gaEvent('contact', 'submit', 'success')
         }

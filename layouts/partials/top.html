@@ -12,6 +12,10 @@
 		{{ $.Scratch.Add "classes" (slice "rp-home") }}
 	{{end}}
 
+	{{ if eq .Layout "contact" }}
+		{{ $.Scratch.Set "section" "contact" }}
+	{{end}}
+
 	{{ $.Scratch.Add "classes" (slice (printf "rp-section-%s" ($.Scratch.Get "section"))) }}
 
 

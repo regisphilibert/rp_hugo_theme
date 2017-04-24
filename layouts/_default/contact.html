@@ -4,11 +4,11 @@
 			<h1>{{ .Title }}</h1>
 		</div>
 			
-		<div class="">
+		<div class="rp-contact">
 		    <form id="rp-contact-form" action="" class="rp-Form">
 		        <div class="rp-contact-inputs">
 		            <div class="rp-InputGroup rp-InputGroup--fancy">
-		                <input type="text" id="rpContactEmail" name="rpContactEmail" placeholder='{{ i18n "contact_email" }}'/>
+		                <input type="text" id="rpContactEmail" name="rpContactEmail" placeholder='{{ i18n "contact_email" }}' />
 		                <label for="">{{ i18n "contact_email" }}</label>
 		                <div class="rp-InputGroup__error">{{ i18n "contact_email_error" }}</div>
 		            </div>
@@ -25,10 +25,11 @@
 		            <button id="rp-contact-form-submit"
 		                data-default-message='{{ i18n "contact_submit" }}'
 		                data-sending-message='{{ i18n "contact_sending" }}'
-		                data-success-message="---- (๑˃̵ᴗ˂̵)و thanks! ----" 
+		                data-success-message='---- (๑˃̵ᴗ˂̵)و {{ i18n "contact_thanks" }} ----'
 		                class="rp-button rp-button--hero"
 		                type="submit">
 		                {{ i18n "contact_submit" }}
+		                
 		            </button>
 		        </div>
 		    </form>

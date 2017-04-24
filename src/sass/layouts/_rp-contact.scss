@@ -1,0 +1,51 @@
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+.rp-contact{
+    .rp-discreet{
+        margin-top:10px;
+        text-align: center;
+    }
+    &.rp-contact--is-sent{
+        .rp-button{
+            font-weight: normal;
+        }
+    }
+    @media screen and (min-width:$xl){
+        .rp-discreet{
+            text-align: inherit;
+        }
+    }
+}
+
+.rp-form{
+    .rp-form-message{
+        display: block;
+        margin-bottom:10px;
+    }
+    [type='submit']{
+        outline: none;
+        transition:300ms;
+        text-transform: none;
+        &[disabled]{
+            transform:skew(-17deg);
+        }
+    }
+}
+.rp-button{
+    border:0;
+    background:$cTurquoise;
+    padding:5px;
+    text-transform: uppercase;
+    color:white;
+    display: inline-block;
+    font-weight: $fwBold;
+}
+.rp-button--hero{
+    display: block;
+    width:100%;
+    text-align: center;
+}
+.rp-input[disabled]{
+    opacity: 0.5;
+}

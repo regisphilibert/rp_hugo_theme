@@ -67,6 +67,30 @@
         right:0;
     }
 }
+.rp-contact{
+    input, textarea{
+        transition:all 300ms;
+    }
+}
+.rp-contact--is-sent{
+    .rp-InputGroup{
+        margin:0.4em 0;
+        label, .rp-InputGroup__error{
+            display: none;
+        }
+        input, textarea{
+            padding: 0;
+            background-color:transparent;
+            border-color: transparent;
+            color:$cTurquoise;
+        }
+    }
+    button{
+        background-color:transparent;
+        color:$cTurquoise;
+        text-transform: none;
+    }
+}
 
 .adjust-textarea-height{
     font-size: 1em;
