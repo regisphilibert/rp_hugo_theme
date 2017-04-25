@@ -230,8 +230,8 @@ body{
     animation-name: blob-origin-right-anim;
 }
 .rp-input--is-loading{
-    animation:animate-skew-5deg linear 1500ms infinite;
-    & ~ .rp-label, & ~ .rp-error-message{
+    animation:animate-opacity linear 1500ms infinite;
+    .rp-label, .rp-error-message{
         display: none;
     }
 }
@@ -293,6 +293,17 @@ body{
         transform:skew(0deg);
     }
 }
+@keyframes animate-opacity {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5
+    }
+    100% {
+        opacity: 1;
+    }
+}
 @keyframes load-spin{
     0% {
         color:@cTurquoise;
@@ -314,125 +325,7 @@ html, body{
     position: relative;
     min-height:100%;
 }
-.rp-splash{
-    .rp-header{
-        height:100%;
-        width:100%;
-        position:fixed;
-        top:0;
-        z-index:1000;
-        background-position:right 700px center;
-        background-repeat:no-repeat;
-        background-size:150px 150px;
-        &:before{
-            content:"◔‿◔";
-            transition:opacity 150ms;
-            position: absolute;
-            display: block;
-            color:@cTurquoise;
-            width:100%;
-            text-align: center;
-            top:50%;
-            margin-top:-0.5em;
-            transform:rotate(0deg);
-        }
-        &.is-moving{
-            &:before{
-                opacity: 0;
-            }
-        }
-        &.is-loading{
-            &:before{
-                animation:load-spin 1s infinite;
-            }
-        }
-        .rp-contact{
-            background-color: @cBackground;
-        }
-    }
-    @media screen and (min-width:@xl){
-        .rp-contact{
-            display: inline-block;
-            text-align: right;
-            width:400px;
-        }
-    }
-}
-html:not(.rp-splash) body[style]{
-    padding-top:0 !important;
-}
-@media screen and (min-width:@xl) {
-    body{
-        padding-left:400px;
-    }
-    .rp-header{
-        position: fixed;
-        left:0;
-        width:400px;
-        height:100%;
-    }
-}
-/*@media screen and (min-width:@xxl) {
-    body{
-        padding-left:500px;
-    }
-    .rp-header{
-        width:500px;
-    }
-}*/
 
-/* ==========================================================================
-   HEADER
-   ========================================================================== */
-.rp-header{
-    padding:22px 0;
-    background:@bg;
-    text-align: center;
-    border-bottom:1px solid @cHeaderBorder;
-/*    .jumpstart-debug-user & {
-        position: relative;
-    }*/
-}
-
-.rp-lang-switch{
-    font-size: 11px;
-    a{
-        color:@cBlack;
-    }
-    text-transform: uppercase;
-    position: absolute;
-    top:10px;
-    left:10px;
-}
-.rp-logo{
-    max-width:250px;
-}
-.rp-brand{
-    display: block;
-}
-.rp-baseline{
-    margin:0;
-    font-family: @ffAudimat;
-    font-size: 28px;
-    color:@cTurquoise;
-    text-transform: uppercase;
-    font-weight: 300;
-}
-@media screen and (min-width:@tablet){
-    .rp-logo{
-        max-width: 300px;
-    }
-}
-@media screen and (min-width:@xl) {
-    .rp-header{
-        text-align: right;
-        border-bottom: 0;
-        border-right:1px solid @cHeaderBorder;
-        .rp-container{
-            padding:0 30px;
-        }
-    }
-}
 
 /* ==========================================================================
    FOOTER

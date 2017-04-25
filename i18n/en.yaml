@@ -20,7 +20,13 @@
   translation: "Sending..."
 
 - id: contact_thanks
-  translation: "got it thanks!"
+  translation: "Thanks!"
+
+- id: contact_you_wrote
+  translation: "Here's what you wrote..."
+
+- id: from
+  translation: "From"
 
 - id: know_more
   translation: "show me more"

@@ -1,12 +1,15 @@
- <nav class="main-nav main-nav--poly">
- 	<p>
- 		Hi, I'm <a class="raw " href="http://twitter.com/regisphilibert">@regisphilibert</a>.
- 	</p>
- 	<p>
- 		<a class="" data-section="project" href='{{ "/" | absLangURL }}'>I&nbsp;code&nbsp;websites</a>
+<nav class="main-nav main-nav--poly main-nav--xs" style="margin-bottom:-20px">
+	<a data-section="project" href='{{ "/" | absLangURL }}'>Portfolio</a> <a class="" href="{{ "contact/" | absLangURL }}" data-section="contact">Contact</a> <a href="{{ "post/" | absLangURL }}" data-section="post" class="">Blog</a>
+</nav>
+<nav class="main-nav main-nav--poly main-nav--xl">
+	<p class="tablet-block desktop-block">
+		Hi, I'm <a class="raw " href="http://twitter.com/regisphilibert">@regisphilibert</a>.
 	</p>
- 	<p>
- 		and <a href="{{ "post/" | absLangURL }}" data-section="post" class="">I blog about it.</a>
- 	</p>
-    <p><a class="" href="{{ "contact/" | absLangURL }}" data-section="contact">Shall we talk</a>?</p>
- </nav>
+	<p>
+		<a class="" data-section="project" href='{{ "/" | absLangURL }}'>I&nbsp;code&nbsp;websites</a>
+	</p>
+	<p>
+		and <a href="{{ "post/" | absLangURL }}" data-section="post" class="">I blog about it.</a>
+	</p>
+	<p><a class="" href="{{ "contact/" | absLangURL }}" data-section="contact">Shall we talk</a>?</p>
+</nav>

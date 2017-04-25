@@ -96,32 +96,7 @@ $(document).ready(function(){
     });
 
     /*FORM*/
-    $(document).on('click', '[href="#talk"]', function(){
-        contactEasing = 'easeOutBounce'
-        if($('.rp-contact').hasClass('rp-contact--is-sent')){
-            $('.rp-contact').find('.rp-input').val('').removeAttr('disabled');
-            contactSubmit = $('#rp-contact-form-submit');
-            contactSubmit.removeAttr('disabled').html(contactSubmit.attr('data-default-message'));
-            $('.rp-contact-inputs').slideDown(300);
-        }
-        else{
-            if($('.rp-contact').is(':visible')){
-                contactEasing = 'easeInBack'
-            }
-            $('.rp-contact').slideToggle(500, contactEasing, function(){
-                $(this).addClass('is-active');
-                if(rp_ga){
-                    gaEvent('contact', 'click', 'open')
-                }
-            });
-/*            $('.rp-contact .rp-input-wrapper').each(function(i){
-                    var speed = 150;
-                    $(this).delay((i++) * speed).slideToggle(speed);
-            });*/
-        }
-        $(this).toggleClass('is-active');
-        return false;
-    });
+
     var rgMail = new RegExp(/^([\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$/i);
     function showError(element){
         //$('.action span.error_message').html(error_message).stop(true,true).fadeOut(50).fadeIn(300);
@@ -131,19 +106,29 @@ $(document).ready(function(){
         element.removeClass('rp-input--error');
     }
     function successForm(){
-        contactSubmit = $('#rp-contact-form-submit');
-        contactSubmit.html(contactSubmit.attr('data-success-message'));
-        $('.rp-contact').addClass('rp-contact--is-sent');
-        $('.rp-contact .rp-input, .rp-contact .rp-button').removeClass('rp-input--is-loading');
-        if(rp_ga){
-            gaEvent('contact', 'submit', 'success')
-        }
-        console.log('sent...')
+        $('.rp-contact__success').imagesLoaded(function(){
+            contactTitle = $('.rp-contact__title');
+            contactTitle.fadeTo(500, 0, function(){
+                contactTitle.html(contactTitle.attr('data-success-message'))
+                contactTitle.fadeTo(500, 1);
+            });
+            $('.rp-contact__success').find('[data-input="rpContactEmail"]').html($('#rp-contact-form').find('[name="rpContactEmail"]').val());
+            $('.rp-contact__success').find('[data-input="rpContactMessage"]').html($('#rp-contact-form').find('[name="rpContactMessage"]').val());
+            $('.rp-contact').addClass('rp-contact--is-sent');
+            $('.rp-contact__success').slideDown(500);
+            $('.rp-contact__form').slideUp(500);
+            $('.rp-contact .rp-input, .rp-contact .rp-button').removeClass('rp-input--is-loading');
+            if(rp_ga){
+                gaEvent('contact', 'submit', 'success')
+            }
+            console.log('sent...')
+        })
+        
     }
     function sendingForm(){
         contactSubmit = $('#rp-contact-form-submit');
         contactSubmit.html(contactSubmit.attr('data-sending-message'));
-        $('.rp-contact .rp-input, .rp-contact .rp-button').addClass('rp-input--is-loading');
+        $('.rp-contact .rp-InputGroup').add(contactSubmit).addClass('rp-input--is-loading');
     }
 
     $(document).on('input propertychange', '.adjust-textarea-height textarea', function(){
@@ -153,7 +138,7 @@ $(document).ready(function(){
     formIsBusy = false;
     $(document).on('submit', '#rp-contact-form', function(){
         if(formIsBusy){
-            return;
+            return false;
         }
         var form = $(this);
         valid = true;

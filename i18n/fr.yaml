@@ -20,7 +20,13 @@
   translation: "Envoie..."
 
 - id: contact_thanks
-  translation: "Parfait, merci !"
+  translation: "Merci !"
+
+- id: contact_you_wrote
+  translation: "Vous avez écrit..."
+
+- id: from
+  translation: "De"
 
 - id: know_more
   translation: "en savoir plus"

@@ -1,11 +1,20 @@
 {{ define "main" }}
 	<div class="rp-Entry">
 		<div class="rp-page-header">
-			<h1>{{ .Title }}</h1>
+			<h1 class="rp-contact__title" data-success-message='{{ i18n "contact_thanks" }} (๑˃̵ᴗ˂̵)و'>{{ .Title }}</h1>
 		</div>
-			
 		<div class="rp-contact">
-		    <form id="rp-contact-form" action="" class="rp-Form">
+			<div class="rp-contact__success wysiwyg-content">
+				<h3>{{ i18n "contact_you_wrote" }}</h3>
+				<p>
+					<label>{{ i18n "from" }}: </label><span data-input="rpContactEmail"></span>
+				</p>
+				<p>
+					<label>Message: </label><span data-input="rpContactMessage"></span>
+				</p>
+				<p></p>
+			</div>
+		    <form id="rp-contact-form" action="" class="rp-Form rp-contact__form">
 		        <div class="rp-contact-inputs">
 		            <div class="rp-InputGroup rp-InputGroup--fancy">
 		                <input type="text" id="rpContactEmail" name="rpContactEmail" placeholder='{{ i18n "contact_email" }}' />
@@ -25,7 +34,7 @@
 		            <button id="rp-contact-form-submit"
 		                data-default-message='{{ i18n "contact_submit" }}'
 		                data-sending-message='{{ i18n "contact_sending" }}'
-		                data-success-message='---- (๑˃̵ᴗ˂̵)و {{ i18n "contact_thanks" }} ----'
+		                
 		                class="rp-button rp-button--hero"
 		                type="submit">
 		                {{ i18n "contact_submit" }}

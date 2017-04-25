@@ -5,6 +5,17 @@
     display: inline-block;
     z-index:1;
 }
+.main-nav--xl{
+    display: none
+}
+@media (min-width:$xl){
+    .main-nav--xs{
+        display: none;
+    }
+    .main-nav--xl{
+        display: block
+    }
+}
 .main-nav{
     font-style: italic;
     font-size: 18px;
@@ -93,19 +104,21 @@
         }
     }
 
-    @media screen and (min-width:$xl) {
-        @each $section, $margin in  (project, -36px),
-                                    (post, -36px),
-                                    (contact, -45px) {
-            .rp-section-#{$section} & {
-                a[data-section='#{$section}']{
-                    &:after{
+    
+    @each $section, $margin in  (project, -36px),
+                                (post, -36px),
+                                (contact, -45px) {
+        .rp-section-#{$section} & {
+            a[data-section='#{$section}']{
+                &:after{
+                    @media screen and (min-width:$xl) {
                         right:$margin;
                     }
                 }
             }
         }
     }
+    
 }
 html:not(.rp-splash){
     .main-nav{

@@ -2,27 +2,28 @@
    CONTACT
    ========================================================================== */
 .rp-contact{
+    position: relative;
     .rp-discreet{
         margin-top:10px;
         text-align: center;
     }
-    &.rp-contact--is-sent{
-        position: relative;
-        .rp-button{
-            font-weight: normal;
+    .rp-contact__success, .rp-contact__form{
+        transition: opacity 300ms;
+    }
+    .rp-contact__success{
+        display: none;
+        font-weight: $fwLight;
+        span{
+            white-space: pre-wrap;
         }
-        &:after{
-            content:"";
-            position: absolute;
-            width:100%;
-            height:100%;
-            left:0;
-            top:0;
-            z-index: 1000;
+        label{
+            font-style: italic;
+            font-weight: $fwSemiBold;
         }
     }
     @media screen and (min-width:$xl){
-        .rp-discreet{
+        .rp-contact__success{
+            padding:1.6em 0;
             text-align: inherit;
         }
     }
