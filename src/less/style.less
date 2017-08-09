@@ -770,7 +770,7 @@ html, body{
 //@preBorderColor:@cTurquoise;
 @preBackgroundColor:#fffcf5;
 .wysiwyg-content{
-    pre{
+    pre:not(.language-nohighlight){
         opacity: 0;
         margin-top:0;
         margin-bottom:22px;
@@ -805,7 +805,13 @@ html, body{
         font-size:0.8em;
     }
 }
-
+pre.language-nohighlight{
+    font-size: 0.8rem;
+    background-color: @preBackgroundColor;
+    padding:10px;
+    border:1px solid @preBorderColor;
+    border-radius: 5px;
+}
 pre.language-less,
 pre.language-css{
     .selector{
