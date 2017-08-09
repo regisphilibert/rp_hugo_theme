@@ -10,7 +10,8 @@
 	<meta name="twitter:description" content="{{ .Site.Params.Description }}">
 
 	<meta name="og:url" content="{{ .Site.BaseURL }}">
-
+	<meta property="og:image" content='{{ "images/rp_share.jpg" | absURL }}'>
+	<meta name="twitter:image" content='{{ "images/rp_share.jpg" | absURL }}'>
 {{ else }}
 	<meta property="og:title" content="{{ .Title }}">
 	<meta property="twitter:title" content="{{ .Title }}">
