@@ -1,2 +1,4 @@
 config.codekit3
-static/css/main.css
+static/css
+static/js
+node_modules
