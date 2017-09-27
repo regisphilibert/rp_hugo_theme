@@ -12,8 +12,12 @@
     <script type="text/javascript" src="{{ .Site.BaseURL }}/js/modernizr.js"></script>
     <script type="text/javascript" src="{{ .Site.BaseURL }}/js/head.min.js"></script>
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    {{ if .Site.Params.less }}
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css">
+    {{ end }}
+    {{ if .Site.Params.sass }}
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/main.css">
+    {{ end }}
     {{ partial "og.html" . }}
     <script>
     	var rpEnv = {{ .Site.Params.env }}
