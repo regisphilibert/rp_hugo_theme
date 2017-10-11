@@ -1,0 +1,72 @@
+.wysiwyg-content{
+    h1, h2, h3, h4, h6{
+        border-bottom:1px solid $cTurquoise;
+        margin:15px 0;
+    }
+    h1, h2, h3{
+        margin-bottom: 1em;
+    }
+    h4, h5, h6{
+        margin-bottom:0.8em;
+    }
+    h1, h2, h3{
+        font-weight: $fwBold;
+    }
+    h4, h5{
+        text-transform: uppercase;
+    }
+    h4, h5{
+        font-weight: $fwSemiBold;
+    }
+    h1, h2{
+        font-size:26/$fsRem;
+    }
+    h3,{
+        font-size:22/$fsRem;
+    }
+    h4, h5{
+        font-size:20/$fsRem;
+    }
+    h6{
+        font-size:1rem;
+    }
+    p{
+        margin-top:0;
+    }
+    a:link{
+        color:darken($cYellow,10%);
+    }
+    a:visited{
+        color:darken($cYellow,20%);
+    }
+    blockquote{
+        margin: 0;
+        border-left:3px solid $cTurquoise;
+        padding-left:15px;
+        font-style:italic;
+        font-weight: $fwLight;
+        cite{
+            font-weight: $fwSemiBold;
+            text-align: right;
+        }
+    }
+    ul, ol{
+        $listStyleColor:darken($cTurquoise, 10%);
+        li{
+            margin:20px 0;
+        }
+    }
+    img, img[style]{
+        max-width: 100% !important;
+        &.alignleft{
+            float:left;
+            margin-right:30px;
+            margin-bottom:30px;
+        }
+        &.alignright{
+            float:right;
+            margin-left:30px;
+            margin-bottom:30px;
+        }
+    }
+}
