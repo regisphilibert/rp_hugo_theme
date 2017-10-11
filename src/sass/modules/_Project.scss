@@ -11,6 +11,7 @@
 .rp-Project__title{
     font-weight: $fwBlack;
     font-size: 1.5em;
+    line-height: 1.05em;
     text-transform: uppercase;
     a{
         transition:color 150ms;
@@ -29,6 +30,11 @@
     margin-bottom:30px;
     &:last-child{
         margin-bottom:0;
+    }
+    @media (max-width:$tablet - 1){
+        &:not(:first-child){
+            margin-top:80px;
+        }
     }
 }
 .rp-project-media{

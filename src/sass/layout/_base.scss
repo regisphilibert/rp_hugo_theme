@@ -15,7 +15,12 @@ a:focus {
 a{
     color:inherit;
 }
-
+hr{
+    border-top:1px solid $cTurquoise;
+    max-width:60vw;
+    margin-right:auto;
+    margin-left:auto;
+}
 html{
     font-size: 18px;
     line-height: $lh;
