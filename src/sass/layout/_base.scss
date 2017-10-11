@@ -1,0 +1,48 @@
+*{
+    box-sizing:border-box;
+}
+h1, h2, h3, h4, h5, h6{
+    font-weight: $fwRegular;
+    margin: 0;
+}
+a,
+a:active,
+a:hover,
+a:focus {
+  outline: none;
+}
+
+a{
+    color:inherit;
+}
+
+html{
+    font-size: 18px;
+    line-height: $lh;
+    @media screen and (min-width:$desktop) {
+        font-size:22px;
+    }
+}
+body{
+    position: relative;
+    font-family: $sans;
+    color:$cBlack;
+    background-color:$cBackground;
+}
+.rp-wrapper{
+    background:$cBackground;
+}
+.rp-main{
+    padding-top:30px;
+    padding-bottom:30px;
+}
+.rp-data{
+    display: none;
+}
+
+.rp-container{
+    padding:0 10px;
+    @media screen and (min-width:$xl) {
+        padding:0 30px;
+    }
+}

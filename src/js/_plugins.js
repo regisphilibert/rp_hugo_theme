@@ -1,4 +1,4 @@
-//Add jquery plugins here !
+// THIS IS PLUGINS
 //
 
 $ = jQuery;

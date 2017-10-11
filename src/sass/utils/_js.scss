@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Ajax View Mechanism
+   ========================================================================== */
+.rp-views{
+    position: relative;
+    .rp-view{
+        transition:150ms;
+    }
+}
+.rp-view{
+    display: none;
+    position:relative;
+    &.active{
+        display: block;
+    }
+}
+.rp-data{
+    display: none;
+}

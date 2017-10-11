@@ -1,3 +1,4 @@
+// THIS IS rpFunction
 function runFunction(name)
 {
     var fn = window[name];

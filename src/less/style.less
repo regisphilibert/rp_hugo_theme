@@ -330,40 +330,7 @@ html, body{
 /* ==========================================================================
    FOOTER
    ========================================================================== */
-@footerImgWidth:150px * 0.75;
-.rp-footer{
-    text-align: center;
-    .footer-img{
-        width:@footerImgWidth;
-        transition:ease-in 150ms;
-        margin-bottom:10px;
-    }
-    .footer-text{
-        font-size:16px;
-    }
-    @media screen and (max-width:@xl) {
-        .footer-text{
-            background-color:@cBackground;
-            padding-top:(@footerImgWidth/2) + 10;
-            padding-bottom:10px;
-        }
-        .footer-img{
-            margin-bottom:(@footerImgWidth/2) * (-1);
-        }
-    }
-    @media screen and (min-width:@xl) {
-        height:0;
-        position: absolute;
-        bottom:0;
-        .rp-footer-wrapper{
-            position: absolute;
-            bottom:0;
-            left:-400px;
-            width:400px;
-            padding:30px;
-        }
-    }
-}
+
 
 /* ==========================================================================
    Modules

@@ -1206,10 +1206,10 @@ footer .rp-loader {
   animation-name: blob-origin-right-anim;
 }
 .rp-input--is-loading {
-  animation: animate-opacity linear 1500ms infinite;
+  animation: animate-skew-5deg linear 1500ms infinite;
 }
-.rp-input--is-loading .rp-label,
-.rp-input--is-loading .rp-error-message {
+.rp-input--is-loading ~ .rp-label,
+.rp-input--is-loading ~ .rp-error-message {
   display: none;
 }
 .rp-button--is-loading {
@@ -1268,17 +1268,6 @@ footer .rp-loader {
   }
   100% {
     transform: skew(0deg);
-  }
-}
-@keyframes animate-opacity {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
   }
 }
 @keyframes load-spin {

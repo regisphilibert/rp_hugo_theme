@@ -1,0 +1,24 @@
+.clip-circle{
+    cursor: pointer;
+    transition:200ms;
+    opacity: 0.60;
+    &:hover{
+        opacity: 1;
+    }
+    .cssmask & {
+        clip-path: polygon(50% 10%, 0% 100%, 100% 100%);
+        &:active{
+            clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
+        }
+    }
+    .no-cssmask &{
+        border-radius: 50%;
+        transition:300ms;
+        &:active{
+            transform:skew(20deg);
+        }
+    }
+}
+.clip-triangle{
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
