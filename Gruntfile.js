@@ -197,7 +197,9 @@ module.exports = function (grunt) {
   ]);
   // Stage task for stage environement
   grunt.registerTask('stage', [
-    'clean', 'sass:dist', 'uglify', 'modernizr'
+    'clean', 'sass:dist', 'uglify', 'modernizr', , 'copy:main'
   ]);
-
+  grunt.registerTask('production', [
+    'clean', 'sass:dist', 'uglify', 'modernizr', , 'copy:main'
+  ]);
 };

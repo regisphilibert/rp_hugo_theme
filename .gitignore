@@ -2,3 +2,5 @@ config.codekit3
 static/css
 static/js
 node_modules
+.sass-cache/
+css

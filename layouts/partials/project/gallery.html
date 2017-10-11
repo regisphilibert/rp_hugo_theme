@@ -2,7 +2,9 @@
 	{{ if isset .dot.Params "images" }}
 		{{ range $index, $element := (.dot.Params.images)}}
 		{{ $image_url := printf "projects/%s" .file }}
+		
 		<div class="col-md-{{ with .col }}{{ . }}{{ else }}12 {{end}}">
+			{{ if .url }}
 			<a 
 				href="{{ .url }}"
 				target="_blank" 
@@ -10,6 +12,9 @@
 				data-it="{{ $index }}"
 				
 			>
+			{{ else }}
+			<div class="rp-project-media has-outbound-links-1">
+			{{ end }}
 	        	<div class="rp-video-background" style="">
 					{{ with .video }}
 						<video 
@@ -26,7 +31,11 @@
 	                	</div>
 	            	</div>
 	            </div>
-	   		 </a>	
+            {{ if .url }}
+	   		</a>
+	   		{{ else }}
+	   		</div>
+	   		{{ end }}
 		</div>
    		{{ end }}
    	{{ end }}

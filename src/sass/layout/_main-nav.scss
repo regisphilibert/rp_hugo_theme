@@ -24,6 +24,9 @@
     p{
         margin:0;
     }
+    a{
+        cursor:pointer;
+    }
     &.test{
         a:not(.raw){
             display: inline-block;
