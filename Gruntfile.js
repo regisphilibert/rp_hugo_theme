@@ -193,13 +193,13 @@ module.exports = function (grunt) {
 
   // Default taskg
   grunt.registerTask('default', [
-    'clean', 'sass:dist', 'uglify', 'modernizr', 'copy:main', 'watch'
+    'sass:dist', 'uglify', 'modernizr', 'copy:main', 'watch'
   ]);
   // Stage task for stage environement
   grunt.registerTask('stage', [
-    'clean', 'sass:dist', 'uglify', 'modernizr', , 'copy:main'
+    'sass:dist', 'uglify', 'modernizr', , 'copy:main'
   ]);
   grunt.registerTask('production', [
-    'clean', 'sass:dist', 'uglify', 'modernizr', , 'copy:main'
+    'sass:dist', 'uglify', 'modernizr', , 'copy:main'
   ]);
 };
