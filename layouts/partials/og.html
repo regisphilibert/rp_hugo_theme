@@ -1,7 +1,11 @@
 <meta property="og:site_name" content="Regis Philibert">
 <meta property="twitter:card" content="summary">
 <meta property="twitter:site" content="@{{ .Site.Params.twitter_handle }}">
-<meta property="og:locale" content="{{ .Language }}">
+{{ if eq .Language "fr" }}
+	<meta property="og:locale" content="fr_FR">
+{{ else }}
+	<meta property="og:locale" content="en_US">
+{{ end }}
 {{ if .IsHome }}
 	<meta property="og:title" content="Regis Philibert">
 	<meta property="twitter:title" content="Regis Philibert">
