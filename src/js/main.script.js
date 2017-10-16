@@ -6,6 +6,8 @@ var rpPopped = false;
 
 $(document).ready(function(){
 
+    console.log('%cLike what you see ? 🍺 : 🤷‍', 'padding:4px 7px; font-size:14px; background: #ebf4f3; color: #44b6ae');
+
     if(typeof $('.rp-view').attr('data-record') == 'undefined'){
         $('.rp-view').attr('data-record', Date.now() / 1000 | 0);
     }
