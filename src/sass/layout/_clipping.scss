@@ -6,9 +6,9 @@
         opacity: 1;
     }
     .cssmask & {
-        clip-path: polygon(50% 10%, 0% 100%, 100% 100%);
+        -webkit-clip-path: polygon(50% 10%, 0% 100%, 100% 100%);
         &:active{
-            clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
+            -webkit-clip-path: polygon(50% 50%, 0% 100%, 100% 100%);
         }
     }
     .no-cssmask &{
@@ -20,5 +20,5 @@
     }
 }
 .clip-triangle{
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
