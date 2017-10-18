@@ -4,10 +4,10 @@ $footerImgWidth:150px * 0.75;
     .footer-img{
         width:$footerImgWidth;
         transition:ease-in 150ms;
-        margin-bottom:10px;
+        margin-bottom:1em;
     }
     .footer-text{
-        font-size:16px;
+        font-size:14px;
     }
     @media screen and (max-width:$xl) {
         .footer-text{
