@@ -3,29 +3,33 @@
     width: 130px;
     transition: ease-in 150ms;
     margin: 0 auto 5px auto;
-    img{
-        cursor: pointer;
-        transition:200ms;
-        width:100%;
-        opacity: 0.80;
-        &:hover{
-            opacity: 1;
-        }
-        .cssmask & {
+    opacity: 0.80;
+    cursor: pointer;
+    &:hover{
+        opacity: 1;
+    }
+    .cssmask & {
+        img {
             -webkit-clip-path:polygon(50% 10%, 0 100%, 100% 100%);
             clip-path: polygon(50% 10%, 0 100%, 100% 100%);
-            &:active{
+        }
+        &:active{
+            img {
                 -webkit-clip-path: polygon(50% 50%, 0 100%, 100% 100%);
                 clip-path: polygon(50% 50%, 0 100%, 100% 100%);
             }
         }
-        .no-cssmask &{
-            border-radius: 50%;
-            transition:300ms;
-            &:active{
-                transform:skew(20deg);
-            }
+    }
+    .no-cssmask &{
+        border-radius: 50%;
+        transition:300ms;
+        &:active{
+            transform:skew(20deg);
         }
+    }
+    img{
+        transition: ease-in 150ms;
+        width:100%;
     }
     &:after{
         content:"to the top";
