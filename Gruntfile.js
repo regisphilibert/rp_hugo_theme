@@ -45,7 +45,7 @@ module.exports = function (grunt) {
       dist: {
         root: 'static',
         //fonts: '<%= config.dist.root %>/fonts',
-        //html: '<%= config.dist.root %>/',
+        html: '../../production',
         //images: '<%= config.dist.root %>/img',
         scripts: '<%= config.dist.root %>/js',
         styles: '<%= config.dist.root %>/css',
@@ -175,8 +175,34 @@ module.exports = function (grunt) {
       },
     },
 
+    //
+    htmlmin: {                                     // Task 
+      dist: {                                      // Target 
+        options: {                                 // Target options 
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.dist.html %>',
+          src: ['**/*.html', '*.html'],
+          dest: '<%= config.dist.html %>'
+        }]
+      },
+      stage: {                                      // Target 
+        options: {                                 // Target options 
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: [{
+          expand: true,
+          cwd: '../../staging',
+          src: ['**/*.html', '*.html'],
+          dest: '../../staging'
+        }]
+      }
+    }
   });
-
 
   //------------------------------------------------------------------------------------------------------LOAD-NPM-TASKS
 
@@ -201,5 +227,11 @@ module.exports = function (grunt) {
   ]);
   grunt.registerTask('production', [
     'sass:dist', 'uglify', 'modernizr', , 'copy:main'
+  ]);
+  grunt.registerTask('html', [
+    'htmlmin:dist'
+  ]);
+  grunt.registerTask('html_stage', [
+    'htmlmin:stage'
   ]);
 };
