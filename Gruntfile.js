@@ -69,7 +69,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           sourcemap: 'none',
-          style: 'compact', // nested, compact, compressed, expanded
+          style: 'compressed', // nested, compact, compressed, expanded
           quiet: true,
         },
         files: [{
@@ -223,10 +223,10 @@ module.exports = function (grunt) {
   ]);
   // Stage task for stage environement
   grunt.registerTask('stage', [
-    'sass:dist', 'uglify', 'modernizr', , 'copy:main'
+    'sass:dist', 'uglify', 'modernizr', 'copy:main'
   ]);
   grunt.registerTask('production', [
-    'sass:dist', 'uglify', 'modernizr', , 'copy:main'
+    'sass:dist', 'uglify', 'modernizr', 'copy:main'
   ]);
   grunt.registerTask('html', [
     'htmlmin:dist'
