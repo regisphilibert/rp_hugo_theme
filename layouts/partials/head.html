@@ -9,15 +9,15 @@
 	    <meta name="description" content="{{ default .Summary .Params.summary }}" >
     {{ end }}
     <title>{{ $.Scratch.Get "title" }}</title>
-    <script type="text/javascript" src="{{ .Site.BaseURL }}/js/modernizr.js"></script>
-    <script type="text/javascript" src="{{ .Site.BaseURL }}/js/head.min.js"></script>
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     {{ if .Site.Params.less }}
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css?{{ now.Unix }}">
     {{ end }}
     {{ if .Site.Params.sass }}
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/main.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/main.css?{{ now.Unix }}">
     {{ end }}
+    <script type="text/javascript" src="{{ .Site.BaseURL }}/js/modernizr.js"></script>
+    <script type="text/javascript" src="{{ .Site.BaseURL }}/js/head.min.js?{{ now.Unix }}"></script>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     {{ partial "og.html" . }}
     <script>
     	var rpEnv = {{ .Site.Params.env }}
