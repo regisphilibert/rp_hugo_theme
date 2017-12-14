@@ -15,6 +15,9 @@
     {{ if .Site.Params.sass }}
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/main.css?{{ now.Unix }}">
     {{ end }}
+    {{ if eq .Params.layout "about" }}
+        <link rel="stylesheet" href="{{ .Site.BaseURL }}/fonts/font-mfizz.css">
+    {{ end }}
     <script type="text/javascript" src="{{ .Site.BaseURL }}/js/modernizr.js"></script>
     <script type="text/javascript" src="{{ .Site.BaseURL }}/js/head.min.js?{{ now.Unix }}"></script>
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">

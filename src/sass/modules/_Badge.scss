@@ -1,0 +1,96 @@
+.rp-Badges{
+	display:grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	grid-auto-rows:150px;
+	grid-gap:10px;
+	counter-reset:badge;
+	grid-auto-flow:dense;
+}
+.rp-Badge{
+	counter-increment:badge;
+	position: relative;
+	.rp-Badge__front, .rp-Badge__back{
+		display:flex;
+		align-items:center;
+		justify-content: center;
+		text-align: center;
+		border-radius:10px;
+		height:100%;
+	}
+	.rp-Badge__front{
+		font-size: 100px;
+		i{
+			font-size: 1em;
+			//color:$cTurquoise;
+		}
+		background-color:$cYellow;
+	}
+	.rp-Badge__back{
+		background-color:$cBlack;
+		color:$cWhite;
+	}
+	&:before{
+		content:counter(badge);
+		position: absolute;
+		left:10px;
+		top:7px;
+		font-weight: 700;
+		color:white;
+	}
+	&:after{
+		content:attr(data-name);
+		position: absolute;
+		left:10px;
+		bottom:7px;
+		color:white;
+		font-size: 15px;
+	}
+	.rp-Badge__back{
+
+	}
+}
+.rp-Badge--full{
+	grid-column:1 / -1;
+}
+.rp-Badge--large{
+	grid-column-end:span 2;
+	grid-row-end:span 2;
+	.rp-Badge__front{
+		i{
+			font-size: 2em;
+		}
+	}
+}
+
+.flip-container{
+	perspective:1000px;
+	width:100%;
+	height:100%;
+	&:hover{
+		.flipper, .flip-container{
+			transform:rotateY(180deg);
+		}
+	}
+}
+.flipper{
+	position: relative;
+	transition: 0.6s;
+	height:100%;
+	width:100%;
+	transform-style: preserve-3d;
+}
+.flipper__front, .flipper__back{
+	position: absolute;
+	backface-visibility:hidden;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+.flipper__front{
+	z-index: 2;
+	transform:rotateY(0deg);
+}
+.flipper__back{
+	transform:rotateY(180deg);
+}
