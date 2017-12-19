@@ -1,5 +1,25 @@
 {{ define "main" }}
-<div class="">
-	{{ partial "post/loop.html" (dict "dot" . "template" "single") }}
-</div>
+<article class="rp-Entry">
+	<div class="rp-Entry__head">
+		<h1 class="rp-Entry__title">
+			{{ .Title }}
+		</h1>
+		<div class="rp-Entry__meta">
+			<div class="rp-Entry__time">
+				{{ dateFormat "This was 2006, January _2" .Date }}
+			</div>
+			<div class="rp-Entry__tags">
+	    		{{ range .Params.tags }}
+    				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class='rp-Tag'>{{ . }}</a>
+    			{{ end }}
+			</div>
+		</div>
+	</div>
+	<div class="rp-Entry__content wysiwyg-content">
+		{{ .Content }}
+	</div>
+	<div class="rp-Entry__comments">
+		{{ template "_internal/disqus.html" . }}
+	</div>
+</article>
 {{ end }}
