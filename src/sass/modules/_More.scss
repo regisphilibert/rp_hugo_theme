@@ -1,0 +1,10 @@
+.rp-More{
+	text-align: right;
+	text-transform: lowercase;
+	font-family:$ffCode;
+	a, a:visited, a:link{
+		.wysiwyg-content & {
+			color:black;
+		}
+	}
+}
