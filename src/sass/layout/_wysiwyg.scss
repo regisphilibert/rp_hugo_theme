@@ -33,11 +33,13 @@
     p{
         margin-top:0;
     }
-    a:link{
-        color:darken($cYellow,10%);
-    }
-    a:visited{
-        color:darken($cYellow,20%);
+    a{
+        &:link{
+            color:darken($cYellow,10%);
+        }
+        &:visited{
+            color:darken($cYellow,20%);
+        }
     }
     blockquote{
         margin: 0;
@@ -68,5 +70,8 @@
             margin-left:30px;
             margin-bottom:30px;
         }
+    }
+    p.orange, span.orange{
+        color:$cOrange;
     }
 }
