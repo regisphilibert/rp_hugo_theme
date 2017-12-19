@@ -20,8 +20,8 @@
 	<meta property="og:title" content="{{ .Title }}">
 	<meta property="twitter:title" content="{{ .Title }}">
 
-	<meta property="og:description" content="{{ default .Summary .Params.summary }}">
-	<meta name="twitter:description" content="{{ default .Summary .Params.summary }}">
+	<meta property="og:description" content="{{ default .Summary .Description }}">
+	<meta name="twitter:description" content="{{ default .Summary .Description }}">
 	
 	<meta property="og:url" content="{{ .Permalink }}">
 	{{ if .Params.featured }}

@@ -6,7 +6,7 @@
         {{ $.Scratch.Set "title" (printf "%s | %s" .Site.Title (i18n "dev_title")) }}
         <meta name="description" content="{{ .Site.Params.Description }}">
     {{  else }}
-	    <meta name="description" content="{{ default .Summary .Params.summary }}" >
+	    <meta name="description" content="{{ default .Summary .Description }}" >
     {{ end }}
     <title>{{ $.Scratch.Get "title" }}</title>
     {{ if .Site.Params.less }}
@@ -26,14 +26,14 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     {{ partial "og.html" . }}
     <script>
-    	var rpEnv = {{ .Site.Params.env }}
-        var BaseURL = {{ .Site.BaseURL }}
-        var rpWebroot = {{ .Site.BaseURL }}
+    	var rpEnv = {{ .Site.Params.env }};
+        var BaseURL = {{ .Site.BaseURL }};
+        var rpWebroot = {{ .Site.BaseURL }};
         {{- if .Site.GoogleAnalytics -}}
-        var rp_ga = {{ .Site.GoogleAnalytics }}
-        {{ else }}
-        var rp_ga = false
-        {{- end }}
+        var rp_ga = {{ .Site.GoogleAnalytics }};
+        {{- else -}}
+        var rp_ga = false;
+        {{ end }}
     </script>
     <script>
         console.log('%cLike what you see ? 🍺 : 🤷‍', 'padding:4px 7px; font-size:14px; background: #ebf4f3; color: #44b6ae');
