@@ -23,6 +23,13 @@
         }
     }
 }
+.rp-Entry__time{
+    margin-bottom: 0.6em;
+}
+.rp-Entry__time__small{
+    font-size: 0.8em;
+    font-style: italic;
+}
 .rp-Entry__title{
     font-size:#{(30/$fsRem)}rem;
     font-weight: $fwBold;
