@@ -1,14 +1,9 @@
-.rp-cta{
+.rp-CTA{
     @extend .background-poly;
     @extend .background-poly--cover;
     padding:0 0.7em;
     &:after{
     	transition:100ms;
-    }
-    &:hover{
-        &:after{
-            right:-5%;
-        }
     }
     &:active{
         &:after{

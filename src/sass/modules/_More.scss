@@ -7,4 +7,9 @@
 			color:black;
 		}
 	}
+    .rp-CTA:hover{
+        &:after{
+            right:-5%;
+        }
+    }
 }
