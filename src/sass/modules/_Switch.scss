@@ -1,6 +1,7 @@
 $rpSwitchSize:2.2em;
 .rp-Switch{
 	position: relative;
+	user-select: none;
   input{
     position: absolute;
     opacity: 0;
