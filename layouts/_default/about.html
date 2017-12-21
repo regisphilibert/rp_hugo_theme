@@ -6,26 +6,27 @@
 		<div class="rp-Entry__content user-content">
 			{{ .Content }}
 		</div>
-		
-		{{ $badges := getJSON (printf "%sdata/badges.json" .Site.BaseURL) }}
-		<div class="rp-Badges">
-		{{ range $badges}}
-			<div 
-				class="rp-Badge {{ if .Big }}rp-Badge--large{{ end }} {{ if .Full }}rp-Badge--full{{ end }}"
-				data-name="{{.Name}}"
-			>
-				<div class="flip-container">
-					<div class="flipper">
-						<div class="rp-Badge__front flipper__front">
-							<i class="icon-{{ .Icon }}"></i>
-						</div>
-						<div class="rp-Badge__back flipper__back">
-							Lorem ipsum dolor sit amet.
-						</div>
+	</div>
+	<div class="rp-Badges">
+	{{ range $index, $element := where $.Site.Data.badges "Draft" "!=" true }}
+		{{ if not .Hide }}
+		<div 
+			class="rp-Badge {{ if .Big }}rp-Badge--large{{ end }} {{ if .Full }}rp-Badge--full{{ end }}"
+			data-name="{{ .Name }}"
+			id="{{ $index }}"
+		>
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="rp-Badge__front flipper__front">
+						<i class="icon-{{ .Icon }}"></i>
+					</div>
+					<div class="rp-Badge__back flipper__back">
+						{{ .Text }}
 					</div>
 				</div>
 			</div>
-		{{ end }}
 		</div>
+		{{ end }}
+	{{ end }}
 	</div>
 {{ end }}

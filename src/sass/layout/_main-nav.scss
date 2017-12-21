@@ -97,7 +97,7 @@
 }
 .main-nav{
     
-    @each $section in project, post, contact {
+    @each $section in project, post, contact, about {
         .rp-section-#{$section} & {
             a[data-section='#{$section}']{
                 &:after{
@@ -110,7 +110,8 @@
     
     @each $section, $margin in  (project, -36px),
                                 (post, -36px),
-                                (contact, -45px) {
+                                (contact, -45px),
+                                (about, -42px) {
         .rp-section-#{$section} & {
             a[data-section='#{$section}']{
                 &:after{

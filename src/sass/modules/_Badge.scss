@@ -9,12 +9,13 @@
 .rp-Badge{
 	counter-increment:badge;
 	position: relative;
+	padding:0.2em;
 	.rp-Badge__front, .rp-Badge__back{
 		display:flex;
 		align-items:center;
 		justify-content: center;
 		text-align: center;
-		border-radius:10px;
+		border-radius:5px;
 		height:100%;
 	}
 	.rp-Badge__front{
@@ -61,7 +62,9 @@
 		}
 	}
 }
-
+.rp-Badge:not(.rp-Badge--large){
+	font-size:0.7em;
+}
 .flip-container{
 	perspective:1000px;
 	width:100%;
