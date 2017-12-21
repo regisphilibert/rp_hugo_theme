@@ -7,26 +7,43 @@
 			{{ .Content }}
 		</div>
 	</div>
+
+	<div class="user-content" style="cursor:pointer;">
+		<h2>{{ i18n "skill_grid_title" }}</h3>
+	</div>
+
+	<div style="text-align:center;margin-bottom:34px;">
+		<div class="rp-Switch">
+			<input id="logo-game-checkbox" type="checkbox" checked>
+			<label 
+				for="logo-game-checkbox"
+				data-is-on='{{- i18n "play_logos" -}}'
+				data-is-on-emoji="🤠"
+				data-is-off='{{- i18n "no_play_logos" -}}'
+				data-is-off-emoji="😒"
+			></label>
+		</div>
+	</div>
+
 	<div class="rp-Badges">
-	{{ range $index, $element := where $.Site.Data.badges "Draft" "!=" true }}
-		{{ if not .Hide }}
+	{{ $data := index .Site.Data .Site.Language.Lang }}
+	{{ range $index, $element := where $data.badges "Draft" "!=" true }}
 		<div 
 			class="rp-Badge {{ if .Big }}rp-Badge--large{{ end }} {{ if .Full }}rp-Badge--full{{ end }}"
 			data-name="{{ .Name }}"
 			id="{{ $index }}"
 		>
-			<div class="flip-container">
-				<div class="flipper">
-					<div class="rp-Badge__front flipper__front">
-						<i class="icon-{{ .Icon }}"></i>
-					</div>
-					<div class="rp-Badge__back flipper__back">
-						{{ .Text }}
-					</div>
-				</div>
+			<div class="rp-Badge__head">
+				{{ if .Icon }}
+				<i class="rp-Badge__icon fab fa-{{ .Icon }}"></i>
+				{{ else }}
+				<span class="rp-Badge__icon">{{ .Name }}</span>
+				{{ end }}
+			</div>
+			<div class="rp-Badge__body">
+				{{ .Text | markdownify }}
 			</div>
 		</div>
-		{{ end }}
 	{{ end }}
 	</div>
 {{ end }}

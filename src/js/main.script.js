@@ -4,11 +4,34 @@ xxl = 1500;
 
 var rpPopped = false;
 
+var logoGameCheckbox = document.getElementById('logo-game-checkbox');
+if(logoGameCheckbox){
+    logoGameCheckbox.addEventListener("change", toggleLogos, false);
+}
+
+
+function toggleLogos(){
+  var isChecked = logoGameCheckbox.checked;
+  var el = document.querySelector('.rp-Badges')
+  if(isChecked){ //checked
+    el.classList.remove('rp-Badges--show-logos')
+  }else{ //unchecked
+    el.classList.add('rp-Badges--show-logos');
+  }
+}
+
 $(document).ready(function(){
 
     if(typeof $('.rp-view').attr('data-record') == 'undefined'){
         $('.rp-view').attr('data-record', Date.now() / 1000 | 0);
     }
+
+    $(document).on('click', '.rp-Badge', function(){
+        console.log('click')
+        $(this).toggleClass('rp-Badge--open').siblings('.rp-Badge').removeClass('rp-Badge--open');
+
+    })
+
     if($('video').length ){
         $('#project-video-art-public-montreal').on("ended", function(){
             $(this).removeClass('is-playing');

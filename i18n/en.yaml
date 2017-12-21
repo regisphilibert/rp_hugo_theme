@@ -30,3 +30,12 @@
 
 - id: know_more
   translation: "show me more"
+
+- id: play_logos
+  translation: "Play guess the logos!"
+
+- id: no_play_logos
+  translation: "Don't play guess the logos"
+
+- id: skill_grid_title
+  translation: "And now... the skill grid!"
