@@ -30,3 +30,12 @@
 
 - id: know_more
   translation: "en savoir plus"
+
+- id: play_logos
+  translation: "On devine les logos?"
+
+- id: no_play_logos
+  translation: "Nan, on devine pas les logos."
+
+- id: skill_grid_title
+  translation: "Et maintenant... la grille des skills!"

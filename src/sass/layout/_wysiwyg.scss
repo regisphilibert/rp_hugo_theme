@@ -1,4 +1,4 @@
-.wysiwyg-content{
+.wysiwyg-content, .user-content{
     h1, h2, h3, h4, h6{
         border-bottom:1px solid $cTurquoise;
         margin:15px 0;
@@ -73,5 +73,17 @@
     }
     p.orange, span.orange{
         color:$cOrange;
+    }
+    .twitter-color{
+        color:#0084b4;
+        a{
+            color:inherit;
+        }
+    }
+    .black-color{
+        color:#000;
+        a{
+            color:inherit;
+        }
     }
 }
