@@ -14,7 +14,7 @@
 
 	<div style="text-align:center;margin-bottom:34px;">
 		<div class="rp-Switch">
-			<input id="logo-game-checkbox" type="checkbox" checked>
+			<input id="logo-game-checkbox" onchange="toggleLogos(this)" type="checkbox" checked>
 			<label 
 				for="logo-game-checkbox"
 				data-is-on='{{- i18n "play_logos" -}}'
