@@ -1,4 +1,72 @@
-{{ partial "top" . }}
-{{ block "main" . }}
-{{ end }}
-{{ partial "bottom" . }}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	{{ $.Scratch.Set "section" .Section }}
+
+	{{ $.Scratch.Add "classes" (slice "rp-body") }}
+
+	{{ if .IsHome }}
+		{{ $.Scratch.Set "section" "project" }}
+		{{ $.Scratch.Add "classes" (slice "rp-home") }}
+	{{end}}
+
+	{{ if eq .Layout "contact" }}
+		{{ $.Scratch.Set "section" "contact" }}
+	{{end}}
+
+	{{ if eq .Layout "about" }}
+		{{ $.Scratch.Set "section" "about" }}
+	{{end}}
+
+	{{ $.Scratch.Add "classes" (slice (printf "rp-section-%s" ($.Scratch.Get "section"))) }}
+
+
+	{{ if .Site.Params.ajax }}
+		{{ $.Scratch.Add "classes" (slice "rp-full-js") }}
+	{{ end }}
+
+	{{ if .Data.Singular }}
+		{{ if in "category tag" .Data.Singular }}
+			{{ $.Scratch.Set "section" "post" }}
+		{{ end }}
+		{{ if in "project_tag" .Data.Singular }}
+			{{ $.Scratch.Set "section" "project" }}
+		{{ end }}
+	{{ end }}
+
+    {{ range .Translations }}
+    	{{ $.Scratch.Set "translation_url" .Permalink }}
+    {{ end}}
+    {{ $translation_url := $.Scratch.Get "translation_url"}}
+	
+	{{ partial "head.html" . }}
+
+	{{ $body_class := delimit ($.Scratch.Get "classes") " " }}
+
+	<body class="{{ $body_class }}">
+		<div class="rp-wrapper">
+			{{ partial "header.html" . }}
+			<div class="rp-main">
+						
+				<div class="rp-container">
+					<div class="rp-views">
+						<div class="rp-view active" data-url="{{ .Permalink }}">
+							<div class="rp-data">
+								{{ dict "thisUrl" .Permalink "translation_url" $translation_url "body_class" $body_class "title" ($.Scratch.Get "title")  "section" ($.Scratch.Get "section") | jsonify}}
+							</div>
+							<!-- MAIN -->
+							{{ block "main" . }}
+							{{ end }}
+							<!-- MAIN -->
+
+                		</div><!-- end of .rp-view -->
+                	</div><!-- end of .rp-views -->
+                </div><!-- end of .rp-container  -->
+            </div><!-- end of .rp-main -->
+            {{ partial "footer.html" . }}
+        </div><!-- end of .rp-wrapper -->
+		{{ partial "foot.html" . }}
+    </body>
+</html>
