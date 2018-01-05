@@ -1,0 +1,16 @@
+.rp-Social{
+	display: inline-block;
+	font-size:2.3em;
+	margin:0 10px;
+	a{
+		transition:150ms;
+		&:hover{
+			color:$cYellow;
+		}
+	}
+}
+@media (min-width:$xl){
+	.rp-Social{
+		font-size:2.3em;
+	}
+}

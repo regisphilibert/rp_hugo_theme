@@ -1,8 +1,23 @@
 {{ define "main" }}
 	<div class="rp-Entry">
 		<div class="rp-page-header">
-			<h1 class="rp-contact__title" data-success-message='{{ i18n "contact_thanks" }} (๑˃̵ᴗ˂̵)و'>{{ .Title }}</h1>
-		</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<h1 class="rp-contact__title" data-success-message='{{ i18n "contact_thanks" }} (๑˃̵ᴗ˂̵)و'>{{ .Title }}</h1>
+				</div>
+				<div class="col-sm-8">
+
+					<div class="rp-Socials">
+						{{ range .Site.Data.socials }}
+						<div class="rp-Social">
+							<a alt="My {{ .Name }} profile" target="_blank" href="{{ .URL }}"><i class="fab fa-{{ .Icon }}"></i></a>
+						</div>
+						{{ end }}
+					</div>
+				</div>
+			</div>
+				</div>
+		
 		<div class="rp-contact">
 			<div class="rp-contact__success wysiwyg-content">
 				<h3>{{ i18n "contact_you_wrote" }}</h3>

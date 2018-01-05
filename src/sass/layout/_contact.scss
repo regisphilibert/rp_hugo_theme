@@ -29,6 +29,16 @@
     }
 }
 
+@media (min-width:$tablet){
+    .rp-section-contact{
+        .rp-page-header{
+            text-align:left;
+        }
+        .rp-Socials{
+            text-align: right;
+        }
+    }
+}
 .rp-form{
     .rp-form-message{
         display: block;
