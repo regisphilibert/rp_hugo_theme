@@ -5,6 +5,10 @@
 	grid-auto-rows:120px;
 	counter-reset:badge;
 	grid-auto-flow:dense;
+	grid-template-areas:
+		"... ..."
+		"big big"
+
 
 }
 .rp-Badge{
@@ -70,6 +74,9 @@
 		transition:300ms;
 	}
 }
+.rp-Badge--large{
+	grid-area:big;
+}
 .no-touchevents .rp-Badge:hover, .rp-Badge--open{
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
@@ -100,6 +107,9 @@
 @media (min-width:400px){
 	.rp-Badges{
 		grid-template-columns:1fr 1fr 1fr;
+		grid-template-areas:
+			"... ... ..."
+			"... big ...";
 	}
 }
 @media (min-width:750px){
@@ -111,8 +121,9 @@
 		grid-column:1 / -1;
 	}
 	.rp-Badge--large{
-		grid-column: 2 / span 2;
-		grid-row-end:span 2;
+		grid-area:auto;
+		grid-column:2 / -2;
+		grid-row:2 / span 2;
 		.rp-Badge__head{
 			.rp-Badge__icon{
 				font-size: 2em;
@@ -120,7 +131,11 @@
 		}
 	}
 }
-
+@media (min-width:1560px){
+	.rp-Badge--large{
+		grid-column:3 / span 2;
+	}
+}
 
 .rp-Badge:not(.rp-Badge--large){
 	font-size:0.7em;
