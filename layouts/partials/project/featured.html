@@ -1,11 +1,13 @@
 {{ $featured := .dot.Resources.GetByPrefix "featured" }}
 {{ if $featured }}
-<a 
-	href="{{ .dot.Permalink }}"
-	target="_blank" 
-	class="rp-project-media" 
->
-	<div class="rp-video-background" style="">
+{{ if eq .template "single" }}
+	<div>
+	{{ else }}
+	<a 
+		href="{{ .dot.Permalink }}"
+		target="_blank"
+	>
+	{{ end }}
 		<picture class="rp-project-media-img">
 			{{ range $width, $size := $.dot.Site.Params.imagesizes }}
 				{{ $image := $featured.Resize (printf "%sx" $width)  }}
@@ -13,6 +15,9 @@
 			{{ end }}
 			<img src="{{ $featured.RelPermalink }}" alt="" />
 		</picture>
-    </div>
-</a>
+	{{ if eq .template "single" }}
+	</div>
+	{{ else }}
+	</a>
+	{{ end }}
 {{ end }}

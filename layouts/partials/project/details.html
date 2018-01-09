@@ -6,7 +6,7 @@
         </span>
         {{ else }}
 		<a href="{{ .dot.Permalink }}">
-            {{ .dot.Title }}
+            {{ .dot.Title }} 
         </a>
         {{ end }}
 	</div>
@@ -16,6 +16,11 @@
 	<div class="rp-Project__meta">
         {{ range .dot.Params.project_tags }}
             <a href="{{ "/project_tags/" | relLangURL }}{{ . | urlize }}" class='rp-Tag'>{{ . }}</a>
+        {{ end }}
+        {{ with.dot.Params.ext_url }}
+        <p>
+            <a class="rp-Project__link" target="_blank" href="{{ . }}">{{ . }}</a> <i class="fas fa-external-link-alt"></i>
+        </p>
         {{ end }}
 	</div>
 </div>

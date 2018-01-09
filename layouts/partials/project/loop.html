@@ -1,17 +1,12 @@
-<div class="rp-project release-container">
-	<div class="mobile-block tablet-block">
+<div class="rp-project">
+	<div class="rp-project__aside">
 		{{ partial "project/details" (dict "dot" .dot "template" .template) }}
 	</div>
-	<div class="rp-project-container">
-		<div class="rp-project-gallery">
-			{{ if eq .template "single"}}
-				{{ partial "project/gallery" (dict "dot" .dot )}}
-			{{ else }}
-				{{ partial "project/featured" (dict "dot" .dot)}}
-			{{ end }}
-		</div>
-        <div class="rp-project-sidebar">
-            <div class="desktop-block">{{ partial "project/details" (dict "dot" .dot "template" .template) }}</div>
-        </div>
+	{{ if eq .template "single" }}
+		{{ partial "project/gallery" (dict "dot" .dot)}}
+	{{ else }}
+	<div class="rp-project__main">
+		{{ partial "project/featured" (dict "dot" .dot "template" .template) }}
 	</div>
+	{{ end }}
 </div>
