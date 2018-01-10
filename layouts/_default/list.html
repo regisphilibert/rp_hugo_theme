@@ -12,6 +12,9 @@
 				<h1 class="rp-Entry__title">
 					<a href="{{ .Permalink }}">{{ .Title }}</a>
 				</h1>
+				{{ with .Params.subtitle }}
+					<h2 class="rp-Entry__subtitle">{{ . }}</h2>
+				{{ end }}
 				<div class="rp-Entry__meta">
 					<div class="rp-Entry__time">
 						<time datetime="{{ .Date }}">{{ dateFormat "Written on January 2 2006" .Date }}</time> 
@@ -32,7 +35,7 @@
 				{{ if (or (strings.Contains .RawContent "<!--more-->") (not .Description)) }}
 					{{ .Summary }}
 				{{ else }}
-					{{ .Description }}
+					{{ .Description | markdownify }}
 				{{ end }}
 				<div class="rp-More">
 					<a href="{{ .Permalink }}" class="rp-CTA">Read more&hellip; </a>

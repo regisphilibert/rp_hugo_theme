@@ -1,0 +1,18 @@
+{{ $resources := $.Page.Resources }}
+{{ with $resources.GetByPrefix "manifest" }}
+	{{ $AbsPath := strings.Split .AbsSourceFilename "/content/" }}
+	{{ $RelPath := printf "/content/%s" (index $AbsPath 1) }}
+	{{ $manifest := getJSON $RelPath }}
+	<ul>
+		{{ range $manifest }}
+		{{ $resource := $resources.GetByPrefix .prefix }}
+		<li>
+			<a target="_blank" href="{{ $resource.Permalink }}">
+				<i class="far fa-file-{{ .type }}"></i> {{ .name }} <small>{{ with .ref }}(Ref.{{ . }}) {{ end }}</small>
+			</a>
+		</li>
+		{{ end }}
+	</ul>
+{{ else }}
+	We coudln't find a manifest!
+{{ end }}
