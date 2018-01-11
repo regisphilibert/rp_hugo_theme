@@ -1,10 +1,17 @@
 {{ $resources := $.Page.Resources }}
-{{ with $resources.GetByPrefix "manifest" }}
-	{{ $AbsPath := strings.Split .AbsSourceFilename "/content/" }}
-	{{ $RelPath := printf "/content/%s" (index $AbsPath 1) }}
-	{{ $manifest := getJSON $RelPath }}
+{{ with $.Page.Params.manifest }}
+	{{ $.Scratch.Set "manifest" . }}
+{{ else }}
+	{{ with $resources.GetByPrefix "manifest" }}
+		{{ $AbsPath := strings.Split .AbsSourceFilename "/content/" }}
+		{{ $RelPath := printf "/content/%s" (index $AbsPath 1) }}
+		{{ $manifest := getJSON $RelPath }}
+		{{ $.Scratch.Set "manifest" $manifest }}
+	{{ end }}
+{{ end }}
+{{ with $.Scratch.Get "manifest" }}
 	<ul>
-		{{ range $manifest }}
+		{{ range . }}
 		{{ $resource := $resources.GetByPrefix .prefix }}
 		<li>
 			<a target="_blank" href="{{ $resource.Permalink }}">

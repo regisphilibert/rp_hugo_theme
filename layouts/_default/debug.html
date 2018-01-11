@@ -34,37 +34,8 @@
 			<td>.Kind</td><td>{{ .Kind }}</td>
 		</tr>
 	</table>
-<div class="Gallery">
-{{ with .Resources.ByType "image" }}
-	{{ range . }}
-		// Check that the Resource is not marked as draft
-		{{ if not (strings.Contains .RelPermalink ".draft.") }}
-		<div class='Gallery__item'>
-			<img src="{{ .RelPermalink }}" />
-		</div>
-		{{ end }}
-	{{ end }}
-{{ end }}
-</div>
-	{{ with .Resources.ByType "application" }}
-	<ul>
-	{{ range . }}
-		<li>
-		<a href="{{ .RelPermalink }}">
-			{{ if (strings.Contains .RelPermalink ".pdf") }}
-				Check out this PDF!
-			{{ else if (or (strings.Contains .RelPermalink ".doc") (strings.Contains .RelPermalink ".docx")) }}
-				Check out this Word Document!
-			{{ else }}
-				Check out this... Thing!
-			{{ end }}
-		</a>
-		</li>
-	{{ end }}
-	</ul>
-	{{ end }}
-
 	<h2>Resources</h2>
+	{{ printf "%#v" .Params.manifest }}
 	{{ range .Resources }}
 	<article>
 		<strong>
@@ -78,6 +49,11 @@
 	</article>
 	<hr>
 	{{ end }}
+
+	<h2>.Site</h2>
+	<code>
+		{{ printf "%#v" .Site }}
+	</code>
 
 	<h2>.Page</h2>
 	<code>
