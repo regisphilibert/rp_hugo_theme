@@ -6,14 +6,11 @@
 					<h1 class="rp-contact__title" data-success-message='{{ i18n "contact_thanks" }} (๑˃̵ᴗ˂̵)و'>{{ .Title }}</h1>
 				</div>
 				<div class="col-sm-8">
-
-					<div class="rp-Socials">
-						{{ range .Site.Data.socials }}
-						<div class="rp-Social">
-							<a alt="My {{ .Name }} profile" target="_blank" href="{{ .URL }}"><i class="fab fa-{{ .Icon }}"></i></a>
-						</div>
-						{{ end }}
-					</div>
+	            <div class="rp-Socials">
+	            	{{ range .Site.Data.socials }}
+	            	{{ partial "social" . }}
+	            	{{ end }}
+	            </div>
 				</div>
 			</div>
 				</div>
