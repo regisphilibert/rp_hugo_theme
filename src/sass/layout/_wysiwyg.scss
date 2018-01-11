@@ -41,6 +41,22 @@
             color:darken($cYellow,20%);
         }
     }
+    .footnotes{
+        font-size: 85%;
+        hr{
+            max-width:100%;
+        }
+    }
+    .footnote-ref{
+        margin:0 .2em;
+        top:-0.4em;
+        &:before{
+            content:"["
+        }
+        &:after{
+            content:"]"
+        }
+    }
     blockquote{
         margin: 0;
         border-left:3px solid $cTurquoise;
