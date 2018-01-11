@@ -1,10 +1,10 @@
+{{ if ne .Layout "contact" }}
 <footer class="rp-footer">
     <div class="rp-footer-wrapper">
-        <div class="rp-btt js-action-toTop">
-        	<img src=" {{ .Site.BaseURL }}/images/rp_social.jpg" alt="" class="">
-        </div>
+        <div class="rp-btt js-action-toTop"></div>
         <div class="footer-text">
             {{ now.Format "2006" }}&copy; Régis Philibert
         </div>
     </div>
 </footer>
+{{ end }}
