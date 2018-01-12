@@ -1,11 +1,56 @@
-.rp-Entry{
+.rp-Entry__main{
     padding:40px 0;
     max-width:720px;
     margin:0 auto;
-    @media screen and (min-width:$xl){
-        padding:10px 0 40px 0;
+}
+.rp-Entry__sidebar{
+    display: none;
+}
+@media screen and (min-width:$xxl + 30){
+    .rp-Entry--with-sidebar{
+        display: flex;
+        justify-content:space-between;
+        .rp-Entry__main{
+            padding:10px 0 40px 0;
+            flex:1;
+        }
+        .rp-Entry__sidebar{
+            display: inline-block;
+            flex:1 0 300px;
+            max-width:400px;
+            padding-left:60px;
+
+        }
     }
 }
+//Sticky Index only when inside sidebar
+.rp-Entry__sidebar{
+    .rp-Index{
+        position:relative;
+        position: sticky;
+        font-size:1.3em;
+        top:30px;
+        float:right;
+    }
+}
+@media screen and (max-width:$xxl + 120){
+    .rp-Entry__sidebar .rp-Index{
+        font-size:1.1em;
+    }
+}
+/* .no-cssxpositionsticky{
+    .rp-Entry__sidebar{
+        position: relative;
+    }
+    .rp-Index{
+        right:0;
+        top:0;
+        max-width:100%;
+        position:absolute;
+        margin-left:30px
+    }
+} */
+
 .rp-Entry__comments{
     margin-top:3em;
     padding-top:0.5em;

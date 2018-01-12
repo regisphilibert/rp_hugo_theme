@@ -1,44 +1,45 @@
 {{ define "main" }}
 {{ $paginator := .Paginate (.Data.Pages.ByDate.Reverse) }}
 <div class="rp-page-header">
-	<h1>Blog#{{ .Title }}{{ if gt .Paginator.PageNumber 1 }}::{{.Paginator.PageNumber}}{{ end }}</h1>
+	<h1>Blog{{if ne .Kind "section" }}#{{ .Title }}{{ if gt .Paginator.PageNumber 1 }}::{{.Paginator.PageNumber}}{{ end }}{{ end }}</h1>
 </div>
-
 <div class="rp-Loop">
 	{{ range $paginator.Pages }}
 		{{ if .Content }}
 		<article class="rp-Entry">
-			<div class="rp-Entry__head">
-				<h1 class="rp-Entry__title">
-					<a href="{{ .Permalink }}">{{ .Title }}</a>
-				</h1>
-				{{ with .Params.subtitle }}
-					<h2 class="rp-Entry__subtitle">{{ . }}</h2>
-				{{ end }}
-				<div class="rp-Entry__meta">
-					<div class="rp-Entry__time">
-						<time datetime="{{ .Date }}">{{ dateFormat "Written on January 2 2006" .Date }}</time> 
-					</div>
-					<div class="rp-Entry__tags">
-			    		{{ range .Params.tags }}
-		    				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class='rp-Tag'>{{ . }}</a>
-		    			{{ end }}
+			<div class="rp-Entry__main">
+				<div class="rp-Entry__head">
+					<h1 class="rp-Entry__title">
+						<a href="{{ .Permalink }}">{{ .Title }}</a>
+					</h1>
+					{{ with .Params.subtitle }}
+						<h2 class="rp-Entry__subtitle">{{ . }}</h2>
+					{{ end }}
+					<div class="rp-Entry__meta">
+						<div class="rp-Entry__time">
+							<time datetime="{{ .Date }}">{{ dateFormat "Written on January 2 2006" .Date }}</time> 
+						</div>
+						<div class="rp-Entry__tags">
+				    		{{ range .Params.tags }}
+						    				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class='rp-Tag'>{{ . }}</a>
+						    			{{ end }}
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="rp-Entry__content wysiwyg-content">
-				{{ if .Params.featured }}
-				<div class="rp-Entry__thumbnail">
-					{{ partial "img.html" (dict "file" .Params.featured "content" .) }}
-				</div>
-				{{ end }}
-				{{ if (or (strings.Contains .RawContent "<!--more-->") (not .Description)) }}
-					{{ .Summary }}
-				{{ else }}
-					{{ .Description | markdownify }}
-				{{ end }}
-				<div class="rp-More">
-					<a href="{{ .Permalink }}" class="rp-CTA">Read more&hellip; </a>
+				<div class="rp-Entry__content wysiwyg-content">
+					{{ if .Params.featured }}
+					<div class="rp-Entry__thumbnail">
+						{{ partial "img.html" (dict "file" .Params.featured "content" .) }}
+					</div>
+					{{ end }}
+					{{ if (or (strings.Contains .RawContent "<!--more-->") (not .Description)) }}
+						{{ .Summary }}
+					{{ else }}
+						{{ .Description | markdownify }}
+					{{ end }}
+					<div class="rp-More">
+						<a href="{{ .Permalink }}" class="rp-CTA">Read more&hellip; </a>
+					</div>
 				</div>
 			</div>
 		</article>
