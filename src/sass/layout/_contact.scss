@@ -55,12 +55,18 @@
 }
 .rp-button{
     border:0;
-    background:$cTurquoise;
-    padding:5px;
-    text-transform: uppercase;
+    background:$cBlack;
     color:white;
+    padding:5px;
     display: inline-block;
-    font-weight: $fwBold;
+    font-style:italic;
+    text-transform: lowercase;
+    //font-weight: $fwBold;
+    font-size: 25px;
+    transition:150ms;
+    &:hover{
+        background:$cYellow;
+    }
 }
 .rp-button--hero{
     display: block;
