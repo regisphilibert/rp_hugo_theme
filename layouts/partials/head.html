@@ -1,6 +1,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {{ with .Params.noindex }}
+        <meta name="robots" content="noindex">
+    {{ end }}
     {{ $.Scratch.Set "title" (printf "%s | %s" .Site.Title .Title) }}
     {{ if .IsHome }}
         {{ $.Scratch.Set "title" (printf "%s | %s" .Site.Title (i18n "dev_title")) }}

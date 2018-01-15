@@ -38,8 +38,16 @@
 		</tr>
 	</table>
 
-
-	{{ partial "debugprint.html" . }}
+	<h3>Concat</h3>
+	
+	{{ $firstname := "Regis" }} 
+	{{ $lastname := "Philibert" }}
+	{{ $fullname := delimit (slice $firstname $lastname) " " }}
+	{{ $fullname2 := add " " $lastname | add $firstname }}
+	<h4>delimit</h4>
+	{{ $fullname }}
+	<h4>add</h4>
+	{{ $fullname2 }}
 	{{ range .Resources }}
 	<article>
 		<strong>
