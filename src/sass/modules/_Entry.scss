@@ -6,7 +6,7 @@
 .rp-Entry__sidebar{
     display: none;
 }
-@media screen and (min-width:$xxl + 30){
+@media screen and (min-width:$xxl + 120){
     .rp-Entry--with-sidebar{
         display: flex;
         justify-content:space-between;
@@ -28,28 +28,11 @@
     .rp-Index{
         position:relative;
         position: sticky;
-        font-size:1.3em;
+        font-size:1em;
         top:30px;
         float:right;
     }
 }
-@media screen and (max-width:$xxl + 120){
-    .rp-Entry__sidebar .rp-Index{
-        font-size:1.1em;
-    }
-}
-/* .no-cssxpositionsticky{
-    .rp-Entry__sidebar{
-        position: relative;
-    }
-    .rp-Index{
-        right:0;
-        top:0;
-        max-width:100%;
-        position:absolute;
-        margin-left:30px
-    }
-} */
 
 .rp-Entry__comments{
     margin-top:3em;
