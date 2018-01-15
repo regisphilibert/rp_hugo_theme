@@ -33,9 +33,13 @@
 		<tr>
 			<td>.Kind</td><td>{{ .Kind }}</td>
 		</tr>
+		<tr>
+			<td>.Section</td><td>{{ .Section }}</td>
+		</tr>
 	</table>
-	<h2>Resources</h2>
-	{{ printf "%#v" .Params.manifest }}
+
+
+	{{ partial "debugprint.html" . }}
 	{{ range .Resources }}
 	<article>
 		<strong>

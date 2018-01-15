@@ -1,59 +1,61 @@
 {{ define "main" }}
 	<div class="rp-Entry">
-		<div class="rp-page-header">
-			<div class="row">
-				<div class="col-sm-4">
-					<h1 class="rp-contact__title" data-success-message='{{ i18n "contact_thanks" }} (๑˃̵ᴗ˂̵)و'>{{ .Title }}</h1>
-				</div>
-				<div class="col-sm-8">
-	            <div class="rp-Socials">
-	            	{{ range .Site.Data.socials }}
-	            	{{ partial "social" . }}
-	            	{{ end }}
-	            </div>
+		<div class="rp-Entry__main">
+			<div class="rp-Entry__head">
+				<div class="row">
+					<div class="col-sm-4">
+						<h1 class="rp-contact__title" data-success-message='{{ i18n "contact_thanks" }} (๑˃̵ᴗ˂̵)و'>{{ .Title }}</h1>
+					</div>
+					<div class="col-sm-8">
+			            <div class="rp-Socials">
+			            	{{ range .Site.Data.socials }}
+			            	{{ partial "social" . }}
+			            	{{ end }}
+			            </div>
+					</div>
 				</div>
 			</div>
+			
+			<div class="rp-contact">
+				<div class="rp-contact__success wysiwyg-content">
+					<h3>{{ i18n "contact_you_wrote" }}</h3>
+					<p>
+						<label>{{ i18n "from" }}: </label><span data-input="rpContactEmail"></span>
+					</p>
+					<p>
+						<label>Message: </label><span data-input="rpContactMessage"></span>
+					</p>
+					<p></p>
 				</div>
-		
-		<div class="rp-contact">
-			<div class="rp-contact__success wysiwyg-content">
-				<h3>{{ i18n "contact_you_wrote" }}</h3>
-				<p>
-					<label>{{ i18n "from" }}: </label><span data-input="rpContactEmail"></span>
-				</p>
-				<p>
-					<label>Message: </label><span data-input="rpContactMessage"></span>
-				</p>
-				<p></p>
+			    <form id="rp-contact-form" action="" class="rp-Form rp-contact__form">
+			        <div class="rp-contact-inputs">
+			            <div class="rp-InputGroup rp-InputGroup--fancy">
+			                <input type="text" id="rpContactEmail" name="rpContactEmail" placeholder='{{ i18n "contact_email" }}' />
+			                <label for="">{{ i18n "contact_email" }}</label>
+			                <div class="rp-InputGroup__error">{{ i18n "contact_email_error" }}</div>
+			            </div>
+			            <div class="rp-InputGroup rp-InputGroup--fancy">
+			                <div class="adjust-textarea-height">
+			                    <span class="rp-input fill-me"></span>
+			                    <textarea class="rp-input" id="rpContactMessage" name="rpContactMessage" placeholder='{{ i18n "contact_message" }}'></textarea>
+			                    <label for="">{{ i18n "contact_message" }}</label>
+			                    <div class="rp-InputGroup__error">{{ i18n "contact_message_error" }}</div>
+			                </div>
+			            </div>
+			        </div>
+			        <div class="rp-input-wrapper">
+			            <button id="rp-contact-form-submit"
+			                data-default-message='{{ i18n "contact_submit" }}'
+			                data-sending-message='{{ i18n "contact_sending" }}'
+			                
+			                class="rp-button rp-button--hero"
+			                type="submit">
+			                {{ i18n "contact_submit" }}
+			                
+			            </button>
+			        </div>
+			    </form>
 			</div>
-		    <form id="rp-contact-form" action="" class="rp-Form rp-contact__form">
-		        <div class="rp-contact-inputs">
-		            <div class="rp-InputGroup rp-InputGroup--fancy">
-		                <input type="text" id="rpContactEmail" name="rpContactEmail" placeholder='{{ i18n "contact_email" }}' />
-		                <label for="">{{ i18n "contact_email" }}</label>
-		                <div class="rp-InputGroup__error">{{ i18n "contact_email_error" }}</div>
-		            </div>
-		            <div class="rp-InputGroup rp-InputGroup--fancy">
-		                <div class="adjust-textarea-height">
-		                    <span class="rp-input fill-me"></span>
-		                    <textarea class="rp-input" id="rpContactMessage" name="rpContactMessage" placeholder='{{ i18n "contact_message" }}'></textarea>
-		                    <label for="">{{ i18n "contact_message" }}</label>
-		                    <div class="rp-InputGroup__error">{{ i18n "contact_message_error" }}</div>
-		                </div>
-		            </div>
-		        </div>
-		        <div class="rp-input-wrapper">
-		            <button id="rp-contact-form-submit"
-		                data-default-message='{{ i18n "contact_submit" }}'
-		                data-sending-message='{{ i18n "contact_sending" }}'
-		                
-		                class="rp-button rp-button--hero"
-		                type="submit">
-		                {{ i18n "contact_submit" }}
-		                
-		            </button>
-		        </div>
-		    </form>
 		</div>
 	</div>
 {{ end }}

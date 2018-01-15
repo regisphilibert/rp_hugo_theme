@@ -1,33 +1,46 @@
 {{ define "main" }}
-<article class="rp-Entry">
-	<div class="rp-Entry__head">
-		<h1 class="rp-Entry__title">
-			{{ .Title }}
-		</h1>
-		{{ with .Params.subtitle }}
-		<h2 class="rp-Entry__subtitle">{{ . }}</h2>
-		{{ end }}
-		<div class="rp-Entry__meta">
-			<div class="rp-Entry__time">
-				<time datetime="{{ .Date }}">{{ dateFormat "Written on January 2 2006" .Date }}</time> 
-				{{ if ne .Lastmod .Date }}
-				<div class="rp-Entry__time__small">
-					<time datetime="{{ .Lastmod }}">Last modified on {{ .Lastmod.Format "January _2 2006" }}</time>
+{{ if and (gt .WordCount 400 ) (ne .Params.toc false) }}
+{{ .Scratch.Set "toc" true }}
+{{ else }}
+{{ .Scratch.Set "toc" false }}
+{{ end }}
+{{ $toc := .Scratch.Get "toc" }}
+<div class="rp-Entry{{ if $toc }} rp-Entry--with-sidebar{{ end }}">
+	<article class="rp-Entry__main">
+		<div class="rp-Entry__head">
+			<h1 class="rp-Entry__title">
+				{{ .Title }}
+			</h1>
+			{{ with .Params.subtitle }}
+			<h2 class="rp-Entry__subtitle">{{ . }}</h2>
+			{{ end }}
+			<div class="rp-Entry__meta">
+				<div class="rp-Entry__time">
+					<time datetime="{{ .Date }}">{{ dateFormat "Written on January 2 2006" .Date }}</time> 
+					{{ if ne .Lastmod .Date }}
+					<div class="rp-Entry__time__small">
+						<time datetime="{{ .Lastmod }}">Last modified on {{ .Lastmod.Format "January _2 2006" }}</time>
+					</div>
+					{{ end }}
 				</div>
-				{{ end }}
-			</div>
-			<div class="rp-Entry__tags">
-	    		{{ range .Params.tags }}
-    				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class='rp-Tag'>{{ . }}</a>
-    			{{ end }}
+				<div class="rp-Entry__tags">
+		    		{{ range .Params.tags }}
+	    				<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class='rp-Tag'>{{ . }}</a>
+	    			{{ end }}
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="rp-Entry__content wysiwyg-content">
-		{{ .Content }}
-	</div>
-	<div class="rp-Entry__comments">
-		{{ template "_internal/disqus.html" . }}
-	</div>
-</article>
+		<div class="rp-Entry__content wysiwyg-content">
+			{{ .Content }}
+		</div>
+		<div class="rp-Entry__comments">
+			{{ template "_internal/disqus.html" . }}
+		</div>
+	</article>
+	{{ if $toc }}
+		<div class="rp-Entry__sidebar">
+		{{ partial "toc.html" . }}
+		</div>
+	{{ end }}
+</div>
 {{ end }}
