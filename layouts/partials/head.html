@@ -37,6 +37,7 @@
     	var rpEnv = {{ .Site.Params.env }};
         var BaseURL = {{ .Site.BaseURL }};
         var rpWebroot = {{ .Site.BaseURL }};
+        var contactFormApi = {{ .Site.Params.ContactFormApi }};
         {{- if .Site.GoogleAnalytics -}}
         var rp_ga = {{ .Site.GoogleAnalytics }};
         {{- else -}}

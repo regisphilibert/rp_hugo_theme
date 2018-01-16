@@ -137,7 +137,6 @@ $(document).ready(function(){
             if(rp_ga){
                 gaEvent('contact', 'submit', 'success')
             }
-            console.log('sent...')
         })
         
     }
@@ -188,14 +187,17 @@ $(document).ready(function(){
         if(valid){
             sendingForm();
             formIsBusy = true;
-            //return false;
             $.ajax({
                 type: "POST",
-                url: BaseURL + "/ajax/mail/",
+                url: contactFormApi,
                 data:form.serialize(),
                 success: function(response){
                     successForm();
-                    console.log(response);
+                },
+                error: function(jqXHR, textStatus, errorThrown ){
+                    if(rp_ga){
+                        gaEvent('contact', 'submit', 'error')
+                    }
                 }
             });
         }

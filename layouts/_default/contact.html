@@ -28,11 +28,17 @@
 					<p></p>
 				</div>
 			    <form id="rp-contact-form" action="" class="rp-Form rp-contact__form">
+			    	<input type="hidden" name="rpContactLocale" value="{{ .Lang }}">
+			    	<input type="hidden" name="Env" value="{{ .Site.Params.Env }}">
 			        <div class="rp-contact-inputs">
 			            <div class="rp-InputGroup rp-InputGroup--fancy">
 			                <input type="text" id="rpContactEmail" name="rpContactEmail" placeholder='{{ i18n "contact_email" }}' />
 			                <label for="">{{ i18n "contact_email" }}</label>
 			                <div class="rp-InputGroup__error">{{ i18n "contact_email_error" }}</div>
+			            </div>
+			            <div class="rp-InputGroup rp-InputGroup--fancee">
+			                <input type="text" id="rpContactSubject" name="rpContactSubject" placeholder='Subject' />
+			                <label for="">Subject</label>
 			            </div>
 			            <div class="rp-InputGroup rp-InputGroup--fancy">
 			                <div class="adjust-textarea-height">
