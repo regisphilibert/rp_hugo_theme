@@ -35,62 +35,9 @@ $(document).ready(function(){
             $(this).addClass('is-playing');
         });
     }
-    if(!$("html.rp-splash").length){
-        rpInitView($('.rp-view'));
-    }
 
-    if(Modernizr.history){
-
-        $(document).on('click', '.history body.rp-full-js a', function(e){
-            thisUrl = $ (this).attr('href');
-            console.log(thisUrl);
-            var that = $(this);
-            if (e.isDefaultPrevented() || e.metaKey || e.ctrlKey) {
-                return;
-            }
-            if(that.attr('target') == "_blanc" || that.parents('.lang-switch').length || that.parents('no-ajax').length || that.hasClass('no-ajax') || that.is('[class*="js"]') || thisUrl.indexOf(rpWebroot) == -1 || thisUrl.indexOf(".pdf") != -1){
-                return true;
-            }
-/*            if(thisUrl == $('.rp-view.active').attr('data-url')){
-                removeSplash();
-                rpInitView($('.rp-view.active'));
-                return false;
-            }*/
-            var action = false;
-            var params;
-            if(typeof $(this).attr('data-params') != 'undefined'){
-                params = $.parseJSON($(this).attr('data-params'));
-            }
-            else{
-                params = [];
-            }
-            if(typeof that.attr('data-action') !== 'undefined' &&  that.attr('data-action') !== false){
-                action = that.attr('data-action');
-            }
-            else if(typeof params.action != 'undefined'){
-                action = params.action;
-            }
-            if($('.rp-splash').length){
-                $('.rp-header').addClass('is-loading');
-            }
-            rpUpdateView(thisUrl, true, params);
-            return false;
-        });
-        if(Modernizr.history){
-            window.addEventListener("popstate", function() {
-                if (!rpPopped){ return true;}
-                params = {};
-                rpUpdateView(location.href, false,  params);
-            });
-        }
-    }
     mobileBodyPaddingTop = 0;
-    $('.js-action-removeSplash').click(function(){
-        removeSplash();
-    });
-    $('.js-action-showSplash').click(function(){
-        showSplash();
-    });
+
     $(".js-action-toTop").click(function(e){
         e.preventDefault();
         that = $(this);
@@ -99,16 +46,10 @@ $(document).ready(function(){
         gaEvent('Browsing', 'click', 'BackToTop')
         return false;
     });
+
     $(".magin-input").keyup(function(){
        text = $(this).val();
        $('.magic-content').html(text);
-    });
-    $('.js-action-doLoading').click(function(){
-        console.log('go');
-        rpLoading();
-        setTimeout(function(){
-            rpDoneLoading();
-        }, 3000);
     });
 
     /*FORM*/
@@ -207,31 +148,5 @@ $(document).ready(function(){
         $(this).removeClass('rp-input--error');
         return false;
     });
-
-    function rpResize(){
-        if($('.rp-splash').length && $(window).width() < xl){
-            mobileBodyPaddingTop = eval($('.rp-header .rp-container').height()) + eval(20);
-            $('.rp-splash body').css('padding-top', mobileBodyPaddingTop + 'px');
-        }
-        else{
-            $('body').css('padding-top', 0);
-        }
-    }
-
-    var resizeTimeout;
-
-    // Resize event handler
-    function onResize(){
-        if(resizeTimeout){
-            clearTimeout(resizeTimeout);
-        }
-        resizeTimeout = setTimeout(rpResize, 200);    // performance: we don't want to redraw/recalculate as the user is dragging the window
-    }
-
-    // Resize listener
-    $(window).resize(onResize);
-
-    // first time we trigger the event manually
-    onResize();
 
 });
