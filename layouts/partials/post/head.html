@@ -1,16 +1,21 @@
 <div class="rp-Entry__head">
 	<h1 class="rp-Entry__title">
+		{{ if .Scratch.Get "link_in_title" }}
+		<a href="{{ .Permalink }}">{{ .Title }}</a>
+		{{ else }}
 		{{ .Title }}
+		{{ end}}
 	</h1>
 	{{ with .Params.subtitle }}
 	<h2 class="rp-Entry__subtitle">{{ . }}</h2>
 	{{ end }}
 	<div class="rp-Entry__meta">
 		<div class="rp-Entry__time">
-			<time datetime="{{ .Date }}">{{ dateFormat "Written on January 2 2006" .Date }}</time> 
+			<time datetime="{{ .Date }}">{{ dateFormat "Written on January 2, 2006" .Date }}</time> 
 			{{ if ne .Lastmod .Date }}
 			<div class="rp-Entry__time__small">
-				<time datetime="{{ .Lastmod }}">Last modified on {{ .Lastmod.Format "January _2 2006" }}</time>
+				{{ $format := cond (eq (now.Format "2006") (.Lastmod.Format "2006") ) "January 2" "January 2, 2006" }}
+				<time datetime="{{ .Lastmod }}">Last modified on {{ .Lastmod.Format $format }}</time>
 			</div>
 			{{ end }}
 		</div>

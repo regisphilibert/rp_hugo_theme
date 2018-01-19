@@ -8,7 +8,7 @@
 		{{ if .Content }}
 		<article class="rp-Entry">
 			<div class="rp-Entry__main">
-				
+				{{ .Scratch.Set "link_in_title" true }}
 				{{ partial "post/head.html" . }}
 				
 				<div class="rp-Entry__content wysiwyg-content">
