@@ -1,0 +1,93 @@
+$cssSelectorColor:DeepSkyBlue ;
+$preBorderColor:#ece9e2;
+//$preBorderColor:$cTurquoise;
+$preBackgroundColor:#fffcf5;
+
+.highlight{
+    overflow:hidden;
+    position: relative;
+    margin-bottom: 1em;
+    pre{
+        text-align: left;
+        margin:0;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.5;
+        tab-size: 4;
+        hyphens: none;
+        overflow: scroll;
+        background-color: $preBackgroundColor;
+        border: 1px solid $preBorderColor;
+        border-radius: 5px;
+        padding:10px;
+    }
+    pre{
+        font-size: 85%;
+        font-family:Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    }
+    code{
+        
+        &::before{
+            content:attr(data-lang);
+            position: absolute;
+            display: block;
+            background:$bg;
+            top:0;
+            right:0;
+            padding:0.2em 0.3em;
+            color:$cBlack;
+            border-bottom-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border: 1px solid $preBorderColor;
+            z-index: 3;
+        }
+    }
+}
+.chroma {
+    [data-lang="go"]{
+        color:black;
+        .p{
+            color:#999
+        }
+        .s{
+            color:#690
+        }
+        .k{
+            color:#07a
+        }
+    }
+    [data-lang="html"]{
+        color:black;
+        .p{
+            //color:orange
+        }
+        .nt{
+            color:red;
+        }
+        .s{
+            color:#690
+        }
+        .k{
+            color:#07a
+        }
+    }
+}
+
+pre.language-nohighlight{
+    font-size: 0.8rem;
+    background-color: $preBackgroundColor;
+    padding:10px;
+    border:1px solid $preBorderColor;
+    border-radius: 5px;
+}
+pre.language-less,
+pre.language-css{
+    .selector{
+        color:$cssSelectorColor;
+    }
+    .token.variable{
+        color:$cTurquoise;
+    }
+}

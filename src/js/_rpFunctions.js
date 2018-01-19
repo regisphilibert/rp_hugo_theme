@@ -88,11 +88,11 @@ function apAjax(data, thisUrl, pushState, params){
         $('.rp-lang-switch a').attr('href', rpData.translation_url)
     }
 }
-Prism.hooks.add("after-highlight",function(env){
+/*Prism.hooks.add("after-highlight",function(env){
     if(!$(env.element).parents('.rp-code-wrapper').length){
         $(env.element).parent('pre').wrap('<div class="rp-code-wrapper" data-language="' + env.language + '"></div>')
     }
-})
+})*/
 function rpInitView(parent, params){
     ajaxPage = 2;
     isMasoning = 1;
