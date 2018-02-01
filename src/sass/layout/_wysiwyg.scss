@@ -19,15 +19,15 @@
         font-weight: $fwSemiBold;
     }
     h1, h2{
-        font-size:26/$fsRem;
+        font-size:26rem/$fsRem;
     }
     h3,{
-        font-size:22/$fsRem;
+        font-size:22rem/$fsRem;
     }
-    h4, h5{
-        font-size:20/$fsRem;
+    h4{
+        font-size:20rem/$fsRem;
     }
-    h6{
+    h5, h6{
         font-size:1rem;
     }
     p, ul{
@@ -68,15 +68,22 @@
             text-align: right;
         }
     }
-/*     $preBackgroundColor:#fffcf5;
-    code{
-        background-color:$preBackgroundColor;
-        padding: 0.2em 0.4em;
-        margin: 0;
-        font-size: 95%;
-        //background-color: rgba(27,31,35,0.05);
-        border-radius: 3px;
-    } */
+    .prism-await &{
+        $preBackgroundColor:#fffcf5;
+        pre, code{
+            background-color:$preBackgroundColor;
+        }
+        pre{
+            padding:0.6em;
+        }
+        code{
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 95%;
+            //background-color: rgba(27,31,35,0.05);
+            border-radius: 3px;
+        }
+    }
     ul, ol{
         li{
             margin-bottom:0.5em;
@@ -98,6 +105,25 @@
             margin-bottom:30px;
         }
     }
+
+    del{
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+        &:before{
+            content:"";
+            display: block;
+            position: absolute;
+            left:0;
+            width:100%;
+            height:2px;
+            background-color:$cOrange;
+            opacity: 0.8;
+            top:50%;
+            margin-top:1px;
+        }
+    }
+
     p.orange, span.orange{
         color:$cOrange;
     }
