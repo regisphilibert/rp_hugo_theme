@@ -1,4 +1,4 @@
-{{ $featured := .dot.Resources.GetByPrefix "images/featured" }}
+{{ $featured := .dot.Resources.Match "featured*" }}
 {{ if $featured }}
 {{ if eq .template "single" }}
 	<div>

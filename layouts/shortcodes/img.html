@@ -1,4 +1,4 @@
-{{ $img := $.Page.Resources.GetByPrefix (.Get "name") }}
+{{ $img := $.Page.Resources.GetMatch (.Get "name") }}
 <figure>
 	<picture>
 		{{ range $width, $size := $.Site.Params.imagesizes }}
