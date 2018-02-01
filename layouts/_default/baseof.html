@@ -27,6 +27,9 @@
 		{{ $.Scratch.Add "classes" (slice "rp-full-js") }}
 	{{ end }}
 
+	{{ if .Site.Params.prism }}
+		{{ $.Scratch.Add "classes" (slice "prism-await")}}
+	{{ end }}
 	{{ if .Data.Singular }}
 		{{ if in "category tag" .Data.Singular }}
 			{{ $.Scratch.Set "section" "post" }}

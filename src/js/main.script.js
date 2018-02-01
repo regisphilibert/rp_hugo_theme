@@ -16,7 +16,13 @@ function toggleLogos(el){
 }
 
 $(document).ready(function(){
-
+    
+    if(rpPrism){
+        Prism.highlightAll(true, function(){
+            $('body').addClass('prism-ready')
+        });        
+    }
+    
     if(typeof $('.rp-view').attr('data-record') == 'undefined'){
         $('.rp-view').attr('data-record', Date.now() / 1000 | 0);
     }
