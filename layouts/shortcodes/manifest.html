@@ -1,25 +1,9 @@
-{{ $resources := $.Page.Resources }}
-{{ with $.Page.Params.manifest }}
-	{{ $.Scratch.Set "manifest" . }}
-{{ else }}
-	{{ with $resources.GetByPrefix "manifest" }}
-		{{ $AbsPath := strings.Split .AbsSourceFilename "/content/" }}
-		{{ $RelPath := printf "/content/%s" (index $AbsPath 1) }}
-		{{ $manifest := getJSON $RelPath }}
-		{{ $.Scratch.Set "manifest" $manifest }}
-	{{ end }}
-{{ end }}
-{{ with $.Scratch.Get "manifest" }}
-	<ul>
-		{{ range . }}
-		{{ $resource := $resources.GetByPrefix .prefix }}
+<ul>
+	{{ range $.Page.Resources.Match "documents/*" }}
 		<li>
-			<a target="_blank" href="{{ $resource.Permalink }}">
-				<i class="far fa-file-{{ .type }}"></i> {{ .name }} <small>{{ with .ref }}(Ref.{{ . }}) {{ end }}</small>
+			<a target="_blank" href="{{ .Permalink }}">
+				<i class="far fa-file-{{ .Params.icon }}"></i> {{ .Title }} <small>{{ with .Params.ref }}(Ref.{{ . }}) {{ end }}</small>
 			</a>
 		</li>
-		{{ end }}
-	</ul>
-{{ else }}
-	We coudln't find a manifest!
-{{ end }}
+	{{ end }}
+</ul>
