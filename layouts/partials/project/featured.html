@@ -1,4 +1,4 @@
-{{ $featured := .dot.Resources.Match "featured*" }}
+{{ $featured := .dot.Resources.GetMatch "**feature*" }}
 {{ if $featured }}
 {{ if eq .template "single" }}
 	<div>
