@@ -14,10 +14,16 @@
         </a>
         {{ $nav := printf "nav-%s.html" .Language}}
         {{ partial $nav . }}
-        <div class="rp-Socials">
-            {{ range first 2 .Site.Data.socials }}
-            {{ partial "social" . }}
-            {{ end }}
-        </div>
+        {{ with .Site.Data.socials }}
+            <div class="rp-Socials">
+                {{ range first 2 . }}
+                {{ partial "social" . }}
+                {{ end }}
+            </div>
+        {{ else }}
+            <div class="rp-Socials">
+                {{ partial "socials_hard" }}
+            </div>
+        {{ end }}
     </div>
 </header>

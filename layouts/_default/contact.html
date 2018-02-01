@@ -8,8 +8,12 @@
 					</div>
 					<div class="col-sm-8">
 			            <div class="rp-Socials">
-			            	{{ range .Site.Data.socials }}
-			            	{{ partial "social" . }}
+			            	{{ with .Site.Data.socials }}
+				            	{{ range . }}
+				            		{{ partial "social" . }}
+				            	{{end}}
+				            {{ else }}
+				            	{{ partial "socials_hard" }}
 			            	{{ end }}
 			            </div>
 					</div>
