@@ -83,10 +83,11 @@
     img{
         max-width: 100%;
     }
+}
+.rp-Entry__thumbnail--small{
     @media (min-width:$tablet){
         float:left;
         max-width:30%;
         margin-right:1em;
-
     }
 }
