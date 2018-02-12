@@ -1,5 +1,5 @@
 <meta property="og:site_name" content="{{ .Site.Params.Title }}">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="{{ default "summary" .Params.twitter_card }}">
 <meta name="twitter:site" content="@{{ .Site.Params.twitter_handle }}">
 {{ if eq .Language "fr" }}
 	<meta property="og:locale" content="fr_FR">
