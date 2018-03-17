@@ -1,0 +1,16 @@
+.rp-Notice{
+	background-color:$cWhite;
+	position: relative;
+	padding:2em 0.7em 1em;
+	border-top:3px solid $cTurquoise;
+	//border-left:3px solid $cTurquoise;
+	font-style:italic;
+	font-size:0.95rem;
+	&:before{
+		content:"Notice";
+		font-style:normal;
+		position: absolute;
+		top:0.3em;
+		font-weight:$fwBold;
+	}
+}
