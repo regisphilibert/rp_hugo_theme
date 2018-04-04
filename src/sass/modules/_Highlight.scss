@@ -90,6 +90,33 @@ $preBackgroundColor:$cNearWhite;
             color:$cGray;
         }
     }
+    [data-lang="go-html-template"]{
+        &:before{
+            content:"go-t"
+        }
+        .cp{
+            color:$cBrown;
+        }
+        .nx{
+            color:lighten($cOrange, 20%);
+            
+        }
+        .o + .nx{
+            color:$cBlue;
+        }
+        .s{
+            color:$cTurquoise;
+        }
+        .k{
+           color: $cBlue;
+        }
+        .na{
+            color:$cGreen;
+        }
+        .nt{
+            color:$cOrange;
+        }
+    }
     [data-lang="go"]{
         color:black;
         .k{
