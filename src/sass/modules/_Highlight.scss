@@ -2,7 +2,13 @@ $cssSelectorColor:DeepSkyBlue ;
 $preBorderColor:#ece9e2;
 //$preBorderColor:$cTurquoise;
 $preBackgroundColor:$cNearWhite;
-
+$cGreen:#690;
+$cBlue:#07a;
+$cGray:#999;
+$cBrown:#a67f59;
+code{
+    font-family:$ffCode;
+}
 .prism-await{
     pre{
         opacity: 0;
@@ -18,15 +24,16 @@ $preBackgroundColor:$cNearWhite;
     code{
         background-color:$preBackgroundColor;
         padding:0.1em 0.17em;
-        font-size: 0.9em;
+        font-size: .9em;
         border: 1px solid #ece9e2;
         border-radius: 5px;
     }
 }
 .highlight{
-    overflow:hidden;
+    //overflow:hidden;
     position: relative;
     margin-bottom: 1em;
+
     pre{
         text-align: left;
         margin:0;
@@ -41,6 +48,7 @@ $preBackgroundColor:$cNearWhite;
         background-color: $preBackgroundColor;
         border: 1px solid $preBorderColor;
         border-radius: 5px;
+        border-top-right-radius:0;
         padding:10px;
     }
     pre{
@@ -50,18 +58,20 @@ $preBackgroundColor:$cNearWhite;
     code{
         background-color:transparent;
         border:0;
-        font-size: 1em;
+        font-size: 0.9em;
         padding:0;
         &::before{
             content:attr(data-lang);
             position: absolute;
+            font-size:75%;
             display: block;
-            background:$bg;
-            top:0;
+            background:$preBackgroundColor;
+            bottom:calc(100% - 1px);
+            color:$cGray;
             right:0;
-            padding:0.2em 0.3em;
-            color:$cBlack;
-            border-bottom-left-radius: 5px;
+            padding:0.2em 0.5em;
+            //color:$cBlack;
+            border-top-left-radius: 5px;
             border-top-right-radius: 5px;
             border: 1px solid $preBorderColor;
             z-index: 3;
@@ -69,10 +79,6 @@ $preBackgroundColor:$cNearWhite;
     }
 }
 .chroma {
-    $cGreen:#690;
-    $cBlue:#07a;
-    $cGray:#999;
-    $cBrown:#a67f59;
     .col-md-6 & {
         @media(min-width:$tablet){
             code:before{
@@ -91,11 +97,12 @@ $preBackgroundColor:$cNearWhite;
         }
     }
     [data-lang="go-html-template"]{
+        color:$cGray;
         &:before{
-            content:"go-t"
+            content:"Go Template"
         }
         .cp{
-            color:$cBrown;
+            color:$cGray;
         }
         .nx{
             color:lighten($cOrange, 20%);
@@ -105,16 +112,22 @@ $preBackgroundColor:$cNearWhite;
             color:$cBlue;
         }
         .s{
-            color:$cTurquoise;
-        }
-        .k{
-           color: $cBlue;
-        }
-        .na{
             color:$cGreen;
         }
-        .nt{
+        .o{
+            color:$cBlack;
+        }
+        .k{
+           color: $cBlack;
+           font-weight:bold;
+           //font-weight:400;
+        }
+        .na{
             color:$cOrange;
+            color:$cBlue;
+        }
+        .nt, .p{
+            color:$cBrown;
         }
     }
     [data-lang="go"]{
@@ -146,7 +159,7 @@ $preBackgroundColor:$cNearWhite;
             color:$cGray;
         }
         .nv{
-            color:$cOrange;
+            color:lighten($cOrange, 20%);
         }
 
         .s1, .s2{
@@ -155,7 +168,7 @@ $preBackgroundColor:$cNearWhite;
     }
     [data-lang="php"]{
         .nv{
-            color:$cOrange;
+            color:lighten($cOrange, 20%);
         }
         .s2{
             color:$cGreen;
@@ -170,7 +183,7 @@ $preBackgroundColor:$cNearWhite;
     [data-lang="css"], [data-lang="scss"]{
         color:black;
         .nc{
-            color:$cOrange;
+            color:lighten($cOrange, 20%);
         }
         .p, .c{
             color:#999
