@@ -6,6 +6,9 @@
     {{ end }}
     <meta name="environement" value="{{ getenv "HUGO_ENV" }}">
     {{ $.Scratch.Set "title" (printf "%s | %s" .Title .Site.Title) }}
+    {{ with .Params.subtitle }}
+        {{ $.Scratch.Set "title" (printf "%s %s | %s" $.Title . $.Site.Title) }}
+    {{ end }}
     {{ if .IsHome }}
         {{ $.Scratch.Set "title" (printf "%s | %s" .Site.Title (i18n "dev_title")) }}
         <meta name="description" content="{{ .Site.Params.Description }}">
