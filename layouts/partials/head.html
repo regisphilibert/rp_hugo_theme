@@ -16,12 +16,7 @@
 	    <meta name="description" content="{{ default .Summary .Description }}" >
     {{ end }}
     <title>{{ $.Scratch.Get "title" }}</title>
-    {{ if .Site.Params.less }}
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/style.css?{{ now.Unix }}">
-    {{ end }}
-    {{ if .Site.Params.sass }}
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/main.css?{{ now.Unix }}">
-    {{ end }}
+    {{ partial "assets/style" . }}
     {{ if .IsTranslated }}
       {{ range .Translations }}
         <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}"/>
@@ -33,11 +28,8 @@
     {{ end }}
     <link rel="shortcut icon" type="image/png" href="{{ .Site.BaseURL }}/favicon.png"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
-    <script type="text/javascript" src="{{ .Site.BaseURL }}/js/modernizr.js"></script>
+    <script type="text/javascript" src="{{ (resources.Get "js/modernizr.js").Permalink }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
-    {{ if .Site.Params.prism }}
-    <script type="text/javascript" src="{{ .Site.BaseURL }}/js/head.min.js?{{ now.Unix }}"></script>
-    {{ end }}
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     {{ partial "og.html" . }}
     <script>

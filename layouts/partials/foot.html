@@ -2,8 +2,13 @@
   src="//code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
   crossorigin="anonymous"></script>
-
-<script type="text/javascript" src="{{ .Site.BaseURL | absURL }}/js/main.min.js"></script>
+  _plugins.js', '_rpFunctions.js', 'main.script.js
+{{ $script := slice (resources.Get "js/plugins.js") (resources.Get "js/rpFunctions.js") (resources.Get "js/main.js") | resources.Concat "js/main.js" }}
+{{ if .Site.IsServer }}
+	<script type="text/javascript" src="{{ $script.Permalink }}"></script>
+{{ else }}
+	<script type="text/javascript" src="{{ ($script | minify | fingerprint).Permalink }}"></script>
+{{ end }}
 {{ if .Site.GoogleAnalytics }}
 {{ template "_internal/google_analytics_async.html" . }}
 {{ end }}
