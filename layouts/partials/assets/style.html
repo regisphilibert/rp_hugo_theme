@@ -1,0 +1,7 @@
+{{ $s := newScratch }}
+{{ if .Site.IsServer }}
+    {{ $s.Set "style" (resources.Get "sass/main.scss" | toCSS "style/main.css" ) }}
+{{ else }}
+	{{ $s.Set "style" (resources.Get "sass/main.scss" | toCSS "style/main.css" | minify | fingerprint ) }}
+{{ end }}
+<link rel="stylesheet" href="{{ ($s.Get "style").Permalink }}">
