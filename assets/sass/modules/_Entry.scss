@@ -27,6 +27,7 @@
 .rp-Entry__sidebar{
     .rp-Index{
         position:relative;
+        position: -webkit-sticky;
         position: sticky;
         font-size:1em;
         top:30px;
