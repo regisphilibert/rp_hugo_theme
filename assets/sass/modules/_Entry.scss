@@ -2,6 +2,19 @@
     padding:40px 0;
     max-width:720px;
     margin:0 auto;
+    .footnotes{
+        font-size: 0.8rem;
+        ol{
+            padding-left:0;
+            list-style-position:inside;
+        }
+        hr{
+            border-top:1px dashed $cTurquoise;
+        }
+    }
+    > hr{
+        border-top:3px solid $cTurquoise;
+    }
 }
 .rp-Entry__sidebar{
     display: none;
@@ -35,7 +48,22 @@
     }
 }
 
-.rp-Entry__comments{
+.rp-Entry__section{
+    padding:0 0 0.5rem 0;
+    .rp-Card{
+        font-size: .8em;
+    }
+}
+.rp-Entry__section__title{
+    font-size:24rem/$fsRem;
+    margin-bottom: .5em;
+    font-weight:$fwSemiBold;
+    border-bottom:2px solid $cTurquoise;
+    padding-bottom:0.3em;
+    margin-top:1em;
+}
+
+.xrp-Entry__comments{
     margin-top:3em;
     padding-top:0.5em;
     border-top:1px dashed $cTurquoise;
