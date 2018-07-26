@@ -33,6 +33,7 @@
 				class="rp-Badge {{ if .Big }}rp-Badge--large{{ end }} {{ if .Full }}rp-Badge--full{{ end }}"
 				data-name="{{ .Name }}"
 				id="{{ $index }}"
+				onclick="toggleBadge(this)"
 			>
 				<div class="rp-Badge__head">
 					{{ if .Icon }}

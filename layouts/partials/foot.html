@@ -1,8 +1,19 @@
+<script>
+    var elsTargetBlank = document.querySelectorAll('[target="_blank"]');
+    Array.prototype.forEach.call(elsTargetBlank, function(el, i){
+      el.setAttribute('rel', 'noopener');
+    });
+</script>
+{{ if eq .Params.layout "contact" }}
 <script
-  src="//code.jquery.com/jquery-1.12.4.min.js"
-  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous"></script>
-{{ $script := slice (resources.Get "js/plugins.js") (resources.Get "js/rpFunctions.js") (resources.Get "js/main.js") | resources.Concat "js/main.js" }}
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>	
+  {{ $.Scratch.Set "scripts" (slice (resources.Get "js/contact.js") (resources.Get "js/main.js") | resources.Concat "js/bundle.contact.js") }}
+{{ else }}
+{{ $.Scratch.Set "scripts"  (resources.Get "js/main.js") }}
+{{ end }}
+{{ $script := $.Scratch.Get "scripts" }}
 {{ if .Site.IsServer }}
 	<script type="text/javascript" src="{{ $script.Permalink }}"></script>
 {{ else }}

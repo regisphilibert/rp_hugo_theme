@@ -2,7 +2,8 @@
     position: relative;
     width: 130px;
     height:130px;
-    transition:clip-path ease-in 150ms;
+    opacity:0;
+    transition:clip-path ease-in 150ms, opacity ease-in 150ms;
     margin: 0 auto 5px auto;
     opacity: 0.80;
     cursor: pointer;
@@ -40,6 +41,9 @@
         font-weight: bold;
         font-size: 14px;
         padding:.5em 0;
+    }
+    &.show{
+        opacity:1;
     }
 }
 .clip-triangle{
