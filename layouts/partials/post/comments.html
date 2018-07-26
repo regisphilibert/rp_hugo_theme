@@ -2,7 +2,7 @@
 	<div class="wysiwyg-content">
 		<h2>Comments</h2>
 	</div>
-	{{ if not .Site.IsServer }}
+	{{ if or (not .Site.IsServer) (eq 1 1) }}
 	{{ template "_internal/disqus.html" . }}
 	{{ else }}
 		<img src="{{ .Site.BaseURL }}comments.png" alt="">

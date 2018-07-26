@@ -40,6 +40,9 @@ body{
 .rp-main{
     padding-top:30px;
     padding-bottom:30px;
+    .rp-section-post & {
+        background-color:$cNearWhite;
+    }
 }
 .rp-data{
     display: none;
