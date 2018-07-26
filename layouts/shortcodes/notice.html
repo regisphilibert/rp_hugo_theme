@@ -1,3 +1,10 @@
-<div class="rp-Notice">
-	{{ .Inner | markdownify }}
+<div class="rp-Notice {{ with .Get "type" }}rp-Notice--{{ . }}{{ end }}">
+	<div class="rp-Notice__head">
+		{{ with .Get "title" }}
+			{{ . }}
+		{{ end }}
+	</div>
+	<div class="rp-Notice__body">
+		{{ .Inner | markdownify }}
+	</div>
 </div>
