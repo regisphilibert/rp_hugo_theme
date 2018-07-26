@@ -1,8 +1,11 @@
 <div class="rp-Notice {{ with .Get "type" }}rp-Notice--{{ . }}{{ end }}">
 	<div class="rp-Notice__head">
-		{{ with .Get "title" }}
+		{{ with .Get "icon" }}
+			<i class="fab fa-{{ . }}"></i>&nbsp;
+		{{ end }}{{ with .Get "title" }}
 			{{ . }}
 		{{ end }}
+		
 	</div>
 	<div class="rp-Notice__body">
 		{{ .Inner | markdownify }}
