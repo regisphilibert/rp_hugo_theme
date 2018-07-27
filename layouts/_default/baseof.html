@@ -22,7 +22,6 @@
 
 	{{ $.Scratch.Add "classes" (slice (printf "rp-section-%s" ($.Scratch.Get "section"))) }}
 
-
 	{{ if .Site.Params.ajax }}
 		{{ $.Scratch.Add "classes" (slice "rp-full-js") }}
 	{{ end }}

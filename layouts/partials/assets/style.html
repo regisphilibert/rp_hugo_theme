@@ -1,4 +1,8 @@
 {{ $s := newScratch }}
+{{ $critical := resources.Get "sass/critical.scss" | toCSS | minify }}
+<style type="text/css">
+	{{ $critical.Content | safeCSS }}
+</style>
 {{ if .Site.IsServer }}
     {{ $s.Set "style" (resources.Get "sass/main.scss" | toCSS "style/main.css" ) }}
 {{ else }}
