@@ -7,12 +7,12 @@
     margin: 0 auto 5px auto;
     opacity: 0.80;
     cursor: pointer;
-    background-image:url(../images/rp_social_rotate.jpg);
+    background-image:url(/images/rp_social_rotate.jpg);
     background-position:top center;
     background-size:160px auto;
     background-position:top -22px center;
     &:hover{
-        background-image:url(../images/rp_social.jpg);
+        background-image:url(/images/rp_social.jpg);
         background-position:top -160px center;
     }
     .cssmask & {
