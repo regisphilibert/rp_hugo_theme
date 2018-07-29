@@ -19,6 +19,9 @@
 .rp-Entry__sidebar{
     display: none;
 }
+.rp-Entry__content{
+    font-family:$serif;
+}
 @media screen and (min-width:$xxl + 120){
     .rp-Entry--with-sidebar{
         display: flex;
