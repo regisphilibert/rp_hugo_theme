@@ -27,7 +27,7 @@
 				></label>
 			</div>
 		</div>
-		<div class="rp-Badges">
+		<div class="rp-Badges rp-Badges--show-logos">
 		{{ range $index, $element := where $data.badges "Draft" "!=" true }}
 			<div 
 				class="rp-Badge {{ if .Big }}rp-Badge--large{{ end }} {{ if .Full }}rp-Badge--full{{ end }}"

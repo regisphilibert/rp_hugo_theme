@@ -12,9 +12,9 @@ function toggleLogos(el){
   var isChecked = el.checked;
   var parent = document.querySelector('.rp-Badges')
   if(isChecked){ //checked
-    parent.classList.remove('rp-Badges--show-logos')
+    parent.classList.add('rp-Badges--show-logos')
   }else{ //unchecked
-    parent.classList.add('rp-Badges--show-logos');
+    parent.classList.remove('rp-Badges--show-logos');
   }
 }
 
