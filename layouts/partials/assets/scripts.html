@@ -1,0 +1,18 @@
+{{ if eq .Params.layout "contact" }}
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>	
+  {{ $.Scratch.Set "scripts" (slice (resources.Get "js/contact.js") (resources.Get "js/main.js") | resources.Concat "js/bundle.contact.js") }}
+{{ else }}
+{{ $.Scratch.Set "scripts"  (resources.Get "js/main.js") }}
+{{ end }}
+{{ $script := $.Scratch.Get "scripts" }}
+{{ if .Site.IsServer }}
+	<script type="text/javascript" src="{{ $script.Permalink }}"></script>
+{{ else }}
+	<script type="text/javascript" src="{{ ($script | minify | fingerprint).Permalink }}"></script>
+{{ end }}
+{{ if .Site.GoogleAnalytics }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ end }}

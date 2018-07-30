@@ -5,7 +5,7 @@
         <meta name="robots" content="noindex">
     {{ end }}
     <meta name="environement" value="{{ getenv "HUGO_ENV" }}">
-    {{ partial "assets/style" . }}
+    {{ partial "assets/styles" . }}
     {{ if .IsTranslated }}
       {{ range .Translations }}
         <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}"/>
