@@ -30,8 +30,10 @@
 }
 
 @media (min-width:$tablet){
-    .rp-section-contact{
-        .rp-page-header{
+    .rp-section-contact .rp-Entry__head{
+        display:flex;
+        justify-content:space-between;
+        .rp-contact__title{
             text-align:left;
         }
         .rp-Socials{
