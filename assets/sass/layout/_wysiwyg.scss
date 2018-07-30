@@ -128,6 +128,38 @@
         }
     }
 
+    table{
+        width:100%;
+        thead{
+            border-bottom:1px solid $cYellow;
+            th{
+                font-weight:$fwSemiBold;
+            }
+        }
+        td, th{
+            padding:0.3em .8em;
+            border-left:1px solid $cYellow;
+            &:first-child{
+                border-left:0;
+            }
+        }
+        @media (max-width:$tablet - 1){
+            tr, td{
+                display: block;
+            }
+            tbody{
+                td{
+                    border-left:0;
+                    border-top:1px solid $cYellow;
+                    &:first-child{
+                        border-top:0;
+                    }
+                }
+            }
+            
+        }
+    }
+
     p.orange, span.orange{
         color:$cOrange;
     }
