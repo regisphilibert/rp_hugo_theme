@@ -27,28 +27,8 @@
     a{
         cursor:pointer;
     }
-    &.test{
-        a:not(.raw){
-            display: inline-block;
-            position: relative;
-            &:after{
-                content:"";
-                width:100%;
-                position: absolute;
-                background-color: currentColor;
-                height:2px;
-                display: block;
-                bottom:4px;
-            }
-            &.is-active{
-                &:after{
-                    background-color: $cYellow;
-                }
-            }
-        }
-    }
     &.main-nav--poly{
-        a:not(.raw){
+        a{
             @extend .background-poly;
             &:hover{
                 &:after{
@@ -95,8 +75,14 @@
         font-size:25px;
     }
 }
+
 .main-nav{
-    
+    a.current{
+        &::after{
+            background-color:$cYellow;
+        }
+    }
+
     @each $section in project, post, contact, about {
         .rp-section-#{$section} & {
             a[data-section='#{$section}']{
@@ -121,17 +107,5 @@
                 }
             }
         }
-    }
-    
-}
-html:not(.rp-splash){
-    .main-nav{
-        a:not(.raw){
-            &.is-active{
-                &:after{
-                    background-color:$cYellow;
-                }
-            }
-        }
-    }
+    }    
 }

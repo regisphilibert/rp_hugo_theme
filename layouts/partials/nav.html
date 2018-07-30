@@ -1,0 +1,30 @@
+{{ $currentPage := . }}
+<nav class="main-nav main-nav--poly main-nav--xs" style="margin-bottom:-20px">
+	{{ range .Site.Menus.main }}
+		<a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "main" . }} class="current"{{ end }}>{{ .Name }}</a>
+	{{ end }}
+</nav>
+{{ if eq .Lang "en" }}
+	<nav class="main-nav main-nav--poly main-nav--xl">
+		<p>
+			Hi, I'm <a href="{{ "about/" | absLangURL }}" data-section="about">@regisphilibert</a>.
+		</p>
+		<p>
+			<a class="" data-section="project" href='{{ "/" | absLangURL }}'>I&nbsp;code&nbsp;websites</a>
+		</p>
+		<p>
+			and <a href="{{ "post/" | absLangURL }}" data-section="post" class="">I blog about it.</a>
+		</p>
+		<p><a class="" href="{{ "contact/" | absLangURL }}" data-section="contact">Shall we talk</a>?</p>
+	</nav>
+{{ else }}
+<nav class="main-nav main-nav--poly main-nav--xl">
+	<p>
+ 		Bonjour, je suis <a href="{{ "a-propos/" | absLangURL }}" data-section="about">@regisphilibert</a>.
+ 	</p>
+ 	<p>
+ 		<a data-section="project" href='{{ "/" | absLangURL }}'>Je&nbsp;code&nbsp;des&nbsp;sites web.</a>
+	</p>
+    <p><a class="" href="{{ "contact/" | absLangURL }}" data-section="contact">On s'en parle</a>?</p>
+</nav>
+{{ end }}

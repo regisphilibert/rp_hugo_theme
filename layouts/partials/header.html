@@ -1,28 +1,22 @@
-{{ $baseUrl := $.Site.BaseURL }}
 <header class="rp-header">
-        {{ range .Translations }}
+    {{ range .Translations }}
         <div class="rp-lang-switch">
             <a href="{{ .Permalink }}" class="no-ajax">{{ .Lang }}</a>
         </div>
-        {{ end}}
+    {{ end}}
     <div class="rp-container">
-        <a href="{{ $baseUrl }}" class="rp-brand">
-            <img class="rp-logo" src="{{ $baseUrl}}/images/regisphilibert_logo.svg " alt="Regis Philibert's logo">
+        <a href="{{ .Site.BaseURL }}" class="rp-brand">
+            <img class="rp-logo" src="{{ "images/regisphilibert_logo.svg" | absURL }}" alt="Regis Philibert's logo">
             <h2 class="rp-baseline">
                 {{ i18n "dev_title" }}
             </h2>
         </a>
-        {{ $nav := printf "nav-%s.html" .Language}}
-        {{ partial $nav . }}
+        {{ partial "nav" . }}
         {{ with .Site.Data.socials }}
             <div class="rp-Socials">
                 {{ range first 2 . }}
                 {{ partial "social" . }}
                 {{ end }}
-            </div>
-        {{ else }}
-            <div class="rp-Socials">
-                {{ partial "socials_hard" }}
             </div>
         {{ end }}
     </div>

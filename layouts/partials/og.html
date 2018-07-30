@@ -1,3 +1,14 @@
+{{ $.Scratch.Set "title" (printf "%s | %s" .Title .Site.Title) }}
+{{ with .Params.subtitle }}
+    {{ $.Scratch.Add "title" (printf "%s %s | %s" $.Title . $.Site.Title) }}
+{{ end }}
+{{ if .IsHome }}
+    {{ $.Scratch.Set "title" (printf "%s | %s" .Site.Title (i18n "dev_title")) }}
+    <meta name="description" content="{{ .Site.Params.Description }}">
+{{  else }}
+    <meta name="description" content="{{ default .Summary .Description }}" >
+{{ end }}
+<title>{{ $.Scratch.Get "title" }}</title>
 <meta property="og:site_name" content="{{ .Site.Params.Title }}">
 <meta name="twitter:card" content="{{ default "summary" .Params.twitter_card }}">
 <meta name="twitter:site" content="@{{ .Site.Params.twitter_handle }}">
