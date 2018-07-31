@@ -3,13 +3,13 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	{{ partial "scratch/body_classes" . }}
+	{{- partial "scratch/body_classes" . -}}
 
-    {{ range .Translations }}
+    {{- range .Translations -}}
     	{{ $.Scratch.Set "translation_url" .Permalink }}
-    {{ end}}
+    {{- end -}}
 	
-	{{ partial "head.html" . }}
+	{{- partial "head.html" . -}}
 
 	<body class="{{ delimit ($.Scratch.Get "classes") " " }}">
 		<div class="rp-wrapper">
@@ -19,10 +19,10 @@
 					{{ block "main" . }}
 						<h3>Did you forget to define "main"?</h3>
 					{{ end }}
-	                {{ partial "footer.html" . }}
+	                {{- partial "footer.html" . -}}
                 </div>
             </div>
         </div>
-		{{ partial "foot.html" . }}
+		{{- partial "foot.html" . -}}
     </body>
 </html>

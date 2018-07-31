@@ -1,54 +1,57 @@
-{{ $.Scratch.Set "title" (printf "%s | %s" .Title .Site.Title) }}
-{{ with .Params.subtitle }}
-    {{ $.Scratch.Add "title" (printf "%s %s | %s" $.Title . $.Site.Title) }}
-{{ end }}
-{{ if .IsHome }}
-    {{ $.Scratch.Set "title" (printf "%s | %s" .Site.Title (i18n "dev_title")) }}
-    <meta name="description" content="{{ .Site.Params.Description }}">
-{{  else }}
-    <meta name="description" content="{{ default .Summary .Description }}" >
-{{ end }}
-<title>{{ $.Scratch.Get "title" }}</title>
-<meta property="og:site_name" content="{{ .Site.Params.Title }}">
-<meta name="twitter:card" content="{{ default "summary" .Params.twitter_card }}">
-<meta name="twitter:site" content="@{{ .Site.Params.twitter_handle }}">
-{{ if eq .Language "fr" }}
-	<meta property="og:locale" content="fr_FR">
-{{ else }}
-	<meta property="og:locale" content="en_US">
-{{ end }}
-{{ if .IsHome }}
-	<meta property="og:title" content="{{ .Site.Params.Title }}">
-	<meta name="twitter:title" content="{{ .Site.Params.Title }}">
-	
-	<meta property="og:description" content="{{ .Site.Params.Description }}">
-	<meta name="twitter:description" content="{{ .Site.Params.Description }}">
+{{- $og := newScratch -}}
+{{- $og.Set "title" (printf "%s | %s" .Title .Site.Title) -}}
+{{- with .Params.subtitle -}}
+    {{- $og.Set "title" (printf "%s, %s | %s" $.Title . $.Site.Title) -}}
+{{- end -}}
+{{- if .IsHome -}}
+	{{- $og.Set "title" (printf "%s | %s" .Site.Title (i18n "dev_title")) -}}
+{{- end -}}
 
-	<meta name="og:url" content="{{ .Site.BaseURL }}">
-	<meta property="og:image" content='{{ "images/rp_share.jpg" | absURL }}'>
-	<meta name="twitter:image" content='{{ "images/rp_share.jpg" | absURL }}'>
-{{ else }}
-	<meta property="og:title" content="{{ .Title }}">
-	<meta property="twitter:title" content="{{ .Title }}">
+{{- $og.Set "description" (default .Summary .Description) -}}
+{{- if .IsHome -}}
+    {{- $og.Set "description" .Site.Params.Description -}}
+{{- end -}}
+{{- $og.Set "site_name" .Site.Params.Title -}}
 
-	<meta property="og:description" content="{{ default .Summary .Description }}">
-	<meta name="twitter:description" content="{{ default .Summary .Description }}">
-	
-	<meta property="og:url" content="{{ .Permalink }}">
-	{{ if .Resources.GetMatch "**featured*" }}
-		{{ $image := .Resources.GetMatch "**featured*" }}
-		<meta property="og:image" content='{{ $image.Permalink }}'>
-		<meta name="twitter:image" content='{{ $image.Permalink }}'>
-     	<meta property="og:image:width" content="{{ $image.Width }}">
-     	<meta property="og:image:height" content="{{ $image.Height }}">
-	{{ else }}
-		<meta property="og:image" content='{{ "images/rp_share.jpg" | absURL }}'>
-		<meta name="twitter:image" content='{{ "images/rp_share.jpg" | absURL }}'>
-   	{{ end }}
+{{- $og.Set "twitter_card" (default "summary" .Params.twitter_card) -}}
+{{- $og.Set "twitter_handle" (printf "@%s" .Site.Params.twitter_handle) -}}
+
+{{- $og.Set "image" ("images/rp_share.jpg" | absURL) -}}
+
+{{- with .Resources.GetMatch "**featured*" -}}
+	{{- $og.Set "image" .Permalink -}}
+	{{- $og.Set "image_width" .Width -}}
+	{{- $og.Set "image_height" .Height -}}
+{{- end -}}
+
+{{- $og.Set "type" "website" -}}
+{{- if eq .Type "post" -}}
+	{{- $og.Set "type" "article" -}}
+{{- end -}}
+
+{{- $locales := dict "fr" "fr_FR" "en" "en_US" -}}
+{{- $og.Set "locale" (index $locales .Lang) -}}
+
+<title>{{ $og.Get "title" }}</title>
+<meta name="description" content="{{ $og.Get "description" }}">
+
+<meta property="og:title" content="{{ $og.Get "title" }}">
+<meta property="og:site_name" content="{{ $og.Get "site_name" }}">
+<meta property="og:description" content="{{ $og.Get "description" }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ $og.Get "type" }}">
+<meta property="og:locale" content="{{ $og.Get "locale" }}">
+<meta property="og:image" content='{{ $og.Get "image" }}'>
+{{ with ($og.Get "image_width") }}
+	<meta property="og:image:width" content="{{ . }}">
+{{ end }}
+{{ with ($og.Get "image_height") }}
+	<meta property="og:image:height" content="{{ . }}">
 {{ end }}
 
-{{ if eq .Type "post" }}
-	<meta property="og:type" content="article">
-{{ else }}
-	<meta property="og:type" content="website">
-{{ end }}
+<meta name="twitter:card" content="{{ $og.Get "twitter_card" }}">
+<meta name="twitter:title" content="{{ $og.Get "title" }}">
+<meta name="twitter:site" content="{{ $og.Get "twitter_handle" }}">
+<meta name="twitter:creator" content="{{ $og.Get "twitter_handle" }}">
+<meta name="twitter:description" content="{{ $og.Get "description" }}">
+<meta name="twitter:image" content="{{ $og.Get "image" }}">
