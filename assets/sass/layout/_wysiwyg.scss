@@ -130,6 +130,7 @@
 
     table{
         width:100%;
+        margin-bottom:1em;
         thead{
             border-bottom:1px solid $cYellow;
             th{
@@ -172,6 +173,26 @@
     .twitter-color, .black-color{
         a:link, a:visited{
             color:inherit;
+        }
+    }
+    .full-width{
+        margin:1em 0;
+        width:calc(100vw - 20px);
+        margin-left:calc(((100vw - 100%) / 2 * -1) + 10px);
+        overflow:scroll;
+        @media (min-width:$xl){
+            width:calc(100vw - 460px);
+            margin-left:calc((100vw - 400px - 60px - 100%) / 2 * -1);
+        }
+    }
+}
+@media (min-width:$xxl){
+    .rp-Entry--with-sidebar{
+        .wysiwyg-content, .user-edit{
+            .full-width{
+                width:calc(100vw - 460px - 340px);
+                margin-left:calc((100vw - 400px - 370px - 60px - 100%) / 2 * -1);
+            }
         }
     }
 }
