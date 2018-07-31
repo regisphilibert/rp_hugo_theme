@@ -6,11 +6,12 @@
 {{- if .IsHome -}}
 	{{- $og.Set "title" (printf "%s | %s" .Site.Title (i18n "dev_title")) -}}
 {{- end -}}
+{{ if eq .Kind "taxonomy" }}
+	{{- $og.Set "title" (printf "Archive for %s | %s" .Title .Site.Title) -}}
+{{ end }}
 
-{{- $og.Set "description" (default .Summary .Description) -}}
-{{- if .IsHome -}}
-    {{- $og.Set "description" .Site.Params.Description -}}
-{{- end -}}
+{{- $og.Set "description" (default .Summary (.Param "description")) -}}
+
 {{- $og.Set "site_name" .Site.Params.Title -}}
 
 {{- $og.Set "twitter_card" (default "summary" .Params.twitter_card) -}}
