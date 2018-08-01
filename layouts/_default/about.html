@@ -10,6 +10,7 @@
 		</div>
 	</div>
 	{{ $data := index .Site.Data .Site.Language.Lang }}
+	{{ $guess := slice "laravel" "wordpress" "codepen" "grunt" "css3" "html5" "angular" "react" "vuejs" "github" "font-awesome-flag" "pied-piper" }}
 	{{ if $data }}
 		<div class="user-content" style="cursor:pointer;">
 			<h2 id="skill-grid">{{ i18n "skill_grid_title" }}</h2>
@@ -31,7 +32,9 @@
 		{{ range $index, $element := where $data.badges "Draft" "!=" true }}
 			<div 
 				class="rp-Badge {{ if .Big }}rp-Badge--large{{ end }} {{ if .Full }}rp-Badge--full{{ end }}"
-				data-name="{{ .Name }}"
+				{{ if in $guess .Icon }}
+					data-name="{{ .Name }}"
+				{{ end }}
 				id="{{ $index }}"
 				onclick="toggleBadge(this)"
 			>
