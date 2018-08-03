@@ -15,7 +15,7 @@
         {{ with .Site.Data.socials }}
             <div class="rp-Socials">
                 {{ range first 2 . }}
-                {{ partial "social" . }}
+                {{ partialCached "social" . .Name }}
                 {{ end }}
             </div>
         {{ end }}

@@ -19,10 +19,11 @@
 					{{ block "main" . }}
 						<h3>Did you forget to define "main"?</h3>
 					{{ end }}
-	                {{- partial "footer.html" . -}}
+	                {{- partialCached "footer.html" . (cond (eq .Layout "contact") "contact" "default") -}}
                 </div>
             </div>
         </div>
-		{{- partial "foot.html" . -}}
+		{{- partialCached "foot.html" . -}}
+		{{ partial "assets/scripts" . }}
     </body>
 </html>
