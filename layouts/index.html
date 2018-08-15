@@ -2,7 +2,7 @@
 {{ $template := "home"}}
 {{ $limit := 1 }}
 	<div class="rp-project-loop">
-	{{ range where .Data.Pages "Section" "project" }}
+	{{ range where (where .Data.Pages "Section" "project") "Params.id" "in" .Params.projects }}
 		{{ $params := dict "template" $template "limit" $limit "dot" . }}
 	    {{ partial "project/loop.html" $params }}
 	{{ end }}
