@@ -8,7 +8,6 @@ function gaTrack(path, title) {
 }
 
 $(document).ready(function(){
-    console.log("yeah")
    /*FORM*/
 
     var rgMail = new RegExp(/^([\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$/i);
@@ -20,23 +19,20 @@ $(document).ready(function(){
         element.removeClass('rp-input--error');
     }
     function successForm(){
-        $('.rp-contact__success').imagesLoaded(function(){
-            contactTitle = $('.rp-contact__title');
-            contactTitle.fadeTo(500, 0, function(){
-                contactTitle.html(contactTitle.attr('data-success-message'))
-                contactTitle.fadeTo(500, 1);
-            });
-            $('.rp-contact__success').find('[data-input="rpContactEmail"]').html($('#rp-contact-form').find('[name="rpContactEmail"]').val());
-            $('.rp-contact__success').find('[data-input="rpContactMessage"]').html($('#rp-contact-form').find('[name="rpContactMessage"]').val());
-            $('.rp-contact').addClass('rp-contact--is-sent');
-            $('.rp-contact__success').slideDown(500);
-            $('.rp-contact__form').slideUp(500);
-            $('.rp-contact .rp-input, .rp-contact .rp-button').removeClass('rp-input--is-loading');
-            if(rp_ga){
-                gaEvent('contact', 'submit', 'success')
-            }
-        })
-        
+        contactTitle = $('.rp-contact__title');
+        contactTitle.fadeTo(500, 0, function(){
+            contactTitle.html(contactTitle.attr('data-success-message'))
+            contactTitle.fadeTo(500, 1);
+        });
+        $('.rp-contact__success').find('[data-input="rpContactEmail"]').html($('#rp-contact-form').find('[name="rpContactEmail"]').val());
+        $('.rp-contact__success').find('[data-input="rpContactMessage"]').html($('#rp-contact-form').find('[name="rpContactMessage"]').val());
+        $('.rp-contact').addClass('rp-contact--is-sent');
+        $('.rp-contact__success').slideDown(500);
+        $('.rp-contact__form').slideUp(500);
+        $('.rp-contact .rp-input, .rp-contact .rp-button').removeClass('rp-input--is-loading');
+        if(rp_ga){
+            gaEvent('contact', 'submit', 'success')
+        }
     }
     function sendingForm(){
         contactSubmit = $('#rp-contact-form-submit');

@@ -31,30 +31,32 @@ function toggleBadge(el){
     }
 }
 // BACK TO TOP clap clap > https://codepen.io/alexandr-kazakov/pen/yMRPOR
-(function() {
-  'use strict';
+if(document.querySelector('.back_top_top')){
+  (function() {
+    'use strict';
 
-  function trackScroll() {
-    var scrolled = window.pageYOffset;
-    var coords = document.documentElement.clientHeight;
+    function trackScroll() {
+      var scrolled = window.pageYOffset;
+      var coords = document.documentElement.clientHeight;
 
-    if (scrolled > coords) {
-      goTopBtn.classList.add('show');
+      if (scrolled > coords) {
+        goTopBtn.classList.add('show');
+      }
+      if (scrolled < coords) {
+        goTopBtn.classList.remove('show');
+      }
     }
-    if (scrolled < coords) {
-      goTopBtn.classList.remove('show');
+
+    function backToTop() {
+      if (window.pageYOffset > 0) {
+        window.scrollBy(0, -80);
+        setTimeout(backToTop, 0);
+      }
     }
-  }
 
-  function backToTop() {
-    if (window.pageYOffset > 0) {
-      window.scrollBy(0, -80);
-      setTimeout(backToTop, 0);
-    }
-  }
+    var goTopBtn = document.querySelector('.back_top_top');
 
-  var goTopBtn = document.querySelector('.back_top_top');
-
-  window.addEventListener('scroll', trackScroll);
-  goTopBtn.addEventListener('click', backToTop);
-})();
+    window.addEventListener('scroll', trackScroll);
+    goTopBtn.addEventListener('click', backToTop);
+  })();
+}
