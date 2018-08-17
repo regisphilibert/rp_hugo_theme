@@ -8,5 +8,13 @@
 {{ else }}
 	{{ $s.Set "style" (resources.Get "sass/main.scss" | toCSS "style/main.css" | minify | fingerprint ) }}
 {{ end }}
-<link rel="stylesheet" href="{{ ($s.Get "style").Permalink }}">
-<noscript><link rel="stylesheet" href="{{ ($s.Get "style").Permalink }}"></noscript>
+{{ with $s.Get "style" }}
+	<link 
+	rel="stylesheet" href="{{ .Permalink }}"
+		{{- with .Data.Integrity }}
+			integrity="{{ . }}"
+	        crossorigin="anonymous"
+		{{- end -}}	
+	>
+	<noscript><link rel="stylesheet" href="{{ ($s.Get "style").Permalink }}"></noscript>
+{{ end }}
