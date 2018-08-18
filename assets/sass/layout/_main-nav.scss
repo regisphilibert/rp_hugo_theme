@@ -23,6 +23,10 @@
     margin-top:10px;
     p{
         margin:0;
+        
+            position: relative;
+            z-index:1;
+        
     }
     a{
         cursor:pointer;
@@ -30,25 +34,18 @@
     &.main-nav--poly{
         a{
             @extend .background-poly;
-            &:hover{
-                &:after{
-                    background-color:$cYellow;
-                }
-            }
             &:after{
                 transition:150ms;
                 background-color:#ccc;
             }
+            &:hover, &.current{
+                &:after{
+                    background-color:$cYellow;
+                }
+            }
             &:active{
                 &:after{
                     transform:skew(0deg);
-                }
-            }
-            .rp-splash & {
-                &:active{
-                    &:after{
-                        transform:skew(0deg);
-                    }
                 }
             }
         }
@@ -64,6 +61,14 @@
         }
     }
     @media screen and (min-width:$xl) {
+        &.main-nav--poly{
+            a{
+                &:after{
+                    width:150px;
+                    right:-13px;
+                }
+            }
+        }
         p:first-child{
             margin-bottom:15px;
         }
@@ -76,36 +81,13 @@
     }
 }
 
-.main-nav{
-    a.current{
-        &::after{
-            background-color:$cYellow;
-        }
+.rp-section-post .main-nav.main-nav--poly{
+    a[data-section="post"]::after{
+        background-color:$cYellow;
     }
-
-    @each $section in project, post, contact, about {
-        .rp-section-#{$section} & {
-            a[data-section='#{$section}']{
-                &:after{
-                    background-color:$cYellow;
-                }
-            }
-        }
+}
+.rp-section-project .main-nav.main-nav--poly{
+    a[data-section="project"]::after{
+        background-color:$cYellow;
     }
-
-    
-    @each $section, $margin in  (project, -36px),
-                                (post, -36px),
-                                (contact, -45px),
-                                (about, -42px) {
-        .rp-section-#{$section} & {
-            a[data-section='#{$section}']{
-                &:after{
-                    @media screen and (min-width:$xl) {
-                        right:$margin;
-                    }
-                }
-            }
-        }
-    }    
 }

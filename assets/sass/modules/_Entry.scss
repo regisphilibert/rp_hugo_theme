@@ -16,6 +16,11 @@
         border-top:3px solid $cTurquoise;
     }
 }
+@media screen and (min-width:$xl){
+    .rp-Entry__main{
+        padding-top:0;
+    }
+}
 .rp-Entry__sidebar{
     display: none;
 }

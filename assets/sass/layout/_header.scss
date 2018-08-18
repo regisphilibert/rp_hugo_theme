@@ -59,7 +59,11 @@
         max-width: 300px;
     }
 }
-
+@media screen and (min-width:$xl){
+    .rp-brand{
+        margin-bottom: 1rem;
+    }
+}
 
 /* .rp-splash{
     .rp-header{
