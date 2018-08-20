@@ -1,23 +1,21 @@
 {{- if eq .Params.layout "contact" -}}
-  {{- .Scratch.Set "scripts" (slice (resources.Get "js/contact.js") (resources.Get "js/main.js") | resources.Concat "js/bundle.contact.js") -}}
+  {{- .Scratch.Set "script" (slice (resources.Get "js/contact.js") (resources.Get "js/main.js") | resources.Concat "js/bundle.contact.js") -}}
 {{ else }}
-{{- .Scratch.Set "scripts"  (resources.Get "js/main.js") -}}
-{{- .Scratch.Set "script" (.Scratch.Get "scripts") -}}
+{{- .Scratch.Set "script" (resources.Get "js/main.js") -}}
 {{ end }}
 {{ if .Site.IsServer }}
     {{ .Scratch.Set "style" (resources.Get "sass/main.scss" | toCSS "style/main.css" ) }}
 {{ else }}
 	{{ .Scratch.Set "style" (resources.Get "sass/main.scss" | toCSS "style/main.css" | minify | fingerprint ) }}
-	{{ .Scratch.Set "script" (.Scratch.Get "scripts" | minify | fingerprint) }}
+	{{ .Scratch.Set "script" (.Scratch.Get "script" | minify | fingerprint) }}
 {{ end }}
-
 {{ with .Scratch.Get "style" }}
 	<link 
 		href="{{ .Permalink }}"
 		rel="preload"
 		as="style"
-		{{- with .Data.Integrity }}
-			integrity="{{ . }}"
+		{{- with .Data.Integrityx }}
+			integrity="{{ . | safeHTMLAttr }}"
 	        crossorigin="anonymous"
 		{{- end -}}	
 	>
@@ -27,8 +25,8 @@
 		href="{{ .Permalink }}"
 		rel="preload"
 		as="script"
-		{{- with .Data.Integrity }}
-			integrity="{{ . }}"
+		{{- with .Data.Integrityx }}
+			integrity="{{ . | safeHTMLAttr }}"
 	        crossorigin="anonymous"
 		{{- end -}}	
 	>
@@ -40,10 +38,6 @@
 {{ with .Scratch.Get "style" }}
 	<link 
 		href="{{ .Permalink }}"
-		rel="stylesheet" 
-		{{- with .Data.Integrity }}
-			integrity="{{ . }}"
-	        crossorigin="anonymous"
-		{{- end -}}	
+		rel="stylesheet"
 	>
 {{ end }}

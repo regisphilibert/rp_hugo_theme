@@ -5,13 +5,7 @@
   crossorigin="anonymous"></script>	
 {{ end }}
 {{ with .Scratch.Get "script" }}
-	<script 
-		href="{{ .Permalink }}"
-		{{- with .Data.Integrity }}
-			integrity="{{ . }}"
-	        crossorigin="anonymous"
-		{{- end -}}	
-	></script>
+	<script src="{{ .Permalink }}"></script>
 {{ end }}
 {{- if .Site.GoogleAnalytics -}}
 {{- template "_internal/google_analytics_async.html" . -}}
