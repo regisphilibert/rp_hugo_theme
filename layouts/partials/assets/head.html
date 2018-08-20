@@ -1,0 +1,49 @@
+{{- if eq .Params.layout "contact" -}}
+  {{- .Scratch.Set "scripts" (slice (resources.Get "js/contact.js") (resources.Get "js/main.js") | resources.Concat "js/bundle.contact.js") -}}
+{{ else }}
+{{- .Scratch.Set "scripts"  (resources.Get "js/main.js") -}}
+{{- .Scratch.Set "script" (.Scratch.Get "scripts") -}}
+{{ end }}
+{{ if .Site.IsServer }}
+    {{ .Scratch.Set "style" (resources.Get "sass/main.scss" | toCSS "style/main.css" ) }}
+{{ else }}
+	{{ .Scratch.Set "style" (resources.Get "sass/main.scss" | toCSS "style/main.css" | minify | fingerprint ) }}
+	{{ .Scratch.Set "script" (.Scratch.Get "scripts" | minify | fingerprint) }}
+{{ end }}
+
+{{ with .Scratch.Get "style" }}
+	<link 
+		href="{{ .Permalink }}"
+		rel="preload"
+		as="style"
+		{{- with .Data.Integrity }}
+			integrity="{{ . }}"
+	        crossorigin="anonymous"
+		{{- end -}}	
+	>
+{{ end }}
+{{ with .Scratch.Get "script" }}
+	<link 
+		href="{{ .Permalink }}"
+		rel="preload"
+		as="script"
+		{{- with .Data.Integrity }}
+			integrity="{{ . }}"
+	        crossorigin="anonymous"
+		{{- end -}}	
+	>
+{{ end }}
+{{ $critical := resources.Get "sass/critical.scss" | toCSS | minify }}
+<style type="text/css">
+	{{ $critical.Content | safeCSS }}
+</style>
+{{ with .Scratch.Get "style" }}
+	<link 
+		href="{{ .Permalink }}"
+		rel="stylesheet" 
+		{{- with .Data.Integrity }}
+			integrity="{{ . }}"
+	        crossorigin="anonymous"
+		{{- end -}}	
+	>
+{{ end }}
