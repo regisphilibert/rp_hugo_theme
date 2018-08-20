@@ -81,13 +81,15 @@
     }
 }
 
-.rp-section-post .main-nav.main-nav--poly{
-    a[data-section="post"]::after{
+.rp-section-post, .rp-section-tags{
+    .main-nav.main-nav--poly a[data-section="post"]::after{
         background-color:$cYellow;
     }
 }
-.rp-section-project .main-nav.main-nav--poly{
-    a[data-section="project"]::after{
+
+
+.rp-section-project, .rp-section-project_tags{
+    .main-nav.main-nav--poly a[data-section="project"]::after{
         background-color:$cYellow;
     }
 }
