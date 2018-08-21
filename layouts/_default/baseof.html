@@ -4,12 +4,12 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	{{- partial "scratch/body_classes" . -}}
-
+	{{ $pageType := cond (eq .Layout "contact") "contact" "default" }}
     {{- range .Translations -}}
     	{{ $.Scratch.Set "translation_url" .Permalink }}
     {{- end -}}
-	
-	{{- partial "head.html" . -}}
+    {{- partial "assets/scratch" . -}}
+	{{- partialCached "head.html" . $pageType -}}
 
 	<body class="{{ delimit ($.Scratch.Get "classes") " " }}">
 		<div class="rp-wrapper">
@@ -19,11 +19,10 @@
 					{{ block "main" . }}
 						<h3>Did you forget to define "main"?</h3>
 					{{ end }}
-	                {{- partialCached "footer.html" . (cond (eq .Layout "contact") "contact" "default") -}}
+	                {{- partialCached "footer.html" . $pageType -}}
                 </div>
             </div>
         </div>
-		{{- partialCached "foot.html" . -}}
-		{{ partial "assets/scripts" . }}
+		{{- partialCached "assets/scripts" . $pageType -}}
     </body>
 </html>
