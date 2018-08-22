@@ -34,15 +34,15 @@ body{
     color:$cBlack;
     background-color:$cBackground;
 }
-.rp-wrapper{
-    background:$cBackground;
-}
 .rp-main{
     padding-top:30px;
     padding-bottom:30px;
-    .rp-section-post &, .rp-section-note &, .rp-section-tags & {
+    .rp-section-post &, .rp-section-tags & {
         background-color:$cNearWhite;
     }
+}
+body.rp-section-note{
+    background-color:$cNearWhite;
 }
 
 .rp-container{

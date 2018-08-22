@@ -12,7 +12,15 @@
 	{{- partial "head.html" . -}}
 
 	<body class="{{ delimit ($.Scratch.Get "classes") " " }}">
-		<a href="{{ .Site.BaseURL }}" style="display:block;position:fixed;margin:1.5rem;left:0;top:0;">🏠</a>
+		<div style="display:block;position:fixed;margin:1.5rem;left:0;top:0;">
+			<a href="{{ .Site.BaseURL }}">🏠</a>
+			{{ with .Parent }}
+				{{ if ne .Kind "home" }}
+					<a href="{{ .Permalink }}">🗒️</a>
+				{{ end }}	
+			{{ end }}
+		</div>
+		
 	    {{ range .Translations }}
 	        <div class="rp-lang-switch">
 	            <a href="{{ .Permalink }}" class="no-ajax">{{ .Lang }}</a>
