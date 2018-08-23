@@ -200,11 +200,14 @@ code{
     }
     [data-lang="html"]{
         color:black;
-        .p{
+        .c{
             color:$cGray;
         }
+        .p{
+            color:$cBrown;
+        }
         .nt{
-            color:red;
+            color:$cBrown;
         }
         .na{
             color:$cBlue;
