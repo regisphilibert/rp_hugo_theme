@@ -99,6 +99,14 @@ code{
             color:$cGray;
         }
     }
+    [data-lang="diff"]{
+        .gd{
+            color:red;
+        }
+        .gi{
+            color:green;
+        }
+    }
     [data-lang="go-html-template"]{
         color:$cGray;
         &:before{
