@@ -9,7 +9,7 @@
     	{{ $.Scratch.Set "translation_url" .Permalink }}
     {{- end -}}
     {{- partial "assets/scratch" . -}}
-	{{- partialCached "head.html" . $pageType -}}
+	{{- partial "head.html" . -}}
 
 	<body class="{{ delimit ($.Scratch.Get "classes") " " }}">
 		<div class="rp-wrapper">
