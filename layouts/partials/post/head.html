@@ -16,7 +16,7 @@
 			{{ end }}
 			{{ if ne .Lastmod .Date }}
 			<div class="rp-Entry__time__small">
-				{{ $format := cond (eq (now.Format "2006") (.Lastmod.Format "2006") ) "January 2" "January 2, 2006" }}
+				{{ $format := cond (eq (.Date.Format "2006") (.Lastmod.Format "2006") ) "January 2" "January 2, 2006" }}
 				<time datetime="{{ .Lastmod }}">Last modified on {{ .Lastmod.Format $format }}</time>
 			</div>
 			{{ end }}

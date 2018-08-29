@@ -6,7 +6,7 @@
 <div class="rp-Loop">
 	{{ range $paginator.Pages }}
 		{{ if .Content }}
-		<article class="rp-Entry">
+		<article class="rp-Entry rp-Entry--in-loop">
 			<div class="rp-Entry__main">
 				{{ .Scratch.Set "link_in_title" true }}
 				{{ partial "post/head.html" . }}
