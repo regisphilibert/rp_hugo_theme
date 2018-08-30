@@ -19,13 +19,10 @@
 					<a href="{{ .Permalink }}">🗒️</a>
 				{{ end }}	
 			{{ end }}
+		    {{ range .Translations }}
+	            <a href="{{ .Permalink }}" class="no-ajax">{{ .Language.Params.flag }}</a>
+		    {{ end}}
 		</div>
-		
-	    {{ range .Translations }}
-	        <div class="rp-lang-switch">
-	            <a href="{{ .Permalink }}" class="no-ajax">{{ .Lang }}</a>
-	        </div>
-	    {{ end}}
 		<div class="rp-wrapper">
 			<div class="rp-main">
 				<div class="rp-container">
