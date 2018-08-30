@@ -2,7 +2,12 @@
 {{ with .Site.Menus.mobile }}
 	<nav class="main-nav main-nav--poly main-nav--xs" style="margin-bottom:-20px">
 		{{ range . }}
-			<a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "mobile" . }} class="current"{{ end }} data-section="{{ (cond .Page.IsHome "project" .Page.Section) }}">{{ .Name }}</a>
+			<a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "mobile" . }} class="current"{{ end }}
+				{{ with .Page }}
+					data-section="{{ (cond .IsHome "project" .Section) }}"
+				{{ end }}
+				
+			>{{ .Name }}</a>
 		{{ end }}
 	</nav>
 {{ end }}
@@ -10,7 +15,11 @@
 	<nav class="main-nav main-nav--poly main-nav--xl">
 		{{ range . }}
 			<p>
-				<a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "desktop" . }} class="current"{{ end }} data-section="{{ (cond .Page.IsHome "project" .Page.Section) }}">{{ .Name }}</a>
+				<a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "desktop" . }} class="current"{{ end }}
+				{{ with .Page }}
+					data-section="{{ (cond .IsHome "project" .Section) }}"
+				{{ end }}
+				>{{ .Name }}</a>
 			</p>
 		{{ end }}
 	</nav>
