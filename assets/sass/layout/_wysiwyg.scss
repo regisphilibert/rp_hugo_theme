@@ -145,22 +145,46 @@
             }
         }
         @media (max-width:$tablet - 1){
-            tr, td{
+            display:flex;
+            table-layout:fixed;
+            overflow:hidden;
+            //border:1px solid $cYellow;
+            tr, td, th, thead, tbody, table {
                 display: block;
+            }
+            th{
+                border:0;
             }
             tbody{
                 td{
-                    border-left:0;
-                    border-top:1px solid $cYellow;
+                    //border-left:0;
+                    position: relative;
                     &:first-child{
-                        border-top:0;
+                        border-left:1px solid $cYellow;
+                    }
+                    &:before{
+                        content:"";
+                        height:1px;
+                        background-color:$cYellow;
+                        width:200vw;
+                        display: block;
+                        position: absolute;
+                        left:-200px;
+                        bottom:-1px;
                     }
                 }
             }
-            
+            thead {
+                --cols: 3;
+                --height: calc(2em * var(--cols));
+                border:0;
+                text-shadow: 0 var(--height),
+                             0 calc(var(--height) * 2), 
+                             0 calc(var(--height) * 3),
+                             0 calc(var(--height) * 4); /* extra shadows are still ok */
+            }
         }
     }
-
     p.orange, span.orange{
         color:$cOrange;
     }
