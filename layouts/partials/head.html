@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    {{ if or (.Params.noindex) (eq .Type "note") }}
+    {{ if .Params.noindex }}
         <meta name="robots" content="noindex">
     {{ end }}
     <meta name="environement" value="{{ getenv "HUGO_ENV" }}">
