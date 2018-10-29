@@ -1,5 +1,12 @@
 {{- $og := newScratch -}}
 {{- $og.Set "title" (printf "%s | %s" .Title .Site.Title) -}}
+{{- $og.Set "description" .Site.Params.Description -}}
+{{ with .Summary }}
+	{{- $og.Set "description" . -}}
+{{ end }}
+{{ with .Params.description }}
+	{{- $og.Set "description" . -}}
+{{ end }}
 {{- with .Params.subtitle -}}
     {{- $og.Set "title" (printf "%s, %s | %s" $.Title . $.Site.Title) -}}
 {{- end -}}
@@ -10,7 +17,7 @@
 	{{- $og.Set "title" (printf "Archive for %s | %s" .Title .Site.Title) -}}
 {{ end }}
 
-{{- $og.Set "description" (default .Summary (.Param "description")) -}}
+
 
 {{- $og.Set "site_name" .Site.Params.Title -}}
 
