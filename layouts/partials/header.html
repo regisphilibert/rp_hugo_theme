@@ -1,7 +1,9 @@
 <header class="rp-header">
-    {{ range .Translations }}
+    {{ if .IsTranslated }}
         <div class="rp-lang-switch">
+            {{ range .Translations }}
             <a href="{{ .Permalink }}" class="no-ajax">{{ .Lang }}</a>
+            {{ end }}
         </div>
     {{ end}}
     <div class="rp-container">

@@ -34,6 +34,13 @@
     font-size: 11px;
     a{
         color:$cBlack;
+        & + a{
+            margin-left: .3em;
+            &:before{
+                content: "|";
+                margin-right:.5em;
+            }
+        }
     }
     text-transform: uppercase;
     position: absolute;
