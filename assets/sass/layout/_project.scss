@@ -7,6 +7,10 @@
 	grid-auto-flow:dense;
 	img, picture{
 		max-width:100%;
+		display: block;
+	}
+	.bordered{
+		border:1px solid $cHeaderBorder;
 	}
 	&:not(:last-child){
 		margin-bottom:90px;
