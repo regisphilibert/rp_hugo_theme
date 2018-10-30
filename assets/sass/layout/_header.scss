@@ -55,6 +55,11 @@
     top:0;
     left:0;
 }
+[data-pref-lang=ja] .rp-lang-switch{
+    a span{
+        display: inline;
+    }
+}
 .rp-logo{
     max-width:250px;
 }

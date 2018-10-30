@@ -1,5 +1,9 @@
-// LEFTOVERS
+// Identifying user's prefered langauge for later use.
+var language = window.navigator.userLanguage || window.navigator.language;
+document.body.setAttribute("data-pref-lang", language);
 
+
+// LEFTOVERS
 function is_production(){
     return rpEnv == 'production';
 }
