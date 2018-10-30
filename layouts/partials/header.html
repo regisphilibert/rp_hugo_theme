@@ -7,7 +7,7 @@
         </div>
     {{ end}}
     <div class="rp-container">
-        <a href="{{ .Site.BaseURL }}" class="rp-brand">
+        <a href="{{ .Site.Home.Permalink }}" class="rp-brand">
             <img class="rp-logo" src="{{ partial "asset" (dict "site" .Site "asset" "images/regisphilibert_logo.svg") }}" alt="Regis Philibert's logo">
             <h2 class="rp-baseline">
                 {{ i18n "dev_title" }}
