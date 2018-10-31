@@ -67,6 +67,9 @@
                     width:150px;
                     right:-13px;
                 }
+                &.current:after{
+                    margin-right:-25px;
+                }
             }
         }
         p:first-child{
@@ -84,6 +87,9 @@
 .rp-section-post, .rp-section-tags{
     .main-nav.main-nav--poly a[data-section="post"]::after{
         background-color:$cYellow;
+        @media (min-width:$desktop){
+            margin-right:-25px;
+        }
     }
 }
 
@@ -91,5 +97,8 @@
 .rp-section-project, .rp-section-project_tags{
     .main-nav.main-nav--poly a[data-section="project"]::after{
         background-color:$cYellow;
+        @media (min-width:$desktop){
+            margin-right:-25px;
+        }   
     }
 }
