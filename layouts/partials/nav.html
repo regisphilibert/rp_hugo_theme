@@ -19,6 +19,14 @@
 				{{ with .Page }}
 					data-section="{{ (cond .IsHome "project" .Section) }}"
 				{{ end }}
+				{{ $title := false }}
+				{{ with .Page }}
+					{{ $title = .Title }}
+				{{ end }}
+				{{ with .Pre }}
+					{{ $title = . }}
+				{{ end }}
+				title="{{ $title }}" 
 				>{{ .Name }}</a>
 			</p>
 		{{ end }}
