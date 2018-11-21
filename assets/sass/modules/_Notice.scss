@@ -28,3 +28,12 @@ $cWarning: lighten($cOrange, 20);
 		background-color:$cWarning;
 	}
 }
+$chalkBlack: lighten($cBlack, 15);
+.rp-Notice--aside{
+	font-size:0.8em;
+	border-color: $chalkBlack;
+	.rp-Notice__head{
+		color: $cWhite;
+		background-color: $chalkBlack;
+	}
+}
