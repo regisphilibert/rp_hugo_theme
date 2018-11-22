@@ -14,16 +14,16 @@
   translation: "を入力してください"
 
 - id: contact_submit
-  translation: "連絡して"
+  translation: "送信"
 
 - id: contact_sending
-  translation: "Sending..."
+  translation: "送信されています..."
 
 - id: contact_thanks
   translation: "ありがとう"
 
 - id: contact_you_wrote
-  translation: "あなたのメサージは"
+  translation: "あなたのメサージ："
 
 - id: from
   translation: "From"
