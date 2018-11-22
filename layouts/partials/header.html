@@ -23,13 +23,17 @@
             </div>
         {{ end }}
     </div>
-    {{ with .Param "celebration" }}
-        {{ $emoji := .emoji }}
-        {{ if .url }}
-            <a href="https://en.wikipedia.org/wiki/Thanksgiving" title="{{ .title }}" target="_blank" class="rp-header__emoji">{{ .emoji }}</a>
-        {{ else }}
-            <span title="{{ .title }}" class="rp-header__emoji">{{ .emoji }}</span>
+    {{ template "emotion" . }}
+</header>
+
+{{ define "emotion" }}
+    {{ with .Param "emotion" }}
+        {{ with index $.Site.Data.emotions . }}
+            {{ if .url }}
+                <a href="https://en.wikipedia.org/wiki/Thanksgiving" title="{{ .title }}" target="_blank" class="rp-header__emoji">{{ .emoji }}</a>
+            {{ else }}
+                <span title="{{ .title }}" class="rp-header__emoji">{{ .emoji }}</span>
+            {{ end }}
         {{ end }}
     {{ end }}
-    
-</header>
+{{ end }}
