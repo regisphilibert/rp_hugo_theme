@@ -12,6 +12,7 @@
             <h2 class="rp-baseline">
                 {{ i18n "dev_title" }}
             </h2>
+
         </a>
         {{ partial "nav" . }}
         {{ with .Site.Data.socials }}
@@ -22,4 +23,13 @@
             </div>
         {{ end }}
     </div>
+    {{ with .Param "celebration" }}
+        {{ $emoji := .emoji }}
+        {{ if .url }}
+            <a href="https://en.wikipedia.org/wiki/Thanksgiving" title="{{ .title }}" target="_blank" class="rp-header__emoji">{{ .emoji }}</a>
+        {{ else }}
+            <span title="{{ .title }}" class="rp-header__emoji">{{ .emoji }}</span>
+        {{ end }}
+    {{ end }}
+    
 </header>

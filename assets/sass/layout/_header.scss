@@ -6,11 +6,11 @@
     background:$bg;
     text-align: center;
     border-bottom:1px solid $cHeaderBorder;
-/*    .jumpstart-debug-user & {
-        position: relative;
-    }*/
+    position: relative;
 }
-
+.rp-header__emoji{
+    display: none;
+}
 @media screen and (min-width:$xl) {
     body:not(.rp-section-note){
         padding-left:400px;
@@ -66,6 +66,7 @@
 .rp-brand{
     display: block;
 }
+
 .rp-baseline{
     margin:0;
     font-family: $ffAudimat;
@@ -82,6 +83,13 @@
 @media screen and (min-width:$xl){
     .rp-brand{
         margin-bottom: 1rem;
+    }
+    .rp-header__emoji{
+        display: block;
+        position: absolute;
+        font-size: 1.5em;
+        top:1.8rem;
+        right:-0.5em;
     }
 }
 
