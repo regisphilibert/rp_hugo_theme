@@ -39,3 +39,6 @@
 
 - id: skill_grid_title
   translation: "Et maintenant... la grille des skills!"
+
+- id: to_top
+  translation: "au top!"

@@ -29,7 +29,7 @@
         width:100%;
     }
     &:after{
-        content:"to the top";
+        content:attr(data-content);
         position: absolute;
         display: block;
         bottom:0;
