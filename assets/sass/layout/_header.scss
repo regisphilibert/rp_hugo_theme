@@ -11,7 +11,19 @@
 .rp-header__emoji{
     display: none;
 }
+.nav-header--inline{
+    display:inline;
+}
+.nav-sidebar--inline{
+    display:none;
+}
 @media screen and (min-width:$xl) {
+    .nav-header--inline{
+    display:none;
+    }
+    .nav-sidebar--inline{
+        display:inline;
+    }
     body:not(.rp-section-note){
         padding-left:400px;
     }
