@@ -10,12 +10,11 @@
 		</div>
 	</div>
 	{{ $data := index .Site.Data .Site.Language.Lang }}
-	{{ $guess := slice "laravel" "wordpress" "codepen" "grunt" "css3" "html5" "angular" "react" "vuejs" "github" "font-awesome-flag" "pied-piper" }}
+	{{ $no_guess := slice "🤡" }}
 	{{ if $data }}
 		<div class="user-content" style="cursor:pointer;">
 			<h2 id="skill-grid">{{ i18n "skill_grid_title" }}</h2>
 		</div>
-
 		<div style="text-align:center;margin-bottom:34px;">
 			<div class="rp-Switch">
 				<input id="logo-game-checkbox" onchange="toggleLogos(this)" type="checkbox" checked>
@@ -30,19 +29,27 @@
 		</div>
 		<div class="rp-Badges rp-Badges--show-logos">
 		{{ range $index, $element := where $data.badges "Draft" "!=" true }}
+			{{ $icon := false }}
+			{{ with .Icon }}
+				{{ $icon = . }}
+			{{ end }}
 			<div 
 				class="rp-Badge {{ if .Big }}rp-Badge--large{{ end }} {{ if .Full }}rp-Badge--full{{ end }}"
-				{{ if in $guess .Icon }}
+				{{ if not (in $no_guess .Icon) }}
 					data-name="{{ .Name }}"
 				{{ end }}
 				id="{{ $index }}"
 				onclick="toggleBadge(this)"
 			>
 				<div class="rp-Badge__head">
-					{{ if .Icon }}
-					<i class="rp-Badge__icon fab fa-{{ .Icon }}"></i>
+					{{ if $icon }}
+						{{ if .SVG }}
+							<svg class="rp-Badge__icon rp_Badge__icon--svg"><use xlink:href="#rp-svg-{{ .Icon }}"></use></svg>
+						{{ else }}
+							<i class="rp-Badge__icon fab fa-{{ .Icon }}"></i>
+						{{ end }}
 					{{ else }}
-					<span class="rp-Badge__icon">{{ .Name }}</span>
+						<span class="rp-Badge__icon">{{ .Name }}</span>
 					{{ end }}
 				</div>
 				<div class="rp-Badge__body">
