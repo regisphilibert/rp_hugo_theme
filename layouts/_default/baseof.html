@@ -5,17 +5,16 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="{{ .Lang }}"> <!--<![endif]-->
 	{{- partial "scratch/body_classes" . -}}
 	{{ $pageType := cond (eq .Layout "contact") "contact" "default" }}
-	{{ if eq .Layout "about" }}
-		{{ partialCached "svg" . }}
-	{{ end }}
     {{- range .Translations -}}
     	{{ $.Scratch.Set "translation_url" .Permalink }}
     {{- end -}}
     {{- partial "assets/scratch" . -}}
 	{{- partial "head.html" . -}}
-
+	{{ if eq .Layout "about" }}
+		{{ partialCached "svg" . }}
+	{{ end }}
 	<body class="{{ delimit ($.Scratch.Get "classes") " " }}">
-	{{ partial "svg" . }}
+
 		<div class="rp-wrapper">
 			{{ partial "header.html" . }}
 			<div class="rp-main">
