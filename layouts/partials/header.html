@@ -1,11 +1,5 @@
 <header class="rp-header">
-    {{ if .IsTranslated }}
-        <div class="rp-lang-switch">
-            {{ range .Translations }}
-            <a href="{{ .Permalink }}" data-lang="{{ .Lang }}">{{ cond (eq .Lang "ja") .Language.Params.languageName .Lang }}</a>
-            {{ end }}</span>
-        </div>
-    {{ end}}
+    {{ partial "language-switch" . }}
     <div class="rp-container">
         <a href="{{ .Site.Home.Permalink }}" class="rp-brand">
             <img class="rp-logo" src="{{ partial "asset" (dict "site" .Site "asset" "images/regisphilibert_logo.svg") }}" alt="Regis Philibert's logo">
@@ -30,7 +24,7 @@
     {{ with .Param "emotion" }}
         {{ with index $.Site.Data.emotions . }}
             {{ if .url }}
-                <a href="https://en.wikipedia.org/wiki/Thanksgiving" title="{{ .title }}" target="_blank" class="rp-header__emoji">{{ .emoji }}</a>
+                <a href="{{ .url }}" title="{{ .title }}" target="_blank" class="rp-header__emoji">{{ .emoji }}</a>
             {{ else }}
                 <span title="{{ .title }}" class="rp-header__emoji">{{ .emoji }}</span>
             {{ end }}
