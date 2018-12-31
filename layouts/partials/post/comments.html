@@ -2,7 +2,7 @@
 	<div class="wysiwyg-content">
 		<h2>Comments</h2>
 	</div>
-	{{ if eq ( .Site.Params.env ) "production" }}
+	{{ if eq hugo.Environment "production" }}
 	{{ template "_internal/disqus.html" . }}
 	{{ else }}
 		<img src="{{ .Site.BaseURL }}comments.png" alt="">

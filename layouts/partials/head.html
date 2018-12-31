@@ -4,7 +4,7 @@
     {{ if .Params.noindex }}
         <meta name="robots" content="noindex">
     {{ end }}
-    <meta name="environement" value="{{ .Site.Params.env }}">
+    <meta name="environment" value="{{ hugo.Environment }}">
     {{ partial "assets/style" . }}
     {{ if .IsTranslated }}
       {{ range .Translations }}
