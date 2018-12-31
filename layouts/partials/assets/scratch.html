@@ -1,4 +1,4 @@
-{{- if eq .Params.layout "contact" -}}
+{{- if and (eq .Params.layout "contact") (ne .Lang "ja") -}}
   {{- .Scratch.Set "script" (slice (resources.Get "js/contact.js") (resources.Get "js/main.js") | resources.Concat "js/bundle.contact.js") -}}
 {{ else }}
 {{- .Scratch.Set "script" (resources.Get "js/main.js") -}}
