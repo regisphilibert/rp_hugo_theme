@@ -11,7 +11,7 @@
 	</div>
 	{{ $data := index .Site.Data .Site.Language.Lang }}
 	{{ $no_guess := slice "🤡" }}
-	{{ if $data }}
+	{{ if $data.badges }}
 		<div class="user-content" style="cursor:pointer;">
 			<h2 id="skill-grid">{{ i18n "skill_grid_title" }}</h2>
 		</div>

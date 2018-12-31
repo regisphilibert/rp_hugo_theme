@@ -22,11 +22,12 @@
 
 {{ define "emotion" }}
     {{ with .Param "emotion" }}
-        {{ with index $.Site.Data.emotions . }}
+        {{ $data := index $.Site.Data $.Lang }}
+        {{ with index $data.emotions . }}
             {{ if .url }}
-                <a href="{{ .url }}" title="{{ .title }}" target="_blank" class="rp-header__emoji">{{ .emoji }}</a>
+                <a href="{{ .url }}" title="{{ .title }}" target="_blank" class="rp-header__emoji"{{ with .style }} style="{{ . | safeCSS }}" {{ end }}>{{ .emoji }}</a>
             {{ else }}
-                <span title="{{ .title }}" class="rp-header__emoji">{{ .emoji }}</span>
+                <span title="{{ .title }}" class="rp-header__emoji"{{ with .style }} style="{{ . | safeCSS }}" {{ end }}>{{ .emoji }}</span>
             {{ end }}
         {{ end }}
     {{ end }}
