@@ -6,13 +6,9 @@
     </div>
 {{ else }}
 	<div class="rp-lang-switch">
-		{{ range .Site.Languages }}
-			{{ if ne .Lang $.Lang }}
-				{{ $homeSuffix := "" }}
-				{{ if ne .Lang "en" }}
-					{{ $homeSuffix = .Lang }}	
-				{{ end }}
-				<a href="{{ $.Site.BaseURL }}/{{ $homeSuffix }}" data-lang="{{ .Lang }}" title="{{ .LanguageName }}">{{ cond (eq .Lang "ja") .LanguageName .Lang }}</a>
+		{{ range .Sites }}
+			{{ if ne .Language.Lang $.Lang }}
+				<a href="{{ .Home.Permalink }}" data-lang="{{ .Language.Lang }}" title="{{ .Language.LanguageName }}">{{ cond (eq .Language.Lang "ja") .Language.LanguageName .Language }}</a>
 			{{ end }}
 		{{ end }}
 	</div>
