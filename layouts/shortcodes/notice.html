@@ -10,7 +10,7 @@
 		{{ with .Get "icon" }}
 			<i class="{{ $s.Get "icon_type" }} fa-{{ . }}"></i>&nbsp;
 		{{ end }}{{ with .Get "title" }}
-			{{ . }}
+			{{ . | markdownify }}
 		{{ end }}
 		
 	</div>
