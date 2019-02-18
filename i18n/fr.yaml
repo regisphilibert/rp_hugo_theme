@@ -42,3 +42,8 @@
 
 - id: to_top
   translation: "au top!"
+
+- id: minutes_read
+  translation: 
+    one: "minute de lecture"
+    other: "minutes de lecture"
