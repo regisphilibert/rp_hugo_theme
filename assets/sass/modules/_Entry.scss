@@ -55,6 +55,9 @@
         font-size:1em;
         top:30px;
         float:right;
+        //Make sure we can scroll when higher than window
+        overflow:scroll;
+        max-height: 100vh;
     }
 }
 
