@@ -47,3 +47,6 @@
   translation: 
     one: "minute de lecture"
     other: "minutes de lecture"
+
+- id: recent_posts
+  translation: "Articles récents"

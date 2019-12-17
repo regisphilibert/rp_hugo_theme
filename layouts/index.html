@@ -1,13 +1,24 @@
 {{ define "main" }}
-{{ $template := "home"}}
-{{ $limit := 1 }}
-	<div class="rp-project-loop">
-	{{ range .Params.projects }}
-		{{ with $.Site.GetPage (printf "/project/%s" .) }}
-			{{ $params := dict "template" $template "limit" $limit "dot" . }}
-		    {{ partial "project/loop.html" $params }}	
-		{{ end }}
-
-	{{ end }}
-	</div>
+<div class="rp-Entry" style="padding-top:3rem; font-size:1.2rem;">
+  <div class="rp-Entry__main">
+    <div class="rp-page-header">
+      <h1>{{ .Title }}</h1>
+    </div>
+    <div class="rp-Entry__content user-content">
+      {{ .Content }}
+    </div>
+  </div>
+</div>
+<div class="rp-Entry__main">
+  <div class="wysiwyg-content">
+    <h2 style="margin-top: 0;">{{ i18n "recent_posts" }}</h2>
+  </div>
+  <div class="rp-Entry__content">
+    <div class="rp-Cards">
+      {{ range first 4 (partialCached "func/GetPosts" . "posts") }}
+        {{ partial "card" . }}
+      {{ end }}
+    </div>
+  </div>
+</div>
 {{ end }}

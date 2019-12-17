@@ -1,0 +1,8 @@
+{{ $return := slice }}
+
+{{ $site := $.Site }}
+{{ if ne $site.Language.Lang "en" }}
+  {{ $site = site.Sites.First }}
+{{ end }}
+
+{{ return where $site.RegularPages "Section" "post" }}

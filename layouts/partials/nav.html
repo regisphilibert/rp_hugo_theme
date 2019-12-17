@@ -17,7 +17,7 @@
 			<p>
 				<a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "desktop" . }} class="current"{{ end }}
 				{{ with .Page }}
-					data-section="{{ (cond .IsHome "project" .Section) }}"
+					data-section="{{ .Section }}"
 				{{ end }}
 				{{ $title := false }}
 				{{ with .Page }}

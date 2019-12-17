@@ -47,3 +47,6 @@
   translation: 
     one: "minute read"
     other: "minutes read"
+
+- id: recent_posts
+  translation: "Recent Posts"

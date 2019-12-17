@@ -1,8 +1,14 @@
 {{ define "main" }}
-{{ $paginator := .Paginate (.Data.Pages.ByDate.Reverse) }}
-<div class="rp-page-header">
-	<h1>Blog{{if ne .Kind "section" }}#{{ .Title }}{{ if gt .Paginator.PageNumber 1 }}::{{.Paginator.PageNumber}}{{ end }}{{ end }}</h1>
-</div>
+{{ $pages := .Pages }}
+{{ if .IsHome  }}
+	{{ $pages = where site.RegularPages "Section" "post" }}
+{{ end }}
+{{ $paginator := .Paginate ($pages.ByDate.Reverse) }}
+{{ if not .IsHome }}
+	<div class="rp-page-header">
+		<h1>Blog{{if ne .Kind "section" }}#{{ .Title }}{{ if gt .Paginator.PageNumber 1 }}::{{.Paginator.PageNumber}}{{ end }}{{ end }}</h1>
+	</div>
+{{ end }}
 <div class="rp-Loop">
 	{{ range $paginator.Pages }}
 		{{ if .Content }}

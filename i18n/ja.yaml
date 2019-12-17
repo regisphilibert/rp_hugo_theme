@@ -39,3 +39,6 @@
 
 - id: skill_grid_title
   translation: "And now... the skill grid!"
+
+- id: recent_posts
+  translation: "最近の記事"
