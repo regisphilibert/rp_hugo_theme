@@ -4,3 +4,4 @@ static/js
 node_modules
 .sass-cache/
 css
+.DS_Store
